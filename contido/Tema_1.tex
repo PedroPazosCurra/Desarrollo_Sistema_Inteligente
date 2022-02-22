@@ -21,17 +21,13 @@ Identificación de los problemas y oportunidades orientadas al conocimiento de l
 
 \textsc{Problemas y Oportunidades} & El conjunto de medios y/o métodos necesarios para llevar a cabo la organización de una empresa, también conocido como logística, tiene una gran relevancia en la misma. Hemos sido contratados por una empresa de paquetería en España (MRW), con el objetivo de desarrollar un sistema inteligente para mejorar su forma de gestionar los recursos de entrega y recogida de paquetería. Si bien es cierto que esta tarea requiere de un conocimiento adquirido mediante la experiencia, su reiteratividad en muchos aspectos facilita una posible automatización. Actualmente, MRW carece de herramienta o sistema que facilite la tarea de asignación de recursos. \\ \hline
 \textsc{Contexto Organizacional} & 
-\begin{enumerate}
-  \item La Misión, visión y objetivos de la organización son:  
-  \begin{enumerate}
-    \item \textbf{Misión:} Una pequeña empresa de distribución de paquetería. 
-    \item \textbf{Visión:} Dando continuidad al sistema de automación de la logística de la empresa, que ya cuenta con un sistema de prioridad de entrega según la ruta asignada. 
-    \item \textbf{Objetivos:} Maximizar al máximo los recursos que posee la empresa para gestionar las paqueterías que se recibe por parte de la central de MRW con el propósito de poder entregar/recoger mayor número de paquetes en un menor costo/tiempo posible. 
-  \end{enumerate}
-  \item Estrategia de organización: Mejorar el servicio que se ofrece a los clientes.
-  \item Escala de valores por la que se rige: obtener el máximo benefício de la gestión de paquetería que la franquicia pueda ofrecer.
-\end{enumerate}    \\ \hline
-\textsc{Soluciones} & La solución que se propone es desarrollar un sistema que puede calcular de forma inteligente los recursos que posee la empresa, es decir, maximizar la cantidad de paquetes que pueda llevar cada coche o furgoneta según la ruta asignada.\\
+MRW es una importante empresa de paquetería y logística con envíos internacionales de paquetes de diversos tipos, cuya partida hay que planificar, dando continuidad al sistema de automación de la logística de la empresa, que ya cuenta con un sistema de prioridad de entrega según la ruta asignada con el fin de lograr correctamente el cometido: maximizar los recursos que posee la empresa para gestionar las paqueterías que se recibe por parte de la central de MRW con el propósito de entregar/recoger el mayor número de paquetes en el menor tiempo y coste posibles. 
+
+Dicha organización se rige por la obtención del máximo beneficio de la gestión de la paquetería que la franquicia pueda obtener, mientras brinda la mejor calidad del servicio que pueda ofrecer a sus clientes. Además, los valores diferenciales 
+con los que identifican son la fiabilidad, calidad, rapidez, innovación, capilaridad, sostenibilidad y cercanía.
+
+La empresa cuenta con 550 franquicias y 58 plataformas logísticas en Andorra, España, Gibraltar y Portugal y realiza una media de 70 millones de envíos anuales. Su modelo organizativo se divide en diversos departamentos con funciones claramente diferenciadas (Facturación, Recepción, Logística, Comercial, RR.HH)\\ \hline
+\textsc{Soluciones} & La solución que se propone es desarrollar un sistema que pueda calcular de forma inteligente y óptima los recursos que posee la empresa, es decir, optimizar la gestión de los paquetes que cada vehículo pueda llevar.\\
 \hline
 \end{tabularx}
   %\label{tab.OM1}
@@ -51,29 +47,41 @@ Descripción de los aspectos de la organización que tienen impacto y/o se ven a
 \begin{tabularx}{\textwidth}{|l|X|} \hline
 \textbf{Modelo de Organización} & \textbf{Formulario OM-2: Aspectos Variables} \\ \hline\hline
 
-\textsc{Estructura} & Se presenta un gráfico de la parte de la organización (Figura \ref{fig:diagramaEstructura}) bajo análisis en términos de departamentos, grupos, unidades\dots\\ \hline
+\textsc{Estructura} & La organización de la empresa MRW se puede ver en la figura (Figura \ref{fig:diagramaEstructura}), donde se puede observar un primer departamento encargado de la dirección del resto de departamentos (Facturación, Recepción, Logística, Comercial y Recursos Humanos). \\ &
+\begin{itemize}
+  \item Facturación: Departamento encargado de emitir y entregar factura por las actividades realizadas en el desarrollo de la actividad empresarial.
+  \item Atención al cliente: Departamento encargado de la atención al cliente, donde esos clientes pueden recoger o entregar paquetes in situ.
+  \item Logística: Departamento encargado de todas las actividades relacionadas con la distribución, tanto de los paquetes como de los envíos de la propia paquetería.
+  \item Comercial: Departamento encargado de dar a conocer los productos o servicios que comercializa la empresa a través de acciones publicitarias y de promoción, de actualizar los productos en función de las necesidades y cambios en el mercado o de gestionar las relaciones con los clientes.
+  \item Recursos Humanos: Departamento encargado de la gestión de los recursos humanos de la organización.
+\end{itemize} \\ \hline
 
-\textsc{Procesos} & Abrir operativas en el mercado de Forex\\ \hline
-\textsc{Personal} &  Todos los miembros de nuestra Startup está composto por profesionales altamente cualificados, todos trabajan en cada parte del proyecto utilizando una metodologia Scrum.\\ \hline
+\textsc{Procesos} & El proceso de distribución de la paquetería se puede descomponer en X fases principales: \\ &\begin{enumerate}
+  \item determinar los recursos de MRW (paquete, personal, transporte, rutas de transporte).
+  \item generar la dsitribución de la paquetería en los medios de transporte disponibles.
+  \item revisión y validación de la distribución de la paquetería.
+\end{enumerate} \\ \hline
+\textsc{Personal} &  Los trabajadores encargados de escanear los paquetes para otorgar al sistema información de los mismos y aquellos encargados de repartir en los vehículos (repartidores) pueden o no ser los mismos. Toda la plantilla estaría conformada de trabajadores desde baja cualificación en adelante (sin restricción).
+
+Además, estos estarán liderados por un director.
+\\ \hline
 \textsc{Recursos} &  Describir los recursos utilizados por los procesos:
 \begin{enumerate}
     \item Sistemas de información y otros recursos computacionales:
     \begin{enumerate}
-      \item Sistema inteligente de predicción
-      \item Sistema de apertura de operativa en el mercado.
-      \item Base de datos de mercado Forex.
-      \item Apoyo de herramientas de lectura de mercado
+      \item Sistema inteligente.
+      \item Base de datos de paquetes.
+      \item Base de datos de flota de vehículos.
     \end{enumerate}
     \item Equipamiento y material.
     \begin{enumerate}
-      \item Sistema informático
+      \item Infraestructura informática (escáneres, teléfonos móviles).
       \item Conexión a Internet.
-      \item Servidor de conexión con el mercado financiero.
     \end{enumerate}
 \end{enumerate}
 \\ \hline
-\textsc{Conocimiento} &  Un experto/s en especulación en mercado de divisas.\\ \hline
-\textsc{Cultura y Potencial} &  Todos los miembros tiene la misma responsabilidad dentro del proyecto. La comunicación, cordialidad y el respecto mutuo es la tónica más importante para el desarrollo del proyecto.\\ \hline
+\textsc{Conocimiento} &  Experto/s en logística especializado/s en la distribución de paquetería \\ \hline
+\textsc{Cultura y Potencial} &  Los colaboradores de la empresa tiene funciones específicas, es decir, hay una persona que se encarga de la atención al cliente, otra persona se encarga de gestionar la logística y los repartidores se encargan de efectuar la entrega/recogida de la paquetería según la ruta asignada por logística. La comunicación, cordialidad y el respecto mutuo es la tónica más importante para el desarrollo de la actividad.\\ \hline
 \end{tabularx}
   %\label{tab.OM2}
   \caption{\label{tab:OM2}Descripción del área de interés de la organización - OM2}
