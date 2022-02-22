@@ -109,11 +109,11 @@ Descripción del proceso de interés a partir de las tareas que lo componen.
 
       1 & Recibimiento de los paquetes en la sucursal MRW (entrada) & \multicolumn{1}{|p{3.0cm}|}{\centering Repartidor experimentado} & \multicolumn{1}{|p{3.0cm}|}{\centering En la nave de la sucursal de MRW} & \multicolumn{1}{|p{5.0cm}|}{\centering No } & No & Máxima \\
       \hline
-      2 & Generar lista de entregas según ruta asignada & \multicolumn{1}{|p{3.0cm}|}{\centering Repartidor experimentado} & \multicolumn{1}{|p{3.0cm}|}{\centering En la nave de la sucursal de MRW} & \multicolumn{1}{|p{5.0cm}|}{\centering Experiencia en reparto de paquetes según la ruta asignada} & Sí (elevado) & Máxima \\
+      2 & Generar lista de entregas según ruta asignada & \multicolumn{1}{|p{3.0cm}|}{\centering Repartidor experimentado} & \multicolumn{1}{|p{3.0cm}|}{\centering En la nave de la sucursal de MRW} & \multicolumn{1}{|p{5.0cm}|}{\centering Experiencia en reparto de paquetes según la ruta asignada} & Sí (bajo) & Máxima \\
       \hline
-      3 & Determinar los recursos disponibles por la sucursal MRW para entregar según ruta & \multicolumn{1}{|p{3.0cm}|}{\centering Repartidor experimentado} & \multicolumn{1}{|p{3.0cm}|}{\centering En la nave de la sucursal de MRW} & \multicolumn{1}{|p{5.0cm}|}{\centering Experiencia en reparto de paquetes según la ruta asignada} & Sí (elevado) & Máxima \\
+      3 & Determinar los recursos disponibles por la sucursal MRW para entregar según ruta & \multicolumn{1}{|p{3.0cm}|}{\centering Director} & \multicolumn{1}{|p{3.0cm}|}{\centering En la nave de la sucursal de MRW} & \multicolumn{1}{|p{5.0cm}|}{\centering Experiencia en distribución de recursos. Utilizar teoria de programación dinámica} & Sí (elevado) & Máxima \\
       \hline
-      4 & Revisión y validación de la distribución de la paquetería & \multicolumn{1}{|p{3.0cm}|}{\centering Director} & \multicolumn{1}{|p{3.0cm}|}{\centering En la nave de la sucursal de MRW} & \multicolumn{1}{|p{5.0cm}|}{\centering Experiencia en reparto de paquetes} & Sí (elevado) & Máxima \\
+      4 & Revisión y validación de la distribución de la paquetería & \multicolumn{1}{|p{3.0cm}|}{\centering Director} & \multicolumn{1}{|p{3.0cm}|}{\centering En la nave de la sucursal de MRW} & \multicolumn{1}{|p{5.0cm}|}{\centering Experiencia en reparto de paquetes y distribución de recursos. Utilizar teoria de programación dinámica} & Sí (elevado) & Máxima \\
       \hline      
     \end{tabular}
   }
@@ -135,20 +135,12 @@ Descripción del componente \textit{conocimiento} del modelo de la organización
       \hline \hline
       \textsc{Recurso de Conocimiento} & \textsc{Pertenece} & \textsc{Usado en} & \textsc{¿Forma Cor\-recta?} & \textsc{¿Lugar Cor\-recto?} & \textsc {¿Tiempo Cor\-recto?} & \textsc{¿Calidad Cor\-recta?} \\
       \hline
-      \multicolumn{1}{|p{4.0cm}|}{\centering Experiencia en especulación de activos financieros} & \multicolumn{1}{|p{3.0cm}|}{\centering Expertos en especulación en mercados de activos} & \multicolumn{1}{|p{3.0cm}|}{\centering Tarea 1 de OM-3} & \multicolumn{1}{|p{3.0cm}|}{\centering No, el conocimiento reside en experiencia del experto (inversor).} & Departamento de Análisis & - & \multicolumn{1}{|p{3.0cm}|}{\centering Sí, teniendo en cuenta que son aproximaciones.} \\      
+      \multicolumn{1}{|p{4.0cm}|}{\centering Experiencia en reparto de paquetes según la ruta asignada} & \multicolumn{1}{|p{3.0cm}|}{\centering Expertos en reparto} & \multicolumn{1}{|p{3.0cm}|}{\centering Tarea 2 de OM-3} & \multicolumn{1}{|p{3.0cm}|}{\centering Si, el conocimiento se puede adquirir con sistema de ubicación por código postal.} & Departamento de logística & - & \multicolumn{1}{|p{3.0cm}|}{\centering Sí, teniendo en cuenta que son aproximaciones.} \\      
       \hline
-      \multicolumn{1}{|p{4.0cm}|}{\centering Teorías de análisis de mercado (La Metodología Wyckoff en Profundidad - \textit{Rubén Villahermosa})} & \multicolumn{1}{|p{3.0cm}|}{\centering Expertos en especulación en mercados de activos} & \multicolumn{1}{|p{3.0cm}|}{\centering Tarea 1 de OM-3} & \multicolumn{1}{|p{3.0cm}|}{\centering Si, Utilizar la teoría de identificación de tendencias de mercado, identificar los soportes y resistencias dejado por la oscilación del precio al largo del tiempo} & Departamento de Análisis & - & \multicolumn{1}{|p{3.0cm}|}{\centering Sí, teniendo en cuenta que son aproximaciones} \\      
+      \multicolumn{1}{|p{4.0cm}|}{\centering Experiencia en distribución de recursos} & \multicolumn{1}{|p{3.0cm}|}{\centering Expertos en gestionar recursos} & \multicolumn{1}{|p{3.0cm}|}{\centering Tarea 3 de OM-3} & \multicolumn{1}{|p{3.0cm}|}{\centering Si, Utilizar teorias de programación dinámica} & Departamento de logística & - & \multicolumn{1}{|p{3.0cm}|}{\centering Sí, teniendo en cuenta que son aproximaciones.} \\      
+      \hline
+      \multicolumn{1}{|p{4.0cm}|}{\centering Utilizar teoria de programación dinámica (Fundamentos de algoritmia.\textit{G. Brassard})} & \multicolumn{1}{|p{3.0cm}|}{\centering Director} & \multicolumn{1}{|p{3.0cm}|}{\centering Tarea 4 de OM-3} & \multicolumn{1}{|p{3.0cm}|}{\centering Si, utiliza teorías de programación dinámica de una fuente consultable y con una información distribuible} & Departamento de logística & - & \multicolumn{1}{|p{3.0cm}|}{\centering Sí, es información validada y aceptada.} \\      
       \hline 
-      \multicolumn{1}{|p{4.0cm}|}{\centering Experiencia de gestión por parte del inversor (usuario)} & \multicolumn{1}{|p{3.0cm}|}{\centering Expertos en especulación en mercados de activos} & \multicolumn{1}{|p{3.0cm}|}{\centering Tarea 2 de OM-3} & \multicolumn{1}{|p{3.0cm}|}{\centering No, el conocimiento reside en el experto (inversor)} &  Departamento de Análisis  & - & \multicolumn{1}{|p{3.0cm}|}{\centering Sí, teniendo en cuenta que son aproximaciones.} \\
-      \hline
-      \multicolumn{1}{|p{4.0cm}|}{\centering Experiencia en compra de activos en mercado de divisas.} & \multicolumn{1}{|p{3.0cm}|}{\centering Expertos en especulación en mercados de activos} & \multicolumn{1}{|p{3.0cm}|}{\centering Tarea 3 de OM-3} & \multicolumn{1}{|p{3.0cm}|}{\centering No, el conocimiento reside en el experto (inversor)} &  Departamento de Análisis  & - & \multicolumn{1}{|p{3.0cm}|}{\centering Sí, teniendo en cuenta que son aproximaciones} \\
-      \hline
-      \multicolumn{1}{|p{4.0cm}|}{\centering Experiencia en venta de activos en mercado de divisas} & \multicolumn{1}{|p{3.0cm}|}{\centering Expertos en especulación en mercados de activos} & \multicolumn{1}{|p{3.0cm}|}{\centering Tarea 4 de OM-3} & \multicolumn{1}{|p{3.0cm}|}{\centering No, el conocimiento reside en el experto (inversor)} &  Departamento de Análisis  & - & \multicolumn{1}{|p{3.0cm}|}{\centering Sí, teniendo en cuenta que son aproximaciones} \\
-      \hline
-      \multicolumn{1}{|p{4.0cm}|}{\centering Experiencia en gestionar las operativas de compra y venta de activos al mercado de divisas} & \multicolumn{1}{|p{3.0cm}|}{\centering Expertos en especulación en mercados de activos} & \multicolumn{1}{|p{3.0cm}|}{\centering Tareas 5 de OM-3} & \multicolumn{1}{|p{3.0cm}|}{\centering No, el conocimiento reside en el experto (inversor)} &  Departamento de Análisis  & - & \multicolumn{1}{|p{3.0cm}|}{\centering Sí, teniendo en cuenta que son aproximaciones} \\
-      \hline
-      \multicolumn{1}{|p{4.0cm}|}{\centering Teorías de gestión de capital de inversión} & \multicolumn{1}{|p{3.0cm}|}{\centering Expertos en especulación en mercados de activos} & \multicolumn{1}{|p{3.0cm}|}{\centering Tareas 5 de OM-3} & \multicolumn{1}{|p{3.0cm}|}{\centering Si, utilizar los mecanismos de reducción de riesgos y frenado de pérdidas} &  Departamento de Análisis  & - & \multicolumn{1}{|p{3.0cm}|}{\centering Sí, pero depende muchísimo del mercado.} \\
-      \hline
     \end{tabular}
   }
 	\caption{\label{tab:OM4}Activos de conocimiento - OM4}
