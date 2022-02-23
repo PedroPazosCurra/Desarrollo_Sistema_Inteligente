@@ -1,0 +1,405 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Plantilla TFG/TFM
+% Universidad de A Coruña. Facultad de Informática
+% Realizado por: Welton Vieira dos Santos
+% Modificado: Welton Vieira dos Santos
+% Contacto: welton.dossantos@udc.es
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\chapter{Análisis de Impactos y Mejoras: Modelado de las Tareas y los Agentes.}
+\newpage
+\section{Formulario TM-1: análisis de tareas.}
+Descripción detallada de tareas en el contexto del proceso de interés.
+\begin{table}[H]
+	\scriptsize
+	\begin{tabularx}{\textwidth}{|l|X|} 
+		\hline
+	
+		\textbf{Modelo de Tareas} & \textbf{Formulario TM-1: Análisis de Tareas} \\ 
+		\hline\hline
+		\textsc{Tarea} & Tarea 1. Análisis del mercado\\ 
+		\hline
+		\textsc{Organización}  & Departamento de Análisis.\\ 
+		\hline
+		\textsc{Objetivo y valor} &  Es una parte esencial de la expeculación en los mercados de divisas.\\ 
+		\hline
+		\textsc{Dependencia y Flujos} & \textit{1. Tareas precedentes:} Ninguna\\ &  \textit{2. Tareas que le siguen:} Tarea 3 o 4 \\
+		\hline
+		\textsc{Objetos manipulados} & \textit{1. Objetos de entrada de la tarea:} Información de los precios del mercado (a través de las herramientas de lectura de mercado), Información recibida por el sistema inteligente de predicción (desarrollaldo en un proyecto anterior).\\ & \textit{2. Objetos de salida de la tarea:} información respecto a la tendencia de los precios y un indicador de del precio futuro.\\  & \textit{3. Objetos internos:} conocimiento de los  expertos inversores en bolsa. \\ & \emph{Todos estos objetos incluyen elementos de información y conocimiento.}\\
+		\hline
+		\textsc{Tiempo y control} & \textit{1. Frecuencia y duración:} es una tarea que se da cuando se considera  oportuna (en función de la información y conocimiento del sistema).\\ & \textit{2. Control:} respecto a otras  tareas, ninguna.\\ & \textit{3. Restricciones:} Se necesita una conexión permanente con el ``Bróker''. \\
+		\hline
+		\textsc{Agentes} & Inversor (usuario).\\
+		\hline
+		\textsc{Conocimiento y Capacidad} & Experiencia en análisis de mercado de divisas (Forex). \\
+		\hline
+		\textsc{Recursos} & Herramientas de lectura de mercado, Sistema inteligente de predicción y  Base de Datos de precio del activo analizado. \\
+		\hline
+		\textsc{Calidad y eficiencia} & Se evalúan los resultados de los indicadores de predicción y de la tendencia de los precios. \\
+		\hline
+	\end{tabularx}
+	\caption{\label{tab:TM1T1}Formulario TM-1: Analisis de tarea 1 del OM-3}
+\end{table} 
+
+
+\begin{table}[H]
+	\scriptsize
+	\begin{tabularx}{\textwidth}{|l|X|} 
+		\hline	
+		\textbf{Modelo de Tareas} & \textbf{Formulario TM-1: Análisis de Tareas} \\ 
+		\hline\hline
+		\textsc{Tarea} & Tarea 3. Operación Comprar.\\ 
+		\hline
+		\textsc{Organización}  & Departamento de Análisis.\\ 
+		\hline
+		\textsc{Objetivo y valor} &  Es una parte esencial de la expeculación en los mercados de divisas.\\ 
+		\hline
+		\textsc{Dependencia y Flujos} & \textit{1. Tareas precedentes:} Tarea 1 y 2\\ &  \textit{2. Tareas que le siguen:} Tarea 5. \\
+		\hline
+		\textsc{Objetos manipulados} & \textit{1. Objetos de entrada de la tarea:} datos introducidos por el usuario, información recibida por el sistema inteligente de predicción.\\ & \textit{2. Objetos de salida de la tarea:} Ejecución de la orden de compra al mercado.\\  & \textit{3. Objetos internos:} conocimiento de los  expertos expeculadores de mercados de divisas. \\ & \emph{Todos estos objetos incluyen elementos de información y conocimiento.}\\
+		\hline
+		\textsc{Tiempo y control} & \textit{1. Frecuencia y duración:} es una tarea que se da cuando se considera  oportuna (en función de la información y conocimiento del sistema).\\ & \textit{2. Control:} respecto a otras  tareas, ninguna.\\ & \textit{3. Restricciones:} Se necesita una conexión permanente con el ``Bróker''. \\
+		\hline
+		\textsc{Agentes} & Inversor (usuario).\\
+		\hline
+		\textsc{Conocimiento y Capacidad} & Experiencia en compra/venta de activos en mercado de divisas. \\
+		\hline
+		\textsc{Recursos} & Sistema inteligente de predicción y  base de datos. \\
+		\hline
+		\textsc{Calidad y eficiencia} & Se evalúan los beneficios obtenidos para determinar su calidad y eficiencia. \\
+		\hline
+	\end{tabularx}
+	\caption{\label{tab:TM1T3}Formulario TM-1: Analisis de tarea 3 del OM-3}
+\end{table}
+
+\begin{table}[H]
+	\scriptsize
+	\begin{tabularx}{\textwidth}{|l|X|} 
+		\hline	
+		\textbf{Modelo de Tareas} & \textbf{Formulario TM-1: Análisis de Tareas} \\ 
+		\hline\hline
+		\textsc{Tarea} & Tarea 4. Operación Vender.\\ 
+		\hline
+		\textsc{Organización}  & Departamento de Análisis.\\ 
+		\hline
+		\textsc{Objetivo y valor} &  Es una parte esencial de la expeculación en los mercados de divisas.\\ 
+		\hline
+		\textsc{Dependencia y Flujos} & \textit{1. Tareas precedentes:} Tarea 1 y 2\\ &  \textit{2. Tareas que le siguen:} Tarea 5. \\
+		\hline
+		\textsc{Objetos manipulados} & \textit{1. Objetos de entrada de la tarea:} datos introducidos por el usuario, información recibida por el sistema inteligente de predicción.\\ & \textit{2. Objetos de salida de la tarea:} Ejecución de la orden de venta al mercado.\\  & \textit{3. Objetos internos:} conocimiento de los  expertos expeculadores de mercados de divisas. \\ & \emph{Todos estos objetos incluyen elementos de información y conocimiento.}\\
+		\hline
+		\textsc{Tiempo y control} & \textit{1. Frecuencia y duración:} es una tarea que se da cuando se considera  oportuna (en función de la información y conocimiento del sistema).\\ & \textit{2. Control:} respecto a otras  tareas, ninguna.\\ & \textit{3. Restricciones:} Se necesita una conexión permanente con el ``Bróker''. \\
+		\hline
+		\textsc{Agentes} & Inversor (usuario).\\
+		\hline
+		\textsc{Conocimiento y Capacidad} & Experiencia en compra/venta de activos en mercado de divisas. \\
+		\hline
+		\textsc{Recursos} & Sistema inteligente de predicción y  base de datos. \\
+		\hline
+		\textsc{Calidad y eficiencia} & Se evalúan los beneficios obtenidos para determinar su calidad y eficiencia. \\
+		\hline
+	\end{tabularx}
+	\caption{\label{tab:TM1T4}Formulario TM-1: Analisis de tarea 4 del OM-3}
+\end{table} 
+
+\begin{table}[H]
+	\scriptsize
+	\begin{tabularx}{\textwidth}{|l|X|} 
+		\hline	
+		\textbf{Modelo de Tareas} & \textbf{Formulario TM-1: Análisis de Tareas} \\ 
+		\hline\hline
+		\textsc{Tarea} & Tarea 5. Gestionar las operativas abiertas.\\ 
+		\hline
+		\textsc{Organización}  & Departamento de Análisis.\\ 
+		\hline
+		\textsc{Objetivo y valor} &  Es una parte esencial de la expeculación en los mercados de divisas.\\ 
+		\hline
+		\textsc{Dependencia y Flujos} & \textit{1. Tareas precedentes:} Tarea 3 o 4\\ &  \textit{2. Tareas que le siguen:} Ninguna \\
+		\hline
+		\textsc{Objetos manipulados} & \textit{1. Objetos de entrada de la tarea:} Información de la operativas abiertas al mercado, información recibida por el sistema inteligente de predicción.\\ & \textit{2. Objetos de salida de la tarea:} Ejecución de la gestión de riesgo de la operativa abierta y en su caso cerrar la posición abierta.\\  & \textit{3. Objetos internos:} conocimiento de los  expertos expeculadores de mercados de divisas. \\ & \emph{Todos estos objetos incluyen elementos de información y conocimiento.}\\
+		\hline
+		\textsc{Tiempo y control} & \textit{1. Frecuencia y duración:} es una tarea que se da cuando se considera  oportuna (en función de la información y conocimiento del sistema).\\ & \textit{2. Control:} respecto a otras  tareas, ninguna.\\ & \textit{3. Restricciones:} Se necesita una conexión permanente con el ``Bróker''. \\
+		\hline
+		\textsc{Agentes} & Inversor (usuario).\\
+		\hline
+		\textsc{Conocimiento y Capacidad} & Experiencia en gestión de activos en mercado de divisas. Teorías de gestión de captial de inversión\\
+		\hline
+		\textsc{Recursos} & Sistema inteligente de predicción y  base de datos. \\
+		\hline
+		\textsc{Calidad y eficiencia} & Se evalúan los beneficios obtenidos para determinar su calidad y eficiencia. \\
+		\hline
+	\end{tabularx}
+	\caption{\label{tab:TM1T4}Formulario TM-1: Analisis de tarea 5 del OM-3}
+\end{table} 
+
+\newpage
+
+\section{Formulario TM-2: análisis de los cuellos de botella del conocimiento.}
+Especificación del conocimiento que se emplea en una tarea, sus cuellos de botella y posibles mejoras.
+
+\begin{table}[H]
+	\centering
+	\resizebox{15.0cm}{!}{
+	  \begin{tabular}{|l|l|l|} 
+		\hline
+		\textbf{Modelo de Tareas} & \multicolumn{2}{p{15.0cm}|}{\textbf{Formulario TM-2: Elementos de conocimiento}}\\ 
+		\hline\hline
+
+		\textsc{Nombre} & \multicolumn{2}{p{15.0cm}|}{Experiencia en gestionar las operativas de compra y venta de activos al mercado de divisas} \\
+		\hline
+
+		\textsc{Poseído por} & \multicolumn{2}{p{15.0cm}|}{Expertos en especulación en mercados de activos} \\
+		\hline
+
+		\textsc{Usado en} & \multicolumn{2}{p{15.0cm}|}{Tarea 5 - Gestionar las operativas abiertas} \\
+		\hline
+
+		\textsc{Dominio} & \multicolumn{2}{p{15.0cm}|}{Inversión y especulación en bolsa, ámbito económico} \\
+		\hline
+
+		\textsc{\textbf{Naturaleza del conocimiento}} & \multicolumn{1}{p{1.2cm}|}{\centering \textit{\textbf{Si/No}}} & \multicolumn{1}{p{13.0cm}|}{\textbf{¿Cuello de botella/debe ser mejorado?}}\\
+		\hline
+
+		Formal, riguroso & \multicolumn{1}{p{1.0cm}|}{No} & \multicolumn{1}{p{13.0cm}|}{No}\\
+		\hline
+
+		Empírico, cuantitativo & \multicolumn{1}{p{1.0cm}|}{No} & \multicolumn{1}{p{13.0cm}|}{No}\\
+		\hline
+
+		Heurístico, sentido común & \multicolumn{1}{p{1.0cm}|}{Si} & \multicolumn{1}{p{13.0cm}|}{Si, no es fácil de transferir, si es mejorable}\\
+		\hline
+
+		\multicolumn{1}{|p{6.0cm}|}{Altamente especializado, específico del dominio} & \multicolumn{1}{p{1.0cm}|}{Si} & \multicolumn{1}{p{13.0cm}|}{Si, se necesita conocimientos del dominio, es mejorable}\\
+		\hline
+
+		Basado en la experiencia & \multicolumn{1}{p{1.0cm}|}{Si} & \multicolumn{1}{p{13.0cm}|}{Si, hay una dependencia enorme del experto,es mejorable}\\
+		\hline
+
+		Basado en la acción & \multicolumn{1}{p{1.0cm}|}{No} & \multicolumn{1}{p{13.0cm}|}{No}\\
+		\hline
+
+		Incompleto & \multicolumn{1}{p{1.0cm}|}{No} & \multicolumn{1}{p{13.0cm}|}{No}\\
+		\hline
+
+		Incierto, puede ser incorrecto & \multicolumn{1}{p{1.0cm}|}{Si} & \multicolumn{1}{p{13.0cm}|}{Si, pero es impredicible, no es mejorable}\\
+		\hline
+
+		Cambia con rapidez & \multicolumn{1}{p{1.0cm}|}{No} & \multicolumn{1}{p{13.0cm}|}{No, pero es cierto que se hay que adaptar al mercado.}\\
+		\hline
+
+		Dificil de verificar & \multicolumn{1}{p{1.0cm}|}{No} & \multicolumn{1}{p{13.0cm}|}{No}\\
+		\hline
+
+		Tácito, dificil de transferir& \multicolumn{1}{p{1.0cm}|}{Si} & \multicolumn{1}{p{13.0cm}|}{Si, hay que encontrar una forma de plasmarlo}\\
+		\hline
+
+		\textsc {\textbf{Forma del conocimiento}}& \multicolumn{1}{p{1.0cm}|}{} & \multicolumn{1}{p{13.0cm}|}{}\\
+		\hline
+
+		Mental & \multicolumn{1}{p{1.0cm}|}{Si} & \multicolumn{1}{p{13.0cm}|}{Si, debemos pasar a un medio que nos permita trabajar con él}\\
+		\hline
+
+		Papel & \multicolumn{1}{p{1.0cm}|}{No} & \multicolumn{1}{p{13.0cm}|}{No}\\
+		\hline
+
+		Electrónica & \multicolumn{1}{p{1.0cm}|}{No} & \multicolumn{1}{p{13.0cm}|}{No}\\
+		\hline
+
+		Habilidades & \multicolumn{1}{p{1.0cm}|}{Si} & \multicolumn{1}{p{13.0cm}|}{Si, es mejorable}\\
+		\hline
+
+		Otros & \multicolumn{1}{p{1.0cm}|}{No} & \multicolumn{1}{p{13.0cm}|}{}\\
+		\hline
+
+		\textsc {\textbf{Disponibilidad del Conocimiento}} & \multicolumn{1}{p{1.0cm}|}{} & \multicolumn{1}{p{13.0cm}|}{}\\
+		\hline
+		Limitaciones de tiempo& \multicolumn{1}{p{1.0cm}|}{Si} & \multicolumn{1}{p{13.0cm}|}{Si, dependemos de los expertos}\\
+		\hline
+
+		Limitaciones de espacio& \multicolumn{1}{p{1.0cm}|}{No} & \multicolumn{1}{p{13.0cm}|}{}\\
+		\hline
+
+		Limitaciones de acceso& \multicolumn{1}{p{1.0cm}|}{Si} & \multicolumn{1}{p{13.0cm}|}{Si, dependemos de los expertos}\\
+		\hline
+
+		Limitaciones de calidad& \multicolumn{1}{p{1.0cm}|}{Si} & \multicolumn{1}{p{13.0cm}|}{Si, depende de la calidad de los expertos}\\
+		\hline
+
+		Limitaciones de forma& \multicolumn{1}{p{1.0cm}|}{No} & \multicolumn{1}{p{13.0cm}|}{}\\
+		\hline
+
+	  \end{tabular}
+	}
+	\caption{\label{tab:TM2}Formulario TM-2: Analisis de cuellos de botella en la Tarea 5 - (Experiencia en gestionar...)}
+  \end{table}
+
+  \begin{table}[H]
+	\centering
+	\resizebox{15.0cm}{!}{
+	  \begin{tabular}{|l|l|l|} 
+		\hline
+		\textbf{Modelo de Tareas} & \multicolumn{2}{p{15.0cm}|}{\textbf{Formulario TM-2: Elementos de conocimiento}}\\ 
+		\hline\hline
+
+		\textsc{Nombre} & \multicolumn{2}{p{15.0cm}|}{Teorías de gestión de capital de Inversión} \\
+		\hline
+
+		\textsc{Poseído por} & \multicolumn{2}{p{15.0cm}|}{Expertos en especulación en mercados de activos} \\
+		\hline
+
+		\textsc{Usado en} & \multicolumn{2}{p{15.0cm}|}{Tarea 5 - Gestionar las operativas abiertas} \\
+		\hline
+
+		\textsc{Dominio} & \multicolumn{2}{p{15.0cm}|}{Inversión y especulación en bolsa, ámbito económico} \\
+		\hline
+
+		\textsc{\textbf{Naturaleza del conocimiento}} & \multicolumn{1}{p{1.2cm}|}{\centering \textit{\textbf{Si/No}}} & \multicolumn{1}{p{13.0cm}|}{\textbf{¿Cuello de botella/debe ser mejorado?}}\\
+		\hline
+
+		Formal, riguroso & \multicolumn{1}{p{1.0cm}|}{Si} & \multicolumn{1}{p{13.0cm}|}{No}\\
+		\hline
+
+		Empírico, cuantitativo & \multicolumn{1}{p{1.0cm}|}{Si} & \multicolumn{1}{p{13.0cm}|}{No}\\
+		\hline
+
+		Heurístico, sentido común & \multicolumn{1}{p{1.0cm}|}{No} & \multicolumn{1}{p{13.0cm}|}{No}\\
+		\hline
+
+		\multicolumn{1}{|p{6.0cm}|}{Altamente especializado, específico del dominio} & \multicolumn{1}{p{1.0cm}|}{Si} & \multicolumn{1}{p{13.0cm}|}{Si, se necesita conocimientos del dominio, es mejorable}\\
+		\hline
+
+		Basado en la experiencia & \multicolumn{1}{p{1.0cm}|}{No} & \multicolumn{1}{p{13.0cm}|}{No}\\
+		\hline
+
+		Basado en la acción & \multicolumn{1}{p{1.0cm}|}{No} & \multicolumn{1}{p{13.0cm}|}{No}\\
+		\hline
+
+		Incompleto & \multicolumn{1}{p{1.0cm}|}{No} & \multicolumn{1}{p{13.0cm}|}{No}\\
+		\hline
+
+		Incierto, puede ser incorrecto & \multicolumn{1}{p{1.0cm}|}{No} & \multicolumn{1}{p{13.0cm}|}{No}\\
+		\hline
+
+		Cambia con rapidez & \multicolumn{1}{p{1.0cm}|}{No} & \multicolumn{1}{p{13.0cm}|}{No}\\
+		\hline
+
+		Dificil de verificar & \multicolumn{1}{p{1.0cm}|}{No} & \multicolumn{1}{p{13.0cm}|}{No}\\
+		\hline
+
+		Tácito, dificil de transferir& \multicolumn{1}{p{1.0cm}|}{No} & \multicolumn{1}{p{13.0cm}|}{No}\\
+		\hline
+
+		\textsc {\textbf{Forma del conocimiento}}& \multicolumn{1}{p{1.0cm}|}{} & \multicolumn{1}{p{13.0cm}|}{}\\
+		\hline
+
+		Mental & \multicolumn{1}{p{1.0cm}|}{No} & \multicolumn{1}{p{13.0cm}|}{No}\\
+		\hline
+
+		Papel & \multicolumn{1}{p{1.0cm}|}{Si} & \multicolumn{1}{p{13.0cm}|}{No}\\
+		\hline
+
+		Electrónica & \multicolumn{1}{p{1.0cm}|}{No} & \multicolumn{1}{p{13.0cm}|}{No}\\
+		\hline
+
+		Habilidades & \multicolumn{1}{p{1.0cm}|}{No} & \multicolumn{1}{p{13.0cm}|}{No}\\
+		\hline
+
+		Otros & \multicolumn{1}{p{1.0cm}|}{No} & \multicolumn{1}{p{13.0cm}|}{No}\\
+		\hline
+
+		\textsc {\textbf{Disponibilidad del Conocimiento}} & \multicolumn{1}{p{1.0cm}|}{} & \multicolumn{1}{p{13.0cm}|}{}\\
+		\hline
+		Limitaciones de tiempo& \multicolumn{1}{p{1.0cm}|}{No} & \multicolumn{1}{p{13.0cm}|}{No}\\
+		\hline
+
+		Limitaciones de espacio& \multicolumn{1}{p{1.0cm}|}{No} & \multicolumn{1}{p{13.0cm}|}{No}\\
+		\hline
+
+		Limitaciones de acceso& \multicolumn{1}{p{1.0cm}|}{No} & \multicolumn{1}{p{13.0cm}|}{No}\\
+		\hline
+
+		Limitaciones de calidad& \multicolumn{1}{p{1.0cm}|}{No} & \multicolumn{1}{p{13.0cm}|}{No}\\
+		\hline
+
+		Limitaciones de forma& \multicolumn{1}{p{1.0cm}|}{No} & \multicolumn{1}{p{13.0cm}|}{No}\\
+		\hline
+
+	  \end{tabular}
+	}
+	\caption{\label{tab:TM22}Formulario TM-2: Analisis de cuellos de botella en la Tarea 5 - (Teorías de gestión de capital...)}
+  \end{table}
+
+\newpage
+\section{Formulario AM-1: descripción de los agentes.}
+Descripción de los agentes implicados en las tareas de interés.
+
+\begin{table}[H]
+	\centering
+	\resizebox{15.0cm}{!}{
+	  \begin{tabular}{|l|l|} 
+		\hline
+		\textbf{Modelo de Agentes} & \textbf{Formulario TM-1: Agente}\\ 
+		\hline\hline
+		\textsc{Nombre} & \multicolumn{1}{p{15.0cm}|}{Experto en especulación mercado activos} \\
+		\hline
+
+		\textsc{Organización} & \multicolumn{1}{p{15.0cm}|}{Departamento de Análisis}\\
+		\hline
+
+		\textsc{Implicado en} & \multicolumn{1}{p{15.0cm}|}{Todas las tareas}\\
+		\hline
+
+		\textsc{Se comunica con} & \multicolumn{1}{p{15.0cm}|}{Sistema de predicción}\\
+		\hline
+
+		\textsc{Conocimiento} & \multicolumn{1}{p{15.0cm}|}{El conocimiento que tiene sobre el proceso es elevado}\\
+		\hline
+
+		\textsc{Otras competencias} & \multicolumn{1}{p{15.0cm}|}{-}\\
+		\hline
+
+		\textsc{Responsabilidades y restricciones} & \multicolumn{1}{p{15.0cm}|}{Maximizar ganancias y minimizar pérdidas}\\
+		\hline
+
+	  \end{tabular}
+	}
+	\caption{\label{tab:AM}Formulario AM-1: Analisis de agentes de la Tarea 5 (Agente: Experto en especulación mercado activos)}
+  \end{table}
+
+  \begin{table}[H]
+	\centering
+	\resizebox{15.0cm}{!}{
+	  \begin{tabular}{|l|l|} 
+		\hline
+		\textbf{Modelo de Agentes} & \textbf{Formulario TM-1: Agente}\\ 
+		\hline\hline
+		\textsc{Nombre} & \multicolumn{1}{p{15.0cm}|}{Sistema inteligente de predicción} \\
+		\hline
+
+		\textsc{Organización} & \multicolumn{1}{p{15.0cm}|}{Departamento de Análisis}\\
+		\hline
+
+		\textsc{Implicado en} & \multicolumn{1}{p{15.0cm}|}{Tareas 1, 3, 4 y 5}\\
+		\hline
+
+		\textsc{Se comunica con} & \multicolumn{1}{p{15.0cm}|}{Otros agentes (Experto en especulación mercado activos)}\\
+		\hline
+
+		\textsc{Conocimiento} & \multicolumn{1}{p{15.0cm}|}{El conocimiento sobre el proceso de predecir los precios es elevado}\\
+		\hline
+
+		\textsc{Otras competencias} & \multicolumn{1}{p{15.0cm}|}{-}\\
+		\hline
+
+		\textsc{Responsabilidades y restricciones} & \multicolumn{1}{p{15.0cm}|}{Es responsable de indicar precios futuros de los activos que analiza y como restricción tenemos que ese agente tiene que poseer una gran cantidad de información sobre el activo en cuestión}\\
+		\hline
+
+	  \end{tabular}
+	}
+	\caption{\label{tab:AM2}Formulario AM-1: Analisis de agentes de la Tarea 5 (Agente: Sistema inteligente de predicción)}
+  \end{table}
+
+
+
+
