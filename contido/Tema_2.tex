@@ -11,126 +11,236 @@
 \newpage
 \section{Formulario TM-1: análisis de tareas.}
 Descripción detallada de tareas en el contexto del proceso de interés.
+
+% Formulario TM-1 de la tarea 1
 \begin{table}[H]
 	\scriptsize
-	\begin{tabularx}{\textwidth}{|l|X|} 
-		\hline
-		\textbf{Modelo de Tareas} & \textbf{Formulario TM-1: Análisis de Tareas} \\ 
-		\hline
-		\hline
+  	\resizebox{14,2cm}{!}{
+		\begin{tabularx}{\textwidth}{|l|X|} 
+			\hline
+			\textbf{Modelo de Tareas} & \textbf{Formulario TM-1: Análisis de Tareas} \\ 
+			\hline
+			\hline
 
-		\textsc{Tarea} & Tarea 1 - Recibimiento de los paquetes en la sucursal MRW (entrada)\\ 
-		\hline
-		\textsc{Organización}  & Logística.\\ 
-		\hline
-		\textsc{Objetivo y valor} &  Es una parte obligatoria de todo el proceso.\\ 
-		\hline
-		\textsc{Dependencia y Flujos} & \textit{1. Tareas precedentes:} Ninguna\\ &  \textit{2. Tareas que le siguen:} Tarea 2 \\
-		\hline
-		\textsc{Objetos manipulados} & \textit{1. Objetos de entrada de la tarea:} Información de los datos de los paquetes (a través de las herramientas de lectura de códigos de barras o códigos QR), Información recibida por el sistema de gestión de paquetes de MRW (Sistema suministrado por la empresa autora de la franquicia).\\ & \textit{2. Objetos de salida de la tarea:} información de la ruta adjudicada al paquete.\\  & \textit{3. Objetos internos:} conocimiento de los  expertos inversores en bolsa. \\ & \emph{Todos estos objetos incluyen elementos de información y conocimiento.}\\
-		\hline
-		\textsc{Tiempo y control} & \textit{1. Frecuencia y duración:} es una tarea que se da cuando se considera  oportuna (en función de la información y conocimiento del sistema).\\ & \textit{2. Control:} respecto a otras  tareas, ninguna.\\ & \textit{3. Restricciones:} Se necesita una conexión permanente con el ``Bróker''. \\
-		\hline
-		\textsc{Agentes} & Inversor (usuario).\\
-		\hline
-		\textsc{Conocimiento y Capacidad} & Experiencia en análisis de mercado de divisas (Forex). \\
-		\hline
-		\textsc{Recursos} & Herramientas de lectura de mercado, Sistema inteligente de predicción y  Base de Datos de precio del activo analizado. \\
-		\hline
-		\textsc{Calidad y eficiencia} & Se evalúan los resultados de los indicadores de predicción y de la tendencia de los precios. \\
-		\hline
-	\end{tabularx}
+			\textsc{Tarea} & \textbf{Tarea 1:} \textit{Recibimiento de los paquetes en la sucursal MRW (entrada)} \\ 
+			\hline
+			\textsc{Organización}  & \textit{Logística.} \\ 
+			\hline
+			\textsc{Objetivo y valor} &  \textit{Es una parte obligatoria de todo el proceso.} \\ 
+			\hline
+			\textsc{Dependencia y Flujos} & 
+				\begin{enumerate}
+					\item \textbf{Tareas precedentes:} \textit{Ninguna}
+					\item \textbf{Tareas que le siguen:} \textit{Tarea 2}
+				\end{enumerate} \\
+			\hline
+			\textsc{Objetos manipulados} & 
+				\begin{enumerate}
+					\item \textbf{Objetos de entrada de la tarea:} \textit{Información de los datos de los paquetes (a través de las herramientas de lectura de códigos de barras o códigos QR), Información recibida por el sistema de gestión de paquetes de MRW (Sistema suministrado por la empresa autora de la franquicia).}
+					\item \textbf{Objetos de salida de la tarea:} \textit{información de la ruta adjudicada al paquete.}
+					\item \textbf{Objetos internos:} \textit{conocimiento de los expertos en adjudicar a que ruta pertenece el paquete.} 
+				\end{enumerate} 
+				\emph{Todos estos objetos incluyen elementos de información y conocimiento.}\\				
+			\hline
+			\textsc{Tiempo y control} & 
+				\begin{enumerate}
+					\item \textbf{Frecuencia y duración:} \textit{es una tarea que se da cuando se considera  oportuna (en función de la información y conocimiento del sistema).}
+					\item \textbf{Control:} \textit{respecto a otras  tareas, ninguna.}
+					\item \textbf{Restricciones:} \textit{Se necesita una conexión permanente con un sistema que suministra MRW para la consulta de la información de cada paquete.}
+				\end{enumerate} \\
+			\hline
+			\textsc{Agentes} & 
+				\begin{enumerate}
+					\item \textbf{Repartidor:} \textit{Coloca el paquete en la cinta transportadora}
+					\item \textbf{Sistema de gestión de paquetes de MRW:} \textit{Permite hacer una consulta en busca de la información del paquete.}
+				\end{enumerate} \\
+			\hline
+			\textsc{Conocimiento y Capacidad} & \textit{No exige ninguna experiencia por parte del repartidor, ya que el mismo sólo tiene que poner el paquete en la cinta transportadora.} \\
+			\hline
+			\textsc{Recursos} & 
+				\begin{itemize}
+					\item \textit{Cinta transportadora equipada con sensor de lectura de las etiquetas que se encuentra en el paquete.}
+					\item \textit{Acceso a la base de datos de paquetería de MRW.}
+				\end{itemize} \\
+			\hline
+			\textsc{Calidad y eficiencia} & \textit{Seguir unas pautas de colocación de los paquetes en la cinta transportadora para que el lector de etiquetas funcione correctamente y evite la paralización de la misma.} \\
+			\hline
+		\end{tabularx}
+	}
 	\caption{\label{tab:TM1T1}Formulario TM-1: Analisis de tarea 1 del OM-3}
 \end{table} 
 
-
+% Formulario TM-1 de la tarea 2
 \begin{table}[H]
 	\scriptsize
-	\begin{tabularx}{\textwidth}{|l|X|} 
-		\hline	
-		\textbf{Modelo de Tareas} & \textbf{Formulario TM-1: Análisis de Tareas} \\ 
-		\hline\hline
-		\textsc{Tarea} & Tarea 2 - Generar lista de entregas según ruta asignada.\\ 
-		\hline
-		\textsc{Organización}  & Departamento de Análisis.\\ 
-		\hline
-		\textsc{Objetivo y valor} &  Es una parte esencial de la expeculación en los mercados de divisas.\\ 
-		\hline
-		\textsc{Dependencia y Flujos} & \textit{1. Tareas precedentes:} Tarea 1 y 2\\ &  \textit{2. Tareas que le siguen:} Tarea 5. \\
-		\hline
-		\textsc{Objetos manipulados} & \textit{1. Objetos de entrada de la tarea:} datos introducidos por el usuario, información recibida por el sistema inteligente de predicción.\\ & \textit{2. Objetos de salida de la tarea:} Ejecución de la orden de compra al mercado.\\  & \textit{3. Objetos internos:} conocimiento de los  expertos expeculadores de mercados de divisas. \\ & \emph{Todos estos objetos incluyen elementos de información y conocimiento.}\\
-		\hline
-		\textsc{Tiempo y control} & \textit{1. Frecuencia y duración:} es una tarea que se da cuando se considera  oportuna (en función de la información y conocimiento del sistema).\\ & \textit{2. Control:} respecto a otras  tareas, ninguna.\\ & \textit{3. Restricciones:} Se necesita una conexión permanente con el ``Bróker''. \\
-		\hline
-		\textsc{Agentes} & Inversor (usuario).\\
-		\hline
-		\textsc{Conocimiento y Capacidad} & Experiencia en compra/venta de activos en mercado de divisas. \\
-		\hline
-		\textsc{Recursos} & Sistema inteligente de predicción y  base de datos. \\
-		\hline
-		\textsc{Calidad y eficiencia} & Se evalúan los beneficios obtenidos para determinar su calidad y eficiencia. \\
-		\hline
-	\end{tabularx}
-	\caption{\label{tab:TM1T3}Formulario TM-1: Analisis de tarea 2 del OM-3}
-\end{table}
+  	\resizebox{14,2cm}{!}{
+		\begin{tabularx}{\textwidth}{|l|X|} 
+			\hline
+			\textbf{Modelo de Tareas} & \textbf{Formulario TM-1: Análisis de Tareas} \\ 
+			\hline
+			\hline
 
-\begin{table}[H]
-	\scriptsize
-	\begin{tabularx}{\textwidth}{|l|X|} 
-		\hline	
-		\textbf{Modelo de Tareas} & \textbf{Formulario TM-1: Análisis de Tareas} \\ 
-		\hline\hline
-		\textsc{Tarea} & Tarea 3 - Determinar los recursos disponibles por la sucursal MRW para entregar según ruta \\ 
-		\hline
-		\textsc{Organización}  & Departamento de Análisis.\\ 
-		\hline
-		\textsc{Objetivo y valor} &  Es una parte esencial de la expeculación en los mercados de divisas.\\ 
-		\hline
-		\textsc{Dependencia y Flujos} & \textit{1. Tareas precedentes:} Tarea 1 y 2\\ &  \textit{2. Tareas que le siguen:} Tarea 5. \\
-		\hline
-		\textsc{Objetos manipulados} & \textit{1. Objetos de entrada de la tarea:} datos introducidos por el usuario, información recibida por el sistema inteligente de predicción.\\ & \textit{2. Objetos de salida de la tarea:} Ejecución de la orden de venta al mercado.\\  & \textit{3. Objetos internos:} conocimiento de los  expertos expeculadores de mercados de divisas. \\ & \emph{Todos estos objetos incluyen elementos de información y conocimiento.}\\
-		\hline
-		\textsc{Tiempo y control} & \textit{1. Frecuencia y duración:} es una tarea que se da cuando se considera  oportuna (en función de la información y conocimiento del sistema).\\ & \textit{2. Control:} respecto a otras  tareas, ninguna.\\ & \textit{3. Restricciones:} Se necesita una conexión permanente con el ``Bróker''. \\
-		\hline
-		\textsc{Agentes} & Inversor (usuario).\\
-		\hline
-		\textsc{Conocimiento y Capacidad} & Experiencia en compra/venta de activos en mercado de divisas. \\
-		\hline
-		\textsc{Recursos} & Sistema inteligente de predicción y  base de datos. \\
-		\hline
-		\textsc{Calidad y eficiencia} & Se evalúan los beneficios obtenidos para determinar su calidad y eficiencia. \\
-		\hline
-	\end{tabularx}
-	\caption{\label{tab:TM1T4}Formulario TM-1: Analisis de tarea 3 del OM-3}
+			\textsc{Tarea} & \textbf{Tarea 2:} \textit{Generar lista de entregas según ruta asignada.} \\ 
+			\hline
+			\textsc{Organización}  & \textit{Logística.} \\ 
+			\hline
+			\textsc{Objetivo y valor} &  \textit{Es una parte obligatoria de todo el proceso.} \\ 
+			\hline
+			\textsc{Dependencia y Flujos} & 
+				\begin{enumerate}
+					\item \textbf{Tareas precedentes:} \textit{Ninguna}
+					\item \textbf{Tareas que le siguen:} \textit{Tarea 2}
+				\end{enumerate} \\
+			\hline
+			\textsc{Objetos manipulados} & 
+				\begin{enumerate}
+					\item \textbf{Objetos de entrada de la tarea:} \textit{Información de los datos de los paquetes (a través de las herramientas de lectura de códigos de barras o códigos QR), Información recibida por el sistema de gestión de paquetes de MRW (Sistema suministrado por la empresa autora de la franquicia).}
+					\item \textbf{Objetos de salida de la tarea:} \textit{información de la ruta adjudicada al paquete.}
+					\item \textbf{Objetos internos:} \textit{conocimiento de los expertos en adjudicar a que ruta pertenece el paquete.} 
+				\end{enumerate} 
+				\emph{Todos estos objetos incluyen elementos de información y conocimiento.}\\				
+			\hline
+			\textsc{Tiempo y control} & 
+				\begin{enumerate}
+					\item \textbf{Frecuencia y duración:} \textit{es una tarea que se da cuando se considera  oportuna (en función de la información y conocimiento del sistema).}
+					\item \textbf{Control:} \textit{respecto a otras  tareas, ninguna.}
+					\item \textbf{Restricciones:} \textit{Se necesita una conexión permanente con un sistema que suministra MRW para la consulta de la información de cada paquete.}
+				\end{enumerate} \\
+			\hline
+			\textsc{Agentes} & 
+				\begin{enumerate}
+					\item \textbf{Repartidor:} \textit{Coloca el paquete en la cinta transportadora}
+					\item \textbf{Sistema de gestión de paquetes de MRW:} \textit{Permite hacer una consulta en busca de la información del paquete.}
+				\end{enumerate} \\
+			\hline
+			\textsc{Conocimiento y Capacidad} & \textit{No exige ninguna experiencia por parte del repartidor, ya que el mismo sólo tiene que poner el paquete en la cinta transportadora.} \\
+			\hline
+			\textsc{Recursos} & 
+				\begin{itemize}
+					\item \textit{Cinta transportadora equipada con sensor de lectura de las etiquetas que se encuentra en el paquete.}
+					\item \textit{Acceso a la base de datos de paquetería de MRW.}
+				\end{itemize} \\
+			\hline
+			\textsc{Calidad y eficiencia} & \textit{Seguir unas pautas de colocación de los paquetes en la cinta transportadora para que el lector de etiquetas funcione correctamente y evite la paralización de la misma.} \\
+			\hline
+		\end{tabularx}
+	}
+	\caption{\label{tab:TM1T2}Formulario TM-1: Analisis de tarea 2 del OM-3}
 \end{table} 
 
+% Formulario TM-1 de la tarea 3
 \begin{table}[H]
 	\scriptsize
-	\begin{tabularx}{\textwidth}{|l|X|} 
-		\hline	
-		\textbf{Modelo de Tareas} & \textbf{Formulario TM-1: Análisis de Tareas} \\ 
-		\hline\hline
-		\textsc{Tarea} & Tarea 4 - Revisión y validación de la distribución de la paquetería. \\ 
-		\hline
-		\textsc{Organización}  & Departamento de Análisis.\\ 
-		\hline
-		\textsc{Objetivo y valor} &  Es una parte esencial de la expeculación en los mercados de divisas.\\ 
-		\hline
-		\textsc{Dependencia y Flujos} & \textit{1. Tareas precedentes:} Tarea 3 o 4\\ &  \textit{2. Tareas que le siguen:} Ninguna \\
-		\hline
-		\textsc{Objetos manipulados} & \textit{1. Objetos de entrada de la tarea:} Información de la operativas abiertas al mercado, información recibida por el sistema inteligente de predicción.\\ & \textit{2. Objetos de salida de la tarea:} Ejecución de la gestión de riesgo de la operativa abierta y en su caso cerrar la posición abierta.\\  & \textit{3. Objetos internos:} conocimiento de los  expertos expeculadores de mercados de divisas. \\ & \emph{Todos estos objetos incluyen elementos de información y conocimiento.}\\
-		\hline
-		\textsc{Tiempo y control} & \textit{1. Frecuencia y duración:} es una tarea que se da cuando se considera  oportuna (en función de la información y conocimiento del sistema).\\ & \textit{2. Control:} respecto a otras  tareas, ninguna.\\ & \textit{3. Restricciones:} Se necesita una conexión permanente con el ``Bróker''. \\
-		\hline
-		\textsc{Agentes} & Inversor (usuario).\\
-		\hline
-		\textsc{Conocimiento y Capacidad} & Experiencia en gestión de activos en mercado de divisas. Teorías de gestión de captial de inversión\\
-		\hline
-		\textsc{Recursos} & Sistema inteligente de predicción y  base de datos. \\
-		\hline
-		\textsc{Calidad y eficiencia} & Se evalúan los beneficios obtenidos para determinar su calidad y eficiencia. \\
-		\hline
-	\end{tabularx}
+  	\resizebox{14,2cm}{!}{
+		\begin{tabularx}{\textwidth}{|l|X|} 
+			\hline
+			\textbf{Modelo de Tareas} & \textbf{Formulario TM-1: Análisis de Tareas} \\ 
+			\hline
+			\hline
+
+			\textsc{Tarea} & \textbf{Tarea 3:} \textit{Determinar los recursos disponibles por la sucursal MRW para entregar según ruta.} \\ 
+			\hline
+			\textsc{Organización}  & \textit{Logística.} \\ 
+			\hline
+			\textsc{Objetivo y valor} &  \textit{Es una parte obligatoria de todo el proceso.} \\ 
+			\hline
+			\textsc{Dependencia y Flujos} & 
+				\begin{enumerate}
+					\item \textbf{Tareas precedentes:} \textit{Ninguna}
+					\item \textbf{Tareas que le siguen:} \textit{Tarea 2}
+				\end{enumerate} \\
+			\hline
+			\textsc{Objetos manipulados} & 
+				\begin{enumerate}
+					\item \textbf{Objetos de entrada de la tarea:} \textit{Información de los datos de los paquetes (a través de las herramientas de lectura de códigos de barras o códigos QR), Información recibida por el sistema de gestión de paquetes de MRW (Sistema suministrado por la empresa autora de la franquicia).}
+					\item \textbf{Objetos de salida de la tarea:} \textit{información de la ruta adjudicada al paquete.}
+					\item \textbf{Objetos internos:} \textit{conocimiento de los expertos en adjudicar a que ruta pertenece el paquete.} 
+				\end{enumerate} 
+				\emph{Todos estos objetos incluyen elementos de información y conocimiento.}\\				
+			\hline
+			\textsc{Tiempo y control} & 
+				\begin{enumerate}
+					\item \textbf{Frecuencia y duración:} \textit{es una tarea que se da cuando se considera  oportuna (en función de la información y conocimiento del sistema).}
+					\item \textbf{Control:} \textit{respecto a otras  tareas, ninguna.}
+					\item \textbf{Restricciones:} \textit{Se necesita una conexión permanente con un sistema que suministra MRW para la consulta de la información de cada paquete.}
+				\end{enumerate} \\
+			\hline
+			\textsc{Agentes} & 
+				\begin{enumerate}
+					\item \textbf{Repartidor:} \textit{Coloca el paquete en la cinta transportadora}
+					\item \textbf{Sistema de gestión de paquetes de MRW:} \textit{Permite hacer una consulta en busca de la información del paquete.}
+				\end{enumerate} \\
+			\hline
+			\textsc{Conocimiento y Capacidad} & \textit{No exige ninguna experiencia por parte del repartidor, ya que el mismo sólo tiene que poner el paquete en la cinta transportadora.} \\
+			\hline
+			\textsc{Recursos} & 
+				\begin{itemize}
+					\item \textit{Cinta transportadora equipada con sensor de lectura de las etiquetas que se encuentra en el paquete.}
+					\item \textit{Acceso a la base de datos de paquetería de MRW.}
+				\end{itemize} \\
+			\hline
+			\textsc{Calidad y eficiencia} & \textit{Seguir unas pautas de colocación de los paquetes en la cinta transportadora para que el lector de etiquetas funcione correctamente y evite la paralización de la misma.} \\
+			\hline
+		\end{tabularx}
+	}
+	\caption{\label{tab:TM1T3}Formulario TM-1: Analisis de tarea 3 del OM-3}
+\end{table} 
+
+% Formulario TM-1 de la tarea 4
+\begin{table}[H]
+	\scriptsize
+  	\resizebox{14,2cm}{!}{
+		\begin{tabularx}{\textwidth}{|l|X|} 
+			\hline
+			\textbf{Modelo de Tareas} & \textbf{Formulario TM-1: Análisis de Tareas} \\ 
+			\hline
+			\hline
+
+			\textsc{Tarea} & \textbf{Tarea 4:} \textit{Revisión y validación de la distribución de la paquetería.} \\ 
+			\hline
+			\textsc{Organización}  & \textit{Logística.} \\ 
+			\hline
+			\textsc{Objetivo y valor} &  \textit{Es una parte obligatoria de todo el proceso.} \\ 
+			\hline
+			\textsc{Dependencia y Flujos} & 
+				\begin{enumerate}
+					\item \textbf{Tareas precedentes:} \textit{Ninguna}
+					\item \textbf{Tareas que le siguen:} \textit{Tarea 2}
+				\end{enumerate} \\
+			\hline
+			\textsc{Objetos manipulados} & 
+				\begin{enumerate}
+					\item \textbf{Objetos de entrada de la tarea:} \textit{Información de los datos de los paquetes (a través de las herramientas de lectura de códigos de barras o códigos QR), Información recibida por el sistema de gestión de paquetes de MRW (Sistema suministrado por la empresa autora de la franquicia).}
+					\item \textbf{Objetos de salida de la tarea:} \textit{información de la ruta adjudicada al paquete.}
+					\item \textbf{Objetos internos:} \textit{conocimiento de los expertos en adjudicar a que ruta pertenece el paquete.} 
+				\end{enumerate} 
+				\emph{Todos estos objetos incluyen elementos de información y conocimiento.}\\				
+			\hline
+			\textsc{Tiempo y control} & 
+				\begin{enumerate}
+					\item \textbf{Frecuencia y duración:} \textit{es una tarea que se da cuando se considera  oportuna (en función de la información y conocimiento del sistema).}
+					\item \textbf{Control:} \textit{respecto a otras  tareas, ninguna.}
+					\item \textbf{Restricciones:} \textit{Se necesita una conexión permanente con un sistema que suministra MRW para la consulta de la información de cada paquete.}
+				\end{enumerate} \\
+			\hline
+			\textsc{Agentes} & 
+				\begin{enumerate}
+					\item \textbf{Repartidor:} \textit{Coloca el paquete en la cinta transportadora}
+					\item \textbf{Sistema de gestión de paquetes de MRW:} \textit{Permite hacer una consulta en busca de la información del paquete.}
+				\end{enumerate} \\
+			\hline
+			\textsc{Conocimiento y Capacidad} & \textit{No exige ninguna experiencia por parte del repartidor, ya que el mismo sólo tiene que poner el paquete en la cinta transportadora.} \\
+			\hline
+			\textsc{Recursos} & 
+				\begin{itemize}
+					\item \textit{Cinta transportadora equipada con sensor de lectura de las etiquetas que se encuentra en el paquete.}
+					\item \textit{Acceso a la base de datos de paquetería de MRW.}
+				\end{itemize} \\
+			\hline
+			\textsc{Calidad y eficiencia} & \textit{Seguir unas pautas de colocación de los paquetes en la cinta transportadora para que el lector de etiquetas funcione correctamente y evite la paralización de la misma.} \\
+			\hline
+		\end{tabularx}
+	}
 	\caption{\label{tab:TM1T4}Formulario TM-1: Analisis de tarea 4 del OM-3}
 \end{table} 
 
