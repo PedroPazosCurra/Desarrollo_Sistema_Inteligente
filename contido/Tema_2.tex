@@ -43,7 +43,7 @@ Descripción detallada de tareas en el contexto del proceso de interés.
 			\hline
 			\textsc{Tiempo y control} & 
 				\begin{enumerate}
-					\item \textbf{Frecuencia y duración:} \textit{es una tarea que se realiza toda las veces que se da entrada de nueva paquetería con duración instantánea}
+					\item \textbf{Frecuencia y duración:} \textit{Es una tarea que se realiza toda las veces que se da entrada de nueva paquetería y la duración es instantánea}
 					\item \textbf{Control:} \textit{respecto a otras  tareas, ninguna.}
 					\item \textbf{Restricciones:} \textit{Se necesita una conexión permanente con un sistema que suministra MRW para la consulta de la información de cada paquete.}
 				\end{enumerate} \\
@@ -88,40 +88,40 @@ Descripción detallada de tareas en el contexto del proceso de interés.
 			\hline
 			\textsc{Dependencia y Flujos} & 
 				\begin{enumerate}
-					\item \textbf{Tareas precedentes:} \textit{Ninguna}
+					\item \textbf{Tareas precedentes:} \textit{Tarea 1}
 					\item \textbf{Tareas que le siguen:} \textit{Tarea 2}
 				\end{enumerate} \\
 			\hline
 			\textsc{Objetos manipulados} & 
 				\begin{enumerate}
-					\item \textbf{Objetos de entrada de la tarea:} \textit{Información de los datos de los paquetes (a través de las herramientas de lectura de códigos de barras o códigos QR), Información recibida por el sistema de gestión de paquetes de MRW (Sistema suministrado por la empresa autora de la franquicia).}
-					\item \textbf{Objetos de salida de la tarea:} \textit{información de la ruta adjudicada al paquete.}
-					\item \textbf{Objetos internos:} \textit{conocimiento de los expertos en adjudicar a que ruta pertenece el paquete.} 
+					\item \textbf{Objetos de entrada de la tarea:} \textit{Información en la etiqueta del paquete.}
+					\item \textbf{Objetos de salida de la tarea:} \textit{Información de la ruta que pertenece el paquete.}
+					\item \textbf{Objetos internos:} \textit{Hoja de Excel preparada para dejar constancia de los paquetes de cada ruta.} 
 				\end{enumerate} 
-				\emph{Todos estos objetos incluyen elementos de información y conocimiento.}\\				
+				\emph{El objeto de salida incluye elementos de conocimiento por parte del repartidor experimentado y en caso de duda, se consulta el equipo directivo.}\\				
 			\hline
 			\textsc{Tiempo y control} & 
 				\begin{enumerate}
-					\item \textbf{Frecuencia y duración:} \textit{es una tarea que se da cuando se considera  oportuna (en función de la información y conocimiento del sistema).}
-					\item \textbf{Control:} \textit{respecto a otras  tareas, ninguna.}
-					\item \textbf{Restricciones:} \textit{Se necesita una conexión permanente con un sistema que suministra MRW para la consulta de la información de cada paquete.}
+					\item \textbf{Frecuencia y duración:} \textit{Es una tarea que se realiza a la primera hora de cada jornada. La duración es de una hora y media (aproximadamente).}
+					\item \textbf{Control:} \textit{Cada paquete tiene que haber sido procesado en la tarea 1 obrigatoriamente.}
+					\item \textbf{Restricciones:} \textit{Ninguna restricción, exepto la del control.}
 				\end{enumerate} \\
 			\hline
 			\textsc{Agentes} & 
 				\begin{enumerate}
-					\item \textbf{Repartidor:} \textit{Coloca el paquete en la cinta transportadora}
-					\item \textbf{Sistema de gestión de paquetes de MRW:} \textit{Permite hacer una consulta en busca de la información del paquete.}
+					\item \textbf{Repartidor/Equipo directivo:} \textit{Va apuntando en una hoja de excel los paquetes que pertenece a su ruta.}
 				\end{enumerate} \\
 			\hline
-			\textsc{Conocimiento y Capacidad} & \textit{No exige ninguna experiencia por parte del repartidor, ya que el mismo sólo tiene que poner el paquete en la cinta transportadora.} \\
+			\textsc{Conocimiento y Capacidad} & \textit{Experiencia por parte del repartidor o en su caso, el equipo directivo.} \\
 			\hline
 			\textsc{Recursos} & 
 				\begin{itemize}
-					\item \textit{Cinta transportadora equipada con sensor de lectura de las etiquetas que se encuentra en el paquete.}
+					\item \textit{Ordenador con una hora de Excel preparada para almacenar los paquetes de cada ruta.}
 					\item \textit{Acceso a la base de datos de paquetería de MRW.}
+					\item \textit{Impresora para imprimir la lista de cada ruta.}
 				\end{itemize} \\
 			\hline
-			\textsc{Calidad y eficiencia} & \textit{Seguir unas pautas de colocación de los paquetes en la cinta transportadora para que el lector de etiquetas funcione correctamente y evite la paralización de la misma.} \\
+			\textsc{Calidad y eficiencia} & \textit{Seguir unas pautas de procesamiento de cada paquete, es decir, no olvidar de inscribir cada paquete en la hoja de excel de la ruta asignada.} \\
 			\hline
 		\end{tabularx}
 	}
