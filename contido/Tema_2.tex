@@ -89,7 +89,7 @@ Descripción detallada de tareas en el contexto del proceso de interés.
 			\textsc{Dependencia y Flujos} & 
 				\begin{enumerate}
 					\item \textbf{Tareas precedentes:} \textit{Tarea 1}
-					\item \textbf{Tareas que le siguen:} \textit{Tarea 2}
+					\item \textbf{Tareas que le siguen:} \textit{Tarea 3}
 				\end{enumerate} \\
 			\hline
 			\textsc{Objetos manipulados} & 
@@ -102,7 +102,7 @@ Descripción detallada de tareas en el contexto del proceso de interés.
 			\hline
 			\textsc{Tiempo y control} & 
 				\begin{enumerate}
-					\item \textbf{Frecuencia y duración:} \textit{Es una tarea que se realiza a la primera hora de cada jornada. La duración es de una hora y media (aproximadamente).}
+					\item \textbf{Frecuencia y duración:} \textit{Es una tarea que se realiza a la primera hora de cada jornada. La duración es de una hora (aproximadamente).}
 					\item \textbf{Control:} \textit{Cada paquete tiene que haber sido procesado en la tarea 1 obrigatoriamente.}
 					\item \textbf{Restricciones:} \textit{Ninguna restricción, exepto la del control.}
 				\end{enumerate} \\
@@ -146,40 +146,39 @@ Descripción detallada de tareas en el contexto del proceso de interés.
 			\hline
 			\textsc{Dependencia y Flujos} & 
 				\begin{enumerate}
-					\item \textbf{Tareas precedentes:} \textit{Ninguna}
-					\item \textbf{Tareas que le siguen:} \textit{Tarea 2}
+					\item \textbf{Tareas precedentes:} \textit{Tarea 2}
+					\item \textbf{Tareas que le siguen:} \textit{Tarea 4}
 				\end{enumerate} \\
 			\hline
 			\textsc{Objetos manipulados} & 
 				\begin{enumerate}
-					\item \textbf{Objetos de entrada de la tarea:} \textit{Información de los datos de los paquetes (a través de las herramientas de lectura de códigos de barras o códigos QR), Información recibida por el sistema de gestión de paquetes de MRW (Sistema suministrado por la empresa autora de la franquicia).}
-					\item \textbf{Objetos de salida de la tarea:} \textit{información de la ruta adjudicada al paquete.}
-					\item \textbf{Objetos internos:} \textit{conocimiento de los expertos en adjudicar a que ruta pertenece el paquete.} 
+					\item \textbf{Objetos de entrada de la tarea:} \textit{Lista de paquetes según la ruta asignada.}
+					\item \textbf{Objetos de salida de la tarea:} \textit{Lista ordenada de paquetes según ruta y el vehículo asignado.}
+					\item \textbf{Objetos internos:} \textit{conocimiento de los expertos en distribuir los paquetes en el vehículo disponible según el tamaño, carga y tipo de paquetería.} 
 				\end{enumerate} 
 				\emph{Todos estos objetos incluyen elementos de información y conocimiento.}\\				
 			\hline
 			\textsc{Tiempo y control} & 
 				\begin{enumerate}
-					\item \textbf{Frecuencia y duración:} \textit{es una tarea que se da cuando se considera  oportuna (en función de la información y conocimiento del sistema).}
-					\item \textbf{Control:} \textit{respecto a otras  tareas, ninguna.}
-					\item \textbf{Restricciones:} \textit{Se necesita una conexión permanente con un sistema que suministra MRW para la consulta de la información de cada paquete.}
+					\item \textbf{Frecuencia y duración:} \textit{Es una tarea que se realiza a la primera hora de cada jornada. La duración es de una hora (aproximadamente).}
+					\item \textbf{Control:} \textit{Comprobar que la lista ordenada se ha creado perfectamente y es lógico pensar que dependerá del tamaño de carga del vehículo y de la dimensiones/peso de la paquetería.}
+					\item \textbf{Restricciones:} \textit{Obrigatoriedad de la ejecucuón de las tareas 1 y 2 previamente.}
 				\end{enumerate} \\
 			\hline
 			\textsc{Agentes} & 
 				\begin{enumerate}
-					\item \textbf{Repartidor:} \textit{Coloca el paquete en la cinta transportadora}
+					\item \textbf{Repartidor/Equipo directivo:} \textit{Buscan la mejor forma de adaptar de forma óptima la carga en los vehículos de transporte.}
 					\item \textbf{Sistema de gestión de paquetes de MRW:} \textit{Permite hacer una consulta en busca de la información del paquete.}
 				\end{enumerate} \\
 			\hline
-			\textsc{Conocimiento y Capacidad} & \textit{No exige ninguna experiencia por parte del repartidor, ya que el mismo sólo tiene que poner el paquete en la cinta transportadora.} \\
+			\textsc{Conocimiento y Capacidad} & \textit{Experiencia por parte del repartidor o en su caso, el equipo directivo.} \\
 			\hline
 			\textsc{Recursos} & 
 				\begin{itemize}
-					\item \textit{Cinta transportadora equipada con sensor de lectura de las etiquetas que se encuentra en el paquete.}
-					\item \textit{Acceso a la base de datos de paquetería de MRW.}
+					\item \textit{Tiempo es el recurso primordial en esa tarea.}
 				\end{itemize} \\
 			\hline
-			\textsc{Calidad y eficiencia} & \textit{Seguir unas pautas de colocación de los paquetes en la cinta transportadora para que el lector de etiquetas funcione correctamente y evite la paralización de la misma.} \\
+			\textsc{Calidad y eficiencia} & \textit{Seguir unas pautas de colocación de los paquetes en los vehículos de transporte y la calidad se pospone para la tarea 4.} \\
 			\hline
 		\end{tabularx}
 	}
@@ -204,46 +203,44 @@ Descripción detallada de tareas en el contexto del proceso de interés.
 			\hline
 			\textsc{Dependencia y Flujos} & 
 				\begin{enumerate}
-					\item \textbf{Tareas precedentes:} \textit{Ninguna}
-					\item \textbf{Tareas que le siguen:} \textit{Tarea 2}
+					\item \textbf{Tareas precedentes:} \textit{Tarea 3}
+					\item \textbf{Tareas que le siguen:} \textit{Ninguna}
 				\end{enumerate} \\
 			\hline
 			\textsc{Objetos manipulados} & 
 				\begin{enumerate}
-					\item \textbf{Objetos de entrada de la tarea:} \textit{Información de los datos de los paquetes (a través de las herramientas de lectura de códigos de barras o códigos QR), Información recibida por el sistema de gestión de paquetes de MRW (Sistema suministrado por la empresa autora de la franquicia).}
-					\item \textbf{Objetos de salida de la tarea:} \textit{información de la ruta adjudicada al paquete.}
-					\item \textbf{Objetos internos:} \textit{conocimiento de los expertos en adjudicar a que ruta pertenece el paquete.} 
+					\item \textbf{Objetos de entrada de la tarea:} \textit{Lista ordenada de paquetes según ruta y el vehículo asignado.}
+					\item \textbf{Objetos de salida de la tarea:} \textit{Una validación de la lista ordenada de paquetes según ruta y el vehículo asignado.}
+					\item \textbf{Objetos internos:} \textit{conocimiento de los expertos en distribuir los paquetes en el vehículo disponible según el tamaño, carga y tipo de paquetería.} 
 				\end{enumerate} 
 				\emph{Todos estos objetos incluyen elementos de información y conocimiento.}\\				
 			\hline
 			\textsc{Tiempo y control} & 
 				\begin{enumerate}
-					\item \textbf{Frecuencia y duración:} \textit{es una tarea que se da cuando se considera  oportuna (en función de la información y conocimiento del sistema).}
-					\item \textbf{Control:} \textit{respecto a otras  tareas, ninguna.}
-					\item \textbf{Restricciones:} \textit{Se necesita una conexión permanente con un sistema que suministra MRW para la consulta de la información de cada paquete.}
+					\item \textbf{Frecuencia y duración:} \textit{Es una tarea que se realiza a la primera hora de cada jornada. La duración es de una hora (aproximadamente).}
+					\item \textbf{Control:} \textit{Comprobar que la lista ordenada se ha creado perfectamente y es lógico pensar que dependerá del tamaño de carga del vehículo y de la dimensiones/peso de la paquetería.}
+					\item \textbf{Restricciones:} \textit{Obrigatoriedad de la ejecucuón de las tareas 1, 2 y 3 previamente.}
 				\end{enumerate} \\
 			\hline
 			\textsc{Agentes} & 
 				\begin{enumerate}
-					\item \textbf{Repartidor:} \textit{Coloca el paquete en la cinta transportadora}
+					\item \textbf{Equipo directivo:} \textit{Buscan la mejor forma de adaptar de forma óptima la carga en los vehículos de transporte.}
 					\item \textbf{Sistema de gestión de paquetes de MRW:} \textit{Permite hacer una consulta en busca de la información del paquete.}
 				\end{enumerate} \\
 			\hline
-			\textsc{Conocimiento y Capacidad} & \textit{No exige ninguna experiencia por parte del repartidor, ya que el mismo sólo tiene que poner el paquete en la cinta transportadora.} \\
+			\textsc{Conocimiento y Capacidad} & \textit{Experiencia por parte del equipo directivo.} \\
 			\hline
 			\textsc{Recursos} & 
 				\begin{itemize}
-					\item \textit{Cinta transportadora equipada con sensor de lectura de las etiquetas que se encuentra en el paquete.}
-					\item \textit{Acceso a la base de datos de paquetería de MRW.}
+					\item \textit{Tiempo es el recurso primordial en esa tarea.}
 				\end{itemize} \\
 			\hline
-			\textsc{Calidad y eficiencia} & \textit{Seguir unas pautas de colocación de los paquetes en la cinta transportadora para que el lector de etiquetas funcione correctamente y evite la paralización de la misma.} \\
+			\textsc{Calidad y eficiencia} & \textit{Seguir unas pautas de colocación de los paquetes en los vehículos de transporte y la calidad esta basada en la decisión del equipo directivo.} \\
 			\hline
 		\end{tabularx}
 	}
 	\caption{\label{tab:TM1T4}Formulario TM-1: Analisis de tarea 4 del OM-3}
 \end{table} 
-
 \newpage
 
 \section{Formulario TM-2: análisis de los cuellos de botella del conocimiento.}
