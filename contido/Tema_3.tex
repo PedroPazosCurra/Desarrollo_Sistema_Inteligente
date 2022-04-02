@@ -59,14 +59,55 @@ La plantilla que mas se adapta a nuestro problema es la de diseño, como se mues
 
 \begin{figure}[H]
   \centering
-  \includegraphics[scale=0.45]{imaxes/PlantillaDiseno.png}
+  \includegraphics[scale=0.30]{imaxes/PlantillaConfiguracion.png}
   \caption{\label{fig:PlantillaDiseno}Ejemplo de la plantilla elegida}
 \end{figure}
 
 \begin{figure}[H]
   \centering
-  \includegraphics[scale=0.45]{imaxes/PlantillaDiseno.png}
+  \includegraphics[scale=0.30]{imaxes/PlantillaConfiguracion.png}
   \caption{\label{fig:PlantillaDiagnosticoModificada}Ejemplo de la plantilla modificada}
 \end{figure}
-TASK configuration-design;ROLES:INPUT: requirements: "requirements for the design";OUTPUT: design: "the resulting design";END TASK configuration-design;TASK-METHOD propose-and-revise;REALIZES: configuration-design;DECOMPOSITION:INFERENCES: operationalize, specify, propose, verify, critique,select, modify;ROLES:INTERMEDIATE:soft-requirements: "requirements to be used as preferences";hard-requirements: "requirements that are hard constraints";skeletal-design: "set of design elements";extension: "a single new value for a design element";violation: "constraint violated by the current design";truth-value: "boolean indicating result of the verification";action-list: "ordered list of possible repair (fix) actions";action: "a single repair action";CONTROL-STRUCTURE:operationalize(requirements -> hard-requirements+ soft-requirements);specify(requirements -> skeletal-design);WHILE NEW-SOLUTION propose(skeletal-design + design+ soft-requirements -> extension) DOdesign := extension ADD design;verify(design + hard-requirements-> truth-value + violation);IF truth-value == falseTHENcritique(violation + design -> action-list);REPEATselect(action-list -> action);modify(design + action -> design);verify(design + hard-requirements-> truth-value + violation);UNTIL truth-value == true;END REPEATEND IFEND WHILEEND TASK-METHOD propose-and-revise;
+
+\newpage
+
+\begin{lstlisting}[language=C,caption=\textbf{Plantilla de configuración}]
+  TASK configuration-design;
+    ROLES:
+      INPUT: requirements: "requirements for the design";
+      OUTPUT: design: "the resulting design";
+  END TASK configuration-design;
+  TASK-METHOD propose-and-revise;
+    REALIZES: configuration-design;
+    DECOMPOSITION:
+      INFERENCES: operationalize, specify, propose, verify, critique, select, modify;
+    ROLES:
+      INTERMEDIATE:
+        soft-requirements: "requirements to be used as preferences";
+        hard-requirements: "requirements that are hard constraints";
+        skeletal-design: "set of design elements";
+        extension: "a single new value for a design element";
+        violation: "constraint violated by the current design";
+        truth-value: "boolean indicating result of the verification";
+        action-list: "ordered list of possible repair (fix) actions";
+        action: "a single repair action";
+    CONTROL-STRUCTURE:
+      operationalize(requirements -> hard-requirements + soft-requirements);
+      specify(requirements -> skeletal-design);
+      WHILE NEW-SOLUTION propose(skeletal-design + design + soft-requirements -> extension) DO
+        design := extension ADD design;
+        verify(design + hard-requirements -> truth-value + violation);
+        IF truth-value == false
+        THEN
+          critique(violation + design -> action-list);
+          REPEAT
+            select(action-list -> action);
+            modify(design + action -> design);
+            verify(design + hard-requirements -> truth-value + violation);
+          UNTIL truth-value == true;
+          END REPEAT
+        END IF
+      END WHILE
+  END TASK-METHOD propose-and-revise;
+\end{lstlisting}
 

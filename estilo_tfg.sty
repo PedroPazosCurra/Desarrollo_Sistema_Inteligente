@@ -49,10 +49,14 @@
                  {\end{english}}
   \def\dataacceso{consultado el}
   \renewcommand{\appendixpagename}{Apéndices}
+  %\renewcommand{\lstlistingname}{Código}
+	%\renewcommand{\lstlistlistingname}{Índice de \lstlistingname s}
   \ifdefined\renomearcadros
     \message{Estilo TFG: renomeando cadros en español}
     \gappto\captionsspanish{\renewcommand{\tablename}{Tabla}}
     \gappto\captionsspanish{\renewcommand{\listtablename}{Índice de tablas}}
+    \gappto\captionsspanish{\renewcommand{\lstlistingname}{Código}}
+    \gappto\captionsspanish{\renewcommand{\lstlistlistingname}{Índice de \lstlistingname s}}
   \fi
   \def\bibconfig{bibliografia/bibconf-es}
 }
@@ -196,6 +200,10 @@
   xleftmargin=0.05\textwidth         % identación extra desde a marxe esquerda
 }
 
+% Formato de títulos de los códigos
+\DeclareCaptionFont{white}{\color{white}}
+\DeclareCaptionFormat{listing}{\colorbox{gray}{\parbox{\textwidth - 2\fboxsep}{#1#2#3}}}
+\captionsetup[lstlisting]{format=listing,labelfont=white,textfont=white,font= scriptsize}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % opcións relación de acrónimos e glosario %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
