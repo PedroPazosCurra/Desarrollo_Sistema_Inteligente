@@ -51,27 +51,27 @@ Las tareas elegidas para este modelo conceptual han sido las tareas 2, 3 y 4 del
 
 \section{Fase de especificación}
 \subsection{Justificación de la selección de la metodología}
-Para este proyecto hemos decidido utilizar la metodología ``middle-out'' con la selección de la plantilla de diseño, ya que esa plantilla nos permite diseñar la disposición de la paquetería en los vehículos de carga. 
+Para este proyecto hemos decidido utilizar la metodología ``middle-out'' con la selección de la plantilla de configuración como se muestra en la Figura \ref{fig:PlantillaConfiguracion}, ya que esa plantilla nos permite buscar una mejor distribución de la carga dentro del vehículo asignado a la ruta. 
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.30]{imaxes/PlantillaConfiguracion.png}
+  \caption{\label{fig:PlantillaConfiguracion}Ejemplo de la plantilla elegida}
+\end{figure}
 
 \subsection{Plantilla anotada}
 
-La plantilla que mas se adapta a nuestro problema es la de diseño, como se muestra en la Figura \ref{fig:PlantillaDiseno}. Con una pequeña modificación que se muestras en la Figuras \ref{fig:PlantillaDiagnosticoModificada}.
+La plantilla que mas se adapta a nuestro problema es la de configuración, como se muestra en la Figura \ref{fig:PlantillaConfiguracionAnotada}.
 
 \begin{figure}[H]
   \centering
   \includegraphics[scale=0.30]{imaxes/PlantillaConfiguracion.png}
-  \caption{\label{fig:PlantillaDiseno}Ejemplo de la plantilla elegida}
-\end{figure}
-
-\begin{figure}[H]
-  \centering
-  \includegraphics[scale=0.30]{imaxes/PlantillaConfiguracion.png}
-  \caption{\label{fig:PlantillaDiagnosticoModificada}Ejemplo de la plantilla modificada}
+  \caption{\label{fig:PlantillaConfiguracionAnotada}Ejemplo de la plantilla elegida con las anotaciones pertinentes}
 \end{figure}
 
 \newpage
 
-\begin{lstlisting}[language=C,caption=\textbf{Plantilla de configuración}]
+\begin{lstlisting}[language=C,caption=\textbf{Código de la plantilla de configuración}]
   TASK configuration-design;
     ROLES:
       INPUT: requirements: "requirements for the design";
