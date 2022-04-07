@@ -44,9 +44,80 @@ Las tareas elegidas para este modelo conceptual han sido las tareas 2, 3 y 4 del
 \end{itemize}
 
 \subsection{Descripción de escenarios}
+La empresa actualmente cuenta con tres rutas, conocidas como \textbf{Ruta A, Ruta B} y \textbf{Ruta C}, para efetuar el reparto de la zona según contracto con la central de MRW. Para cubrir esas rutas la organización tiene como recursos de reparto:
+\begin{itemize}
+  \item 3 furgonetas como se muestra en la Figura \ref{fig:FurgonetaBase}.
+  \item 1 furgoneta como se muestra en la Figura \ref{fig:FurgonetaFrio}.
+  \item 1 furgoneta como se muestra en la Figura \ref{fig:FurgonetaAnimales}.
+\end{itemize}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.50]{imaxes/FurgonetaBase.png}
+  \caption{\label{fig:FurgonetaBase}Ejemplo de la furgoneta base}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.50]{imaxes/FurgonetaFrio.png}
+  \caption{\label{fig:FurgonetaFrio}Ejemplo de la furgoneta para cargas en frio}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.50]{imaxes/FurgonetaAnimales.png}
+  \caption{\label{fig:FurgonetaAnimales}Ejemplo de la furgoneta para transportar animales}
+\end{figure}
+
+\begin{table}[H]
+  \centering
+  \resizebox{15,0cm}{!}{
+    \begin{tabular}{|c|c|c|c|}
+      \hline
+      \multicolumn{4}{|c|}{\textbf{Lista de paquetes para asignar recursos para la Ruta A}} \\
+      \hline \hline
+      
+      \multicolumn{1}{|p{1.0cm}|}{\centering \textsc{N\textordmasculine}} &\multicolumn{1}{|p{3.0cm}|}{\centering \textsc{Dimensión (cm)}} & \multicolumn{1}{|p{3.0cm}|}{\centering \textsc{Peso (kg)}} & \multicolumn{1}{|p{3.0cm}|}{\centering \textsc{Tipo de paquete}} \\
+      \hline
+
+      1 & \multicolumn{1}{|p{3.0cm}|}{\centering 30x30x30} & \multicolumn{1}{|p{3.0cm}|}{\centering 10} & \multicolumn{1}{|p{3.0cm}|}{\centering normal} \\
+      \hline
+      2 & \multicolumn{1}{|p{3.0cm}|}{\centering 200x100x40} & \multicolumn{1}{|p{3.0cm}|}{\centering 30} & \multicolumn{1}{|p{3.0cm}|}{\centering normal} \\
+      \hline
+      3 & \multicolumn{1}{|p{3.0cm}|}{\centering 100x50x40} & \multicolumn{1}{|p{3.0cm}|}{\centering 15} & \multicolumn{1}{|p{3.0cm}|}{\centering frio} \\
+      \hline
+    \end{tabular}
+  }
+	\caption{\label{tab:AsignarRecursoRutaA}Lista de paquetes asignados a la Ruta A}
+\end{table}
+
+\begin{table}[H]
+  \centering
+  \resizebox{15,0cm}{!}{
+    \begin{tabular}{|c|c|c|c|}
+      \hline
+      \multicolumn{4}{|c|}{\textbf{Lista de paquetes para asignar recursos para la Ruta B}} \\
+      \hline \hline
+      
+      \multicolumn{1}{|p{1.0cm}|}{\centering \textsc{N\textordmasculine}} &\multicolumn{1}{|p{3.0cm}|}{\centering \textsc{Dimensión (cm)}} & \multicolumn{1}{|p{3.0cm}|}{\centering \textsc{Peso (kg)}} & \multicolumn{1}{|p{3.0cm}|}{\centering \textsc{Tipo de paquete}} \\
+      \hline
+
+      1 & \multicolumn{1}{|p{3.0cm}|}{\centering 130x130x130} & \multicolumn{1}{|p{3.0cm}|}{\centering 10} & \multicolumn{1}{|p{3.0cm}|}{\centering normal} \\
+      \hline
+      
+      2 & \multicolumn{1}{|p{3.0cm}|}{\centering 200x200x200} & \multicolumn{1}{|p{3.0cm}|}{\centering 20} & \multicolumn{1}{|p{3.0cm}|}{\centering animal} \\
+      \hline
+      
+      3 & \multicolumn{1}{|p{3.0cm}|}{\centering 100x50x40} & \multicolumn{1}{|p{3.0cm}|}{\centering 15} & \multicolumn{1}{|p{3.0cm}|}{\centering frio} \\
+      \hline
+    \end{tabular}
+  }
+	\caption{\label{tab:AsignarRecursoRutaB}Lista de paquetes asignados a la Ruta B}
+\end{table}
+
 \begin{enumerate}
-	\item  \textbf{Escenario de reducción de riesgo de una orden de compra (Buy):} En la situación que se muestra en la Figura \ref{fig:Situacion1}, donde el inversor había ejecutado una orden de compra en el precio \textbf{1.18767} y ha estipulado su gestión de riesgo para el precio \textbf{1.18664} y como se observa en el gráfico de la figura comentada anteriormente, el precio esta a favor del inversor y en esa ocasión el inversor tiene que reducir el riesgo inicial de la inversión al precio \textbf{1.19516} como se muestra en la Figura \ref{fig:Situacion12}.	
-	\item  \textbf{Escenario de gestión de ganancia en una orden de compra (Buy)}: En la situación que se muestra en la Figura \ref{fig:Situacion2}, donde el inversor había ejecutado una orden de compra en el precio \textbf{1.18767} y ha estipulado su gestión de riesgo para el precio \textbf{1.18664} y como se observa en el gráfico de la figura comentada anteriormente, el precio esta a favor del inversor y el mismo decide cerrar esa operativa a precio del mercado, que en ese caso es de \textbf{1.19665}.	
+	\item  \textbf{Listado de carga para la Ruta A:} 	
+	\item  \textbf{Listado de carga para la Ruta B:} 	
 \end{enumerate}
 
 \section{Fase de especificación}
@@ -61,12 +132,12 @@ Para este proyecto hemos decidido utilizar la metodología ``middle-out'' con la
 
 \subsection{Plantilla anotada}
 
-La plantilla que mas se adapta a nuestro problema es la de configuración, como se muestra en la Figura \ref{fig:PlantillaConfiguracionAnotada}.
+La plantilla que mas se adapta a nuestro problema es la de configuración, como se muestra en la Figura \ref{fig:PlantillaConfiguracionComentada}.
 
 \begin{figure}[H]
   \centering
-  \includegraphics[scale=0.30]{imaxes/PlantillaConfiguracion.png}
-  \caption{\label{fig:PlantillaConfiguracionAnotada}Ejemplo de la plantilla elegida con las anotaciones pertinentes}
+  \includegraphics[scale=0.286, angle=90]{imaxes/PlantillaConfiguracionComentada.png}
+  \caption{\label{fig:PlantillaConfiguracionComentada}Ejemplo de la plantilla elegida con las anotaciones pertinentes}
 \end{figure}
 
 \newpage
