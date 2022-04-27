@@ -188,18 +188,18 @@ La plantilla que mas se adapta a nuestro problema es la de configuración, como 
         Lista-de-acciones: "lista ordenada de posibles acciones de reparación (fijación)";
         Acción: "una sola acción de reparación";
     CONTROL-STRUCTURE:
-      operationalize(Requisitos -> Requisitos-deseables + Requisitos-necesarios);
-      specify(Requisitos -> Diseño-Esqueletal);
-      WHILE NEW-SOLUTION propose(Diseño-Esqueletal + Diseño + Requisitos-necesarios -> Extensión) DO
-        Diseño := Extension ADD Diseño;
-        verify(Diseño + Requisitos-deseables -> Valor + Violación);
+      operacionalizar(Requisitos -> Requisitos-preferibles + Requisitos-obligatorios);
+      especificar(Requisitos -> Diseño-Esqueletal);
+      WHILE NEW-SOLUTION proponer(Diseño-Esqueletal + Diseño + Requisitos-preferibles -> Extensión) DO
+        Diseño := Extensión ADD Diseño;
+        verificar(Diseño + Requisitos-obligatorios -> Valor + Violación);
         IF Valor == false
         THEN
-          critique(Violación + Diseño -> Lista-de-acciones);
+          criticar(Violación + Diseño -> Lista-de-acciones);
           REPEAT
-            select(Lista-de-acciones -> Acción);
-            modify(Diseño + Acción -> Diseño);
-            verify(Diseño + Requisitos-deseables -> Valor + Violación);
+            seleccionar(Lista-de-acciones -> Acción);
+            modificar(Diseño + Acción -> Diseño);
+            verificar(Diseño + Requisitos-obligatorios -> Valor + Violación);
           UNTIL Valor == true;
           END REPEAT
         END IF
