@@ -167,46 +167,6 @@ La plantilla que mas se adapta a nuestro problema es la de configuración, como 
 
 \newpage
 
-\begin{lstlisting}[language=C,caption=\textbf{Código de la plantilla de configuración}]
-  TASK configuracion-diseño;
-    ROLES:
-      INPUT: Requisitos: "requisitos para el diseño";
-      OUTPUT: Diseño: "el diseño resultante";
-  END TASK configuracion-diseño;
-  TASK-METHOD proponer-y-revisar;
-    REALIZES: configuracion-diseño;
-    DECOMPOSITION:
-      INFERENCES: Trasladar, Especificar, Proponer, Verificar, Criticar, Seleccionar, Modificar;
-    ROLES:
-      INTERMEDIATE:
-        Requisitos-preferibles: "requisitos que se utilizarán como preferencias (suaves)";
-        Requisitos-obligatorios: "requisitos que son restricciones obligatorias (estrictas)";
-        Diseño-Esqueletal: "conjunto de elementos de diseño";
-        Extensión: "un único valor nuevo para un elemento de diseño";
-        Violación: "restricción violada por el diseño actual";
-        Valor: "booleano que indica el resultado de la verificación";
-        Lista-de-acciones: "lista ordenada de posibles acciones de reparación (fijación)";
-        Acción: "una sola acción de reparación";
-    CONTROL-STRUCTURE:
-      operacionalizar(Requisitos -> Requisitos-preferibles + Requisitos-obligatorios);
-      especificar(Requisitos -> Diseño-Esqueletal);
-      WHILE NEW-SOLUTION proponer(Diseño-Esqueletal + Diseño + Requisitos-preferibles -> Extensión) DO
-        Diseño := Extensión ADD Diseño;
-        verificar(Diseño + Requisitos-obligatorios -> Valor + Violación);
-        IF Valor == false
-        THEN
-          criticar(Violación + Diseño -> Lista-de-acciones);
-          REPEAT
-            seleccionar(Lista-de-acciones -> Acción);
-            modificar(Diseño + Acción -> Diseño);
-            verificar(Diseño + Requisitos-obligatorios -> Valor + Violación);
-          UNTIL Valor == true;
-          END REPEAT
-        END IF
-      END WHILE
-  END TASK-METHOD proponer-y-revisar;
-\end{lstlisting}
-
 \subsection{Esquema inicial del dominio}
 
 \subsubsection{Plantilla}
@@ -357,4 +317,125 @@ La Figura \ref{fig:DisenoModificarDiseno} muestra el mapeo de la inferencia \tex
   \centering
   \includegraphics[scale=0.35]{imaxes/DisenoModificarDiseno.png}
   \caption{\label{fig:DisenoModificarDiseno}Mapeado de \textit{Modificar} diseño desde diseño.}
+\end{figure}
+
+
+\section{Especificación y método de la tarea}
+
+\subsection{Especificación}
+
+\begin{lstlisting}[language=C,caption=\textbf{Especificación}]
+  TASK configuracion-diseño;
+    ROLES:
+      INPUT: Requisitos: "requisitos para el diseño";
+      OUTPUT: Diseño: "el diseño resultante";
+  END TASK configuracion-diseño;
+\end{lstlisting}
+
+\newpage
+\subsection{Método de la Tarea}
+
+\begin{lstlisting}[language=C,caption=\textbf{Método de la tarea}]
+  TASK-METHOD proponer-y-revisar;
+    REALIZES: configuracion-diseño;
+    DECOMPOSITION:
+      INFERENCES: Trasladar, Especificar, Proponer, Verificar, Criticar, Seleccionar, Modificar;
+    ROLES:
+      INTERMEDIATE:
+        Requisitos-preferibles: "requisitos que se utilizarán como preferencias (suaves)";
+        Requisitos-obligatorios: "requisitos que son restricciones obligatorias (estrictas)";
+        Diseño-Esqueletal: "conjunto de elementos de diseño";
+        Extensión: "un único valor nuevo para un elemento de diseño";
+        Violación: "restricción violada por el diseño actual";
+        Valor: "booleano que indica el resultado de la verificación";
+        Lista-de-acciones: "lista ordenada de posibles acciones de reparación (fijación)";
+        Acción: "una sola acción de reparación";
+    CONTROL-STRUCTURE:
+      operacionalizar(Requisitos -> Requisitos-preferibles + Requisitos-obligatorios);
+      especificar(Requisitos -> Diseño-Esqueletal);
+      WHILE NEW-SOLUTION proponer(Diseño-Esqueletal + Diseño + Requisitos-preferibles -> Extensión) DO
+        Diseño := Extensión ADD Diseño;
+        verificar(Diseño + Requisitos-obligatorios -> Valor + Violación);
+        IF Valor == false
+        THEN
+          criticar(Violación + Diseño -> Lista-de-acciones);
+          REPEAT
+            seleccionar(Lista-de-acciones -> Acción);
+            modificar(Diseño + Acción -> Diseño);
+            verificar(Diseño + Requisitos-obligatorios -> Valor + Violación);
+          UNTIL Valor == true;
+          END REPEAT
+        END IF
+      END WHILE
+  END TASK-METHOD proponer-y-revisar;
+\end{lstlisting}
+
+\subsection{Base de conocimiento}
+
+\begin{lstlisting}[language=C,caption=\textbf{Regla de abstraccion}]
+  EXPRESSIONS:
+    MercadoForex.Activo.EscenarioActivo.Resistencia.ultimoValor > max(MercadoForex.Activo.EscenarioActivo.Resistencia.historicoDatos) AND MercadoForex.Activo.EscenarioActivo.Resistencia.intentosRuptura > 3
+  Abstraemos
+    MercadoForex.Activo.EscenarioActivo.Resistencia.valorAbstraido = Fuerte
+  END KNOWLEDGE-BASE dependencia-estado;
+  
+  EXPRESSIONS:
+    MercadoForex.Activo.EscenarioActivo.Resistencia.ultimoValor > max(MercadoForex.Activo.EscenarioActivo.Resistencia.historicoDatos) AND MercadoForex.Activo.EscenarioActivo.Resistencia.intentosRuptura <= 3
+  Abstraemos
+    MercadoForex.Activo.EscenarioActivo.Resistencia.valorAbstraido = Debil
+  END KNOWLEDGE-BASE dependencia-estado;
+\end{lstlisting}
+
+
+\begin{lstlisting}[language=C,caption=\textbf{Regla de abstraccion}]
+  EXPRESSIONS:
+    MercadoForex.Activo.valorActual > MercadoForex.Activo.EscenarioActivo.Resistencia.ultimoValor AND MercadoForex.Activo.EscenarioActivo.Resistencia.valorAbstraido = Fuerte
+  CONDICIONA-A
+    Hypothesis = {Ajustar_Riesgo, CerrarOperativa, NoHacerNada}
+  END KNOWLEDGE-BASE dependencia-estado;
+    
+  EXPRESSIONS:
+    MercadoForex.Activo.valorActual > MercadoForex.Activo.EscenarioActivo.Resistencia.ultimoValor
+    AND MercadoForex.Activo.EscenarioActivo.Resistencia.valorAbstraido = Debil
+  CONDICIONA-A
+    Hypothesis = {CerrarOperativa, NoHacerNada}
+  END KNOWLEDGE-BASE dependencia-estado;
+\end{lstlisting}
+    
+\begin{lstlisting}[language=C,caption=\textbf{Regla de abstraccion}]
+  EXPRESSIONS:
+    accion = AjustarRiesgo AND MercadoForex.Activo.tipo = compra
+    RESULTA-EN
+         MercadoForex.Activo.EscenarioActivo.Tendencia = alcista
+
+  EXPRESSIONS:
+    accion = AjustarRiesgo AND MercadoForex.Activo.tipo = venta
+    RESULTA-EN
+         MercadoForex.Activo.EscenarioActivo.Tendencia = bajista
+  END KNOWLEDGE-BASE regla-especificación;
+\end{lstlisting}
+      
+\begin{lstlisting}[language=C,caption=\textbf{Regla de abstraccion}]
+  EXPRESSIONS:
+    MercadoForex.Activo.EscenarioActivo.Tendencia = alcista AND Hypothesis = AjustarRiesgo
+  RESULTA-EN:
+    AjustarRiesgo.evidencia = True
+  END KNOWLEDGE-BASE regla-especificación;
+
+  EXPRESSIONS:
+    MercadoForex.Activo.EscenarioActivo.Tendencia = bajista AND Hypothesis = AjustarRiesgo
+  RESULTA-EN:
+    AjustarRiesgo.evidencia = False
+  END KNOWLEDGE-BASE regla-especificación;
+
+\end{lstlisting}
+\newpage
+
+\subsection{Esquema completo del dominio}
+Ahora que ya tenemos avanzado en el desarrollo de nuestro sistema inteligente, podemos ver como ha ido aumentando el esquema del dominio, tanto en entidades como relaciones, que ahora contienen las relaciones lógicas con el conocimiento del dominio. En la Figura \ref{fig:DominioCompleto} muestra el esquema de dominio final.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.50]{imaxes/DiagramaInicialDominio.png}
+  \caption{\label{fig:DominioCompleto}Esquema completo del dominio}
 \end{figure}
