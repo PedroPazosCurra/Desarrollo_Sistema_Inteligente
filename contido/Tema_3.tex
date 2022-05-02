@@ -372,34 +372,33 @@ La Figura \ref{fig:DisenoModificarDiseno} muestra el mapeo de la inferencia \tex
 
 \subsection{Base de conocimiento}
 
-\begin{lstlisting}[language=C,caption=\textbf{Regla de abstraccion}]
+\begin{lstlisting}[language=C,caption=\textbf{Regla\_de\_Traslación}]
   EXPRESSIONS:
-    MercadoForex.Activo.EscenarioActivo.Resistencia.ultimoValor > max(MercadoForex.Activo.EscenarioActivo.Resistencia.historicoDatos) AND MercadoForex.Activo.EscenarioActivo.Resistencia.intentosRuptura > 3
-  Abstraemos
-    MercadoForex.Activo.EscenarioActivo.Resistencia.valorAbstraido = Fuerte
-  END KNOWLEDGE-BASE dependencia-estado;
-  
+    Requisito == Tipo_Requisito_preferible
+  RESULTA_EN:
+    Requisito_preferible
+  END KNOWLEDGE-BASE Regla-translación;
+    
   EXPRESSIONS:
-    MercadoForex.Activo.EscenarioActivo.Resistencia.ultimoValor > max(MercadoForex.Activo.EscenarioActivo.Resistencia.historicoDatos) AND MercadoForex.Activo.EscenarioActivo.Resistencia.intentosRuptura <= 3
-  Abstraemos
-    MercadoForex.Activo.EscenarioActivo.Resistencia.valorAbstraido = Debil
-  END KNOWLEDGE-BASE dependencia-estado;
+    Requisito == Tipo_Requisito_obrigatorio
+  RESULTA_EN:
+    Requisito_obligatorio
+  END KNOWLEDGE-BASE Regla_de_translación;
 \end{lstlisting}
 
 
-\begin{lstlisting}[language=C,caption=\textbf{Regla de abstraccion}]
+\begin{lstlisting}[language=C,caption=\textbf{Regla\_de\_Verificación}]
   EXPRESSIONS:
-    MercadoForex.Activo.valorActual > MercadoForex.Activo.EscenarioActivo.Resistencia.ultimoValor AND MercadoForex.Activo.EscenarioActivo.Resistencia.valorAbstraido = Fuerte
-  CONDICIONA-A
-    Hypothesis = {Ajustar_Riesgo, CerrarOperativa, NoHacerNada}
-  END KNOWLEDGE-BASE dependencia-estado;
-    
+   Reparto.Fecha == fecha_actual AND Reparto.Repartidor.Cod == 1 AND Reparto.Vehiculo.Cod == 1 AND Reparto.pesototal <= Vehiculo.peso_max AND Parametro.valor == false AND Requisitos_obligatorios == Peso
+  RESULTA EN:
+   V_peso 
+  END KNOWLEDGE-BASE Regla_de_Verificación;
+  
   EXPRESSIONS:
-    MercadoForex.Activo.valorActual > MercadoForex.Activo.EscenarioActivo.Resistencia.ultimoValor
-    AND MercadoForex.Activo.EscenarioActivo.Resistencia.valorAbstraido = Debil
-  CONDICIONA-A
-    Hypothesis = {CerrarOperativa, NoHacerNada}
-  END KNOWLEDGE-BASE dependencia-estado;
+   reparto.fecha == fecha_actual and reparto.repartidor.cod == 1 and reparto.vehiculo.cod == 1 and reparto.volumentotal <= vehiculo.volumen_carga and parametro.valor == false and requisitos_obligatorios == Volumen
+  RESULTA EN:
+   V_Volumen 
+  END KNOWLEDGE-BASE Regla_de_Verificación;
 \end{lstlisting}
     
 \begin{lstlisting}[language=C,caption=\textbf{Regla de abstraccion}]
@@ -436,6 +435,6 @@ Ahora que ya tenemos avanzado en el desarrollo de nuestro sistema inteligente, p
 
 \begin{figure}[H]
   \centering
-  \includegraphics[scale=0.50]{imaxes/DiagramaInicialDominio.png}
+  \includegraphics[scale=0.25,angle=90]{imaxes/Diagrama_Dominio_Completo.png}
   \caption{\label{fig:DominioCompleto}Esquema completo del dominio}
 \end{figure}
