@@ -389,29 +389,36 @@ La Figura \ref{fig:DisenoModificarDiseno} muestra el mapeo de la inferencia \tex
 
 \begin{lstlisting}[language=C,caption=\textbf{Regla\_de\_Verificación}]
   EXPRESSIONS:
-   Reparto.Fecha == fecha_actual AND Reparto.Repartidor.Cod == 1 AND Reparto.Vehiculo.Cod == 1 AND Reparto.pesototal <= Vehiculo.peso_max AND Parametro.valor == false AND Requisitos_obligatorios == Peso
+   (Reparto.Fecha == fecha_actual AND Reparto.Repartidor.Cod == 1 AND Reparto.Vehiculo.Cod == 1 AND Reparto.pesototal <= Vehiculo.peso_max AND Parametro.valor == false AND Requisitos_obligatorios == Peso) == true
   RESULTA EN:
-   V_peso 
+   Reparto.violacion = V_peso 
   END KNOWLEDGE-BASE Regla_de_Verificación;
   
   EXPRESSIONS:
-   reparto.fecha == fecha_actual and reparto.repartidor.cod == 1 and reparto.vehiculo.cod == 1 and reparto.volumentotal <= vehiculo.volumen_carga and parametro.valor == false and requisitos_obligatorios == Volumen
+   (reparto.fecha == fecha_actual AND reparto.repartidor.cod == 1 AND reparto.vehiculo.cod == 1 AND reparto.volumentotal <= vehiculo.volumen_carga AND parametro.valor == false AND requisitos_obligatorios == Volumen) == true
   RESULTA EN:
-   V_Volumen 
+   Reparto.violacion = V_Volumen 
+  END KNOWLEDGE-BASE Regla_de_Verificación;
+  
+  EXPRESSIONS:
+   (reparto.fecha == fecha_actual AND reparto.repartidor.cod == 1 AND reparto.vehiculo.cod == 1 AND reparto.volumentotal <= vehiculo.volumen_carga AND parametro.valor == false AND requisitos_obligatorios == Volumen) == false
+  RESULTA EN:
+   Reparto.violacion = V_noViola 
   END KNOWLEDGE-BASE Regla_de_Verificación;
 \end{lstlisting}
     
-\begin{lstlisting}[language=C,caption=\textbf{Regla de abstraccion}]
+\begin{lstlisting}[language=C,caption=\textbf{Regla\_de\_critica}]
   EXPRESSIONS:
-    accion = AjustarRiesgo AND MercadoForex.Activo.tipo = compra
-    RESULTA-EN
-         MercadoForex.Activo.EscenarioActivo.Tendencia = alcista
-
+    (reparto.fecha == fecha_actual AND reparto.repartidor.cod == 1 AND reparto.vehiculo.cod == 1 AND (Violación == V_peso OR Violación == V_volumen)) == true 
+  CONDICIONA-A:
+    Reparto.Lista_Acciones = Accion_Borrar
+  END KNOWLEDGE-BASE regla_de_critica;
+  
   EXPRESSIONS:
-    accion = AjustarRiesgo AND MercadoForex.Activo.tipo = venta
-    RESULTA-EN
-         MercadoForex.Activo.EscenarioActivo.Tendencia = bajista
-  END KNOWLEDGE-BASE regla-especificación;
+    (reparto.fecha == fecha_actual AND reparto.repartidor.cod == 1 AND reparto.vehiculo.cod == 1 AND (Violación == V_peso OR Violación == V_volumen)) == false 
+  CONDICIONA-A:
+    Reparto.Lista_Acciones = No_Hacer_Nada
+  END KNOWLEDGE-BASE regla_de_critica;
 \end{lstlisting}
       
 \begin{lstlisting}[language=C,caption=\textbf{Regla de abstraccion}]
@@ -422,8 +429,7 @@ La Figura \ref{fig:DisenoModificarDiseno} muestra el mapeo de la inferencia \tex
   END KNOWLEDGE-BASE regla-especificación;
 
   EXPRESSIONS:
-    MercadoForex.Activo.EscenarioActivo.Tendencia = bajista AND Hypothesis = AjustarRiesgo
-  RESULTA-EN:
+    MercadoForex.Activo.EscenarioActivo.Tendencia = bajista AND Hypothesis = AjustarRiesgo RESULTA-EN:
     AjustarRiesgo.evidencia = False
   END KNOWLEDGE-BASE regla-especificación;
 
