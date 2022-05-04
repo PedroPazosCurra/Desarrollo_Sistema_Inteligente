@@ -390,7 +390,9 @@ La Figura \ref{fig:DisenoModificarDiseno} muestra el mapeo de la inferencia \tex
    Reparto.violacion = V_noViola 
   END KNOWLEDGE-BASE Regla_de_Verificación;
 \end{lstlisting}
-    
+
+\newpage    
+
 \begin{lstlisting}[language=C,caption=\textbf{Regla\_de\_critica}]
   EXPRESSIONS:
     (reparto.fecha == fecha_actual AND reparto.repartidor.cod == 1 AND reparto.vehiculo.cod == 1 AND (Violación == V_peso OR Violación == V_volumen)) == true 
@@ -405,19 +407,6 @@ La Figura \ref{fig:DisenoModificarDiseno} muestra el mapeo de la inferencia \tex
   END KNOWLEDGE-BASE regla_de_critica;
 \end{lstlisting}
       
-\begin{lstlisting}[language=C,caption=\textbf{Regla de abstraccion}]
-  EXPRESSIONS:
-    MercadoForex.Activo.EscenarioActivo.Tendencia = alcista AND Hypothesis = AjustarRiesgo
-  RESULTA-EN:
-    AjustarRiesgo.evidencia = True
-  END KNOWLEDGE-BASE regla-especificación;
-
-  EXPRESSIONS:
-    MercadoForex.Activo.EscenarioActivo.Tendencia = bajista AND Hypothesis = AjustarRiesgo RESULTA-EN:
-    AjustarRiesgo.evidencia = False
-  END KNOWLEDGE-BASE regla-especificación;
-
-\end{lstlisting}
 \newpage
 
 \subsection{Esquema completo del dominio}
@@ -425,6 +414,7 @@ Ahora que ya tenemos avanzado en el desarrollo de nuestro sistema inteligente, p
 
 \begin{figure}[H]
   \centering
-  \includegraphics[scale=0.25,angle=90]{imaxes/Diagrama_Dominio_Completo.png}
+  %\includegraphics[scale=0.25,angle=90]{imaxes/Diagrama_Dominio_Completo.png}
+  \includegraphics[scale=0.20, angle=90]{imaxes/Diagrama_Dominio_Completo.png}
   \caption{\label{fig:DominioCompleto}Esquema completo del dominio}
 \end{figure}
