@@ -445,12 +445,20 @@ La empresa actualmente cuenta con tres rutas, conocidas como \textbf{Ruta A, Rut
       \hline
       \multicolumn{1}{|c}{\textbf{Dominio}} & \multicolumn{1}{|c|}{\textbf{Modelo}}& \multicolumn{1}{|c|}{\textbf{Explicación}}\\
       \hline \hline      
-      \multicolumn{1}{|p{4.0cm}|}{\centering Recibe información que el precio del EURUSD comprado en una situación anterior esta a favor del inversor además de romper una resistencia fuerte}& \multicolumn{1}{|p{10.0cm}|}{\centering \textbf{Caso:}ValorActual = 1.19665 y resistencia = 1.19200 } & \multicolumn{1}{|p{4.0cm}|}{\centering LLega una peticion con los datos del caso.}\\
+      \multicolumn{1}{|p{4.0cm}|}{\centering Nuestro sistema recibe como requisitos una lista de paquetes asignada a la ruta B con su información correspondiente. }& \multicolumn{1}{|p{10.0cm}|}{\centering REQUISITOS: Peso total = 700.0 \\ Volumen total = 10.5 \\ Requisito de peso = 80% \\ Requisito de volumen = 70% } & \multicolumn{1}{|p{4.0cm}|}{\centering Se reciben requisitos y el peso y volumen de un conjunto de paquetes que serán comparados con los requisitos para asegurar la correcta distribución de un reparto}\\
       \hline
-      \multicolumn{1}{|p{4.0cm}|}{\centering Datos obtenidos del caso}& \multicolumn{1}{|p{10.0cm}|}{\centering \textbf{Abstraído:}\\MercadoForex.Activo.EscenarioActivo.\\Resistencia.ultimoValor > (max(MercadoForex.Activo.EscenarioActivo.Resistencia.\\historicoDatos) y MercadoForex.Activo.\\EscenarioActivo.Resistencia.intentosRuptura > 3) entonces EscenarioActivo.Resistencia.valorAbstraido = Fuerte } & \multicolumn{1}{|p{4.0cm}|}{\centering Se abstrae la información acerca del tipo de resistencia a partir de los datos obtenidos}\\
+      \multicolumn{1}{|p{4.0cm}|}{\centering Los requisitos son trasladados dividiéndolos entre obligatorios y preferibles. La carga máxima debe ser el 80% del peso del vehículo y el volumen máximo debe ser el 70%. \\ }& \multicolumn{1}{|p{10.0cm}|}{\centering TRASLADAR \\ Peso total → Reparto.peso_total \\ Volumen total → Reparto.volumen_total \\ Req_Ob_Peso.peso_value = 80 \\ Req_Ob_Volumen.volumen_value = 70 \\} & \multicolumn{1}{|p{4.0cm}|}{\centering Los datos de entrada son trasladados al sistema y divididos entre requisitos obligatorios (req. peso, req. volumen) y preferibles (tipo).}\\
       \hline     
-      \multicolumn{1}{|p{4.0cm}|}{\centering se recibe la información de la resistencia y del valor del activo}& \multicolumn{1}{|p{10.0cm}|}{\centering \textbf{Cover:}\\Tenemos MercadoForex.Activo.valorActual > EscenarioActivo.Resistencia.ultimoValor y EscenarioActivo.Resistencia.valorAbstraido = Fuerte entonces Hypothesis = (CerrarOrden,NoHacerNada,AjustarRiesgo) } & \multicolumn{1}{|p{4.0cm}|}{\centering A partir de los datos de la resistencia superada se selecionan las hipotesis posibles}\\
-      \hline     
+      \multicolumn{1}{|p{4.0cm}|}{\centering Se propone un reparto que cumple los requisitos con un peso total de 700 kg y un volumen total de 10.5 m3}& \multicolumn{1}{|p{10.0cm}|}{\centering PROPONER \\ Reparto.item_reparto.paquete ; \\ Tipo = set(Frio, Animal, Normal)} & \multicolumn{1}{|p{4.0cm}|}{\centering Dados los datos, es propuesto un reparto. Se propone un paquete de forma aleatoria de la lista de reparto y un conjunto de tipos.}\\
+      \hline
+      \multicolumn{1}{|p{4.0cm}|}{\centering Se recibe un reparto para que se compruebe si cumple los requisitos obligatorios.}& \multicolumn{1}{|p{10.0cm}|}{\centering VERIFICAR: Reparto.Peso_total >= Vehiculo.Peso_Max * Requisito.Req_Ob_Peso.Peso_value/100 →  Reparto.Parametro.Valor = false;\\ devuelve V_Peso;} & \multicolumn{1}{|p{4.0cm}|}{\centering Con la información aportada, concluímos que este reparto propuesto da una violación por peso, pues 700 kg >= 80% del peso máximo del vehículo. Denegamos este reparto y devuelve la violación por peso.}\\
+      \hline  
+      \multicolumn{1}{|p{4.0cm}|}{\centering El reparto anterior tuvo una violación de peso en la fase de verificación}& \multicolumn{1}{|p{10.0cm}|}{\centering CRITICAR: (Reparto.vehiculo.violacion = V_Peso) → Lista_acciones AÑADE Accion_Borrar;} & \multicolumn{1}{|p{4.0cm}|}{\centering Debido al tipo de violación, se devuelve una lista de acciones posibles que cumplen preferentemente los requisitos preferibles y que permiten dejar de cometer la violación. En este caso, las acciones están enfocadas a eliminar elementos que disparan la violación.}\\
+      \hline  
+      \multicolumn{1}{|p{4.0cm}|}{\centering Se selecciona de la lista de acciones una acción para ejecutar sobre el reparto.}& \multicolumn{1}{|p{10.0cm}|}{\centering SELECCIONAR: Lista_Acciones → Acción_Borrar;} & \multicolumn{1}{|p{4.0cm}|}{\centering De la lista, se selecciona una acción de borrado.}\\
+      \hline  
+      \multicolumn{1}{|p{4.0cm}|}{\centering Seleccionada una acción, se aplica sobre el reparto.}& \multicolumn{1}{|p{10.0cm}|}{\centering MODIFICAR: Accion_Borrar → Reparto;} & \multicolumn{1}{|p{4.0cm}|}{\centering Se borra el elemento que ha violado los requisitos del reparto.}\\
+      \hline  
     \end{tabular}
   }
 	\caption{\label{tab:EjemploEscenario11}Desglose del funcionamiento del sistema para el escenario 1}
@@ -463,14 +471,15 @@ La empresa actualmente cuenta con tres rutas, conocidas como \textbf{Ruta A, Rut
       \hline
       \multicolumn{1}{|c}{\textbf{Dominio}} & \multicolumn{1}{|c|}{\textbf{Modelo}}& \multicolumn{1}{|c|}{\textbf{Explicación}}\\
       \hline \hline      
-      \multicolumn{1}{|p{4.0cm}|}{\centering Se reciben las hipotesis posibles}& \multicolumn{1}{|p{10.0cm}|}{\centering \textbf{Select:}\\Se selecciona aleatoriamente AjustarRiesgo\\} & \multicolumn{1}{|p{4.0cm}|}{\centering De las hipotesis se selecciona una a evaluar de forma aleatoria}\\
+      \multicolumn{1}{|p{4.0cm}|}{\centering Nuestro sistema recibe como requisitos una lista de paquetes asignada a la ruta B con su información correspondiente. }& \multicolumn{1}{|p{10.0cm}|}{\centering REQUISITOS: Peso total = 500.0 \\ Volumen total = 7.5 \\ Requisito de peso = 80% \\ Requisito de volumen = 70% } & \multicolumn{1}{|p{4.0cm}|}{\centering Se reciben requisitos y el peso y volumen de un conjunto de paquetes que serán comparados con los requisitos para asegurar la correcta distribución de un reparto}\\
+      \hline
+      \multicolumn{1}{|p{4.0cm}|}{\centering Los requisitos son trasladados dividiéndolos entre obligatorios y preferibles. La carga máxima debe ser el 80% del peso del vehículo y el volumen máximo debe ser el 70%. \\ }& \multicolumn{1}{|p{10.0cm}|}{\centering TRASLADAR \\ Peso total → Reparto.peso_total \\ Volumen total → Reparto.volumen_total \\ Req_Ob_Peso.peso_value = 80 \\ Req_Ob_Volumen.volumen_value = 70 \\} & \multicolumn{1}{|p{4.0cm}|}{\centering Los datos de entrada son trasladados al sistema y divididos entre requisitos obligatorios (req. peso, req. volumen) y preferibles (tipo).}\\
+      \hline     
+      \multicolumn{1}{|p{4.0cm}|}{\centering Se propone un reparto que cumple los requisitos con un peso total de 500 kg y un volumen total de 7.5 m3}& \multicolumn{1}{|p{10.0cm}|}{\centering PROPONER \\ Reparto.item_reparto.paquete ; \\ Tipo = set(Frio, Animal, Normal)} & \multicolumn{1}{|p{4.0cm}|}{\centering Dados los datos, es propuesto un reparto. Se propone un paquete de forma aleatoria de la lista de reparto y un conjunto de tipos.}\\
+      \hline
+      \multicolumn{1}{|p{4.0cm}|}{\centering Se recibe un reparto para que se compruebe si cumple los requisitos obligatorios.}& \multicolumn{1}{|p{10.0cm}|}{\centering VERIFICAR: Reparto.Peso_total <= Vehiculo.Peso_Max * Requisito.Req_Ob_Peso.Peso_value/100 →  Reparto.Parametro.Valor = true;\\ devuelve V_Peso;} & \multicolumn{1}{|p{4.0cm}|}{\centering Con la información aportada, concluímos que este reparto propuesto es correcto.
+Aprobamos este reparto.}\\
       \hline  
-      \multicolumn{1}{|p{4.0cm}|}{\centering Se recibe la hipotesis seleccionada}& \multicolumn{1}{|p{10.0cm}|}{\centering \textbf{Specify:}\\Se espera que la tendencia sea alcista \\} & \multicolumn{1}{|p{4.0cm}|}{\centering Se especifica el valor de una situacion, necesaria para que la hipotesis pueda llegar a ser valida}\\
-      \hline
-      \multicolumn{1}{|p{4.0cm}|}{\centering Se reciben los datos del escenario activo}& \multicolumn{1}{|p{10.0cm}|}{\centering \textbf{Obtain:}\\Tenemos: Mercado.Forex.Activo.EscenarioActivo.Tendencia = {Alcista}} & \multicolumn{1}{|p{4.0cm}|}{\centering Se obtiene el valor de la tendencia}\\
-      \hline
-      \multicolumn{1}{|p{4.0cm}|}{\centering Se reciben las hipotesis y la tendencia}& \multicolumn{1}{|p{10.0cm}|}{\centering \textbf{Verify:}\\Tenemos: Mercado.Forex.Activo.EscenarioActivo.Tendencia = {Alcista} y Hiphotesis=\{AjustarRiesgo,NoHacerNada,CerrarOrden\} entonces AjustarRiesgo.evidencia = True, NoHacerNada.evidencia = False, CerrarOrden.evidencia = False} & \multicolumn{1}{|p{4.0cm}|}{\centering Se contrastan las evidencias encontradas con todas las hipotesis}\\
-      \hline
     \end{tabular}
   }
 	\caption{\label{tab:EjemploEscenario12}Desglose del funcionamiento del sistema para el escenario 1}
