@@ -323,12 +323,11 @@ La Figura \ref{fig:DisenoModificarDiseno} muestra el mapeo de la inferencia \tex
   TASK-METHOD proponer-y-revisar;
     REALIZES: configuracion-diseño;
     DECOMPOSITION:
-      INFERENCES: Trasladar, Especificar, Proponer, Verificar, Criticar, Seleccionar, Modificar;
+      INFERENCES: Trasladar, Proponer, Verificar, Criticar, Seleccionar, Modificar;
     ROLES:
       INTERMEDIATE:
         Requisitos-preferibles: "requisitos que se utilizarán como preferencias (suaves)";
         Requisitos-obligatorios: "requisitos que son restricciones obligatorias (estrictas)";
-        Diseño-Esqueletal: "conjunto de elementos de diseño";
         Extensión: "un único valor nuevo para un elemento de diseño";
         Violación: "restricción violada por el diseño actual";
         Valor: "booleano que indica el resultado de la verificación";
@@ -336,8 +335,7 @@ La Figura \ref{fig:DisenoModificarDiseno} muestra el mapeo de la inferencia \tex
         Acción: "una sola acción de reparación";
     CONTROL-STRUCTURE:
       operacionalizar(Requisitos -> Requisitos-preferibles + Requisitos-obligatorios);
-      especificar(Requisitos -> Diseño-Esqueletal);
-      WHILE NEW-SOLUTION proponer(Diseño-Esqueletal + Diseño + Requisitos-preferibles -> Extensión) DO
+      WHILE NEW-SOLUTION proponer(Diseño + Requisitos-preferibles -> Extensión) DO
         Diseño := Extensión ADD Diseño;
         verificar(Diseño + Requisitos-obligatorios -> Valor + Violación);
         IF Valor == false
@@ -356,54 +354,67 @@ La Figura \ref{fig:DisenoModificarDiseno} muestra el mapeo de la inferencia \tex
 
 \subsection{Base de conocimiento}
 
-\begin{lstlisting}[language=C,caption=\textbf{Regla\_de\_Traslación}]
-  EXPRESSIONS:
-    Requisito == Tipo_Requisito_preferible
-  RESULTA_EN:
-    Requisito_preferible
-  END KNOWLEDGE-BASE Regla-translación;
-    
-  EXPRESSIONS:
-    Requisito == Tipo_Requisito_obrigatorio
-  RESULTA_EN:
-    Requisito_obligatorio
-  END KNOWLEDGE-BASE Regla_de_translación;
-\end{lstlisting}
-
 
 \begin{lstlisting}[language=C,caption=\textbf{Regla\_de\_Verificación}]
+
+  KNOWLEDGE-BASE Regla_de_Verificación;
+  USES:
+    dependencia_estado FROM esquema_dominio_completo; 
+    manisfestacion_reglas FROM esquema_dominio_completo;
   EXPRESSIONS:
-   (Reparto.Fecha == fecha_actual AND Reparto.Repartidor.Cod == 1 AND Reparto.Vehiculo.Cod == 1 AND Reparto.pesototal <= Vehiculo.peso_max AND Parametro.valor == false AND Requisitos_obligatorios == Peso) == true
-  RESULTA EN:
-   Reparto.violacion = V_peso 
-  END KNOWLEDGE-BASE Regla_de_Verificación;
-  
-  EXPRESSIONS:
-   (reparto.fecha == fecha_actual AND reparto.repartidor.cod == 1 AND reparto.vehiculo.cod == 1 AND reparto.volumentotal <= vehiculo.volumen_carga AND parametro.valor == false AND requisitos_obligatorios == Volumen) == true
-  RESULTA EN:
-   Reparto.violacion = V_Volumen 
-  END KNOWLEDGE-BASE Regla_de_Verificación;
-  
-  EXPRESSIONS:
-   (reparto.fecha == fecha_actual AND reparto.repartidor.cod == 1 AND reparto.vehiculo.cod == 1 AND reparto.volumentotal <= vehiculo.volumen_carga AND parametro.valor == false AND requisitos_obligatorios == Volumen) == false
-  RESULTA EN:
-   Reparto.violacion = V_noViola 
+    /* dependencia_estado */
+      SI (Reparto.Peso_total >= Vehiculo.Peso_Max * Requisito.Req_Ob_Peso.Peso_value/100) 
+      O (Reparto.volumen_total >= Vehiculo.Volumen_Carga * Requisito.Req_Ob_Volumen.Volumen_value/100) CAUSA 
+        Reparto_invalido;
+        devuelve violacion;
+    
+    /* manisfestacion_reglas */
+      SI (Reparto.Peso_total >= Vehiculo.Peso_Max * Requisito.Req_Ob_Peso.Peso_value/100) TIENE-MANIFESTACION
+        Reparto.Parametro.Valor = false;
+        devuelve V_Peso;
+      SI (Reparto.volumen_total >= Vehiculo.Volumen_Carga * Requisito.Req_Ob_Volumen.Volumen_value/100) TIENE-MANIFESTACION
+          Reparto.Parametro.Valor = false;
+        devuelve V_Volumen;
+      SI NO 
+        Reparto.Parametro.Valor = true;
+   
   END KNOWLEDGE-BASE Regla_de_Verificación;
 \end{lstlisting}
 
 \newpage    
 
 \begin{lstlisting}[language=C,caption=\textbf{Regla\_de\_critica}]
+  KNOWLEDGE-BASE regla_de_critica;
+  USES:
+    dependencia_estado FROM esquema_dominio_completo; 
+    manisfestacion_reglas FROM esquema_dominio_completo;
   EXPRESSIONS:
-    (reparto.fecha == fecha_actual AND reparto.repartidor.cod == 1 AND reparto.vehiculo.cod == 1 AND (Violación == V_peso OR Violación == V_volumen)) == true 
-  CONDICIONA-A:
-    Reparto.Lista_Acciones = Accion_Borrar
-  END KNOWLEDGE-BASE regla_de_critica;
-  
-  EXPRESSIONS:
-    (reparto.fecha == fecha_actual AND reparto.repartidor.cod == 1 AND reparto.vehiculo.cod == 1 AND (Violación == V_peso OR Violación == V_volumen)) == false 
-  CONDICIONA-A:
-    Reparto.Lista_Acciones = No_Hacer_Nada
+
+    /* dependencia_estado */
+    SI Reparto.vehiculo.violacion != null
+      Lista_acciones AÑADE Accion_Borrar;
+      devuelve Lista_acciones
+
+    SI Reparto.item.reparto.paquete.tipo != normal
+      Lista_acciones PROPONER_MOVER Reparto.item_reparto.paquete DONDE (paquete.tipo == vehiculo.tipo);
+      devuelve Lista_acciones
+
+    /* manisfestacion_reglas */
+
+    SI Reparto.vehiculo.violacion != null TIENE-MANIFESTACION
+      Reparto.Lista_acciones AÑADE Reparto.Item_reparto.Accion_Borrar;
+
+    SI Reparto.item.reparto.paquete.tipo == Frio TIENE-MANIFESTACION
+      Reparto.Lista_acciones PROPONE_VEHICULO (Reparto.Item_reparto.Accion_Añadir, frio)
+
+    SI Reparto.item.reparto.paquete.tipo == Animal TIENE-MANIFESTACION
+      Reparto.Lista_acciones PROPONE_VEHICULO (Reparto.Item_reparto.Accion_Añadir, animal)
+
+    SI Reparto.item.reparto.paquete.tipo == Normal TIENE-MANIFESTACION
+      Reparto.Lista_acciones PROPONE_VEHICULO (Reparto.Item_reparto.Accion_Añadir, normal)
+
+    devuelve Lista_acciones
+      
   END KNOWLEDGE-BASE regla_de_critica;
 \end{lstlisting}
       
