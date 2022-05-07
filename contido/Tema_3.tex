@@ -44,7 +44,7 @@ Las tareas elegidas para este modelo conceptual han sido las tareas 2, 3 y 4 del
 \end{itemize}
 
 \subsection{Descripción de escenarios}
-La empresa actualmente cuenta con tres rutas, conocidas como \textbf{Ruta A, Ruta B} y \textbf{Ruta C}, para efetuar el reparto de la zona según contracto con la central de MRW. Para cubrir esas rutas la organización tiene como recursos de reparto:
+La empresa actualmente cuenta con tres rutas, conocidas como \textbf{Ruta A, Ruta B} y \textbf{Ruta C}, para efectuar el reparto de la zona según contracto con la central de MRW. Para cubrir esas rutas la organización tiene como recursos de reparto:
 \begin{itemize}
   \item 3 furgonetas como se muestra en la Figura \ref{fig:FurgonetaBase}.
   \item 1 furgoneta como se muestra en la Figura \ref{fig:FurgonetaFrio}.
@@ -355,7 +355,7 @@ La Figura \ref{fig:DisenoModificarDiseno} muestra el mapeo de la inferencia \tex
 \subsection{Base de conocimiento}
 
 
-\begin{lstlisting}[language=C,caption=\textbf{Regla\_de\_Verificación}]
+\begin{lstlisting}[language=C,caption=\textbf{Regla\_de\_verificación}]
 
   KNOWLEDGE-BASE Regla_de_Verificación;
   USES:
@@ -429,3 +429,49 @@ Ahora que ya tenemos avanzado en el desarrollo de nuestro sistema inteligente, p
   \includegraphics[scale=0.20, angle=90]{imaxes/Diagrama_Dominio_Completo.png}
   \caption{\label{fig:DominioCompleto}Esquema completo del dominio}
 \end{figure}
+
+
+\subsection{Validación de modelo}
+
+Una vez definidos ya todos los elementos anteriores, procedemos a ver cómo se irían desarrollando los ejemplos expuestos anteriormente.
+
+\subsubsection{Escenario 1}
+La empresa actualmente cuenta con tres rutas, conocidas como \textbf{Ruta A, Ruta B} y \textbf{Ruta C}, para efectuar el reparto de la zona según contracto con la central de MRW. En las Tablas \ref{tab:EjemploEscenario11} y \ref{tab:EjemploEscenario12} muestra un desglose:
+
+\begin{table}[H]
+  \centering
+  \resizebox{15,0cm}{!}{
+    \begin{tabular}{|c|c|c|}
+      \hline
+      \multicolumn{1}{|c}{\textbf{Dominio}} & \multicolumn{1}{|c|}{\textbf{Modelo}}& \multicolumn{1}{|c|}{\textbf{Explicación}}\\
+      \hline \hline      
+      \multicolumn{1}{|p{4.0cm}|}{\centering Recibe información que el precio del EURUSD comprado en una situación anterior esta a favor del inversor además de romper una resistencia fuerte}& \multicolumn{1}{|p{10.0cm}|}{\centering \textbf{Caso:}ValorActual = 1.19665 y resistencia = 1.19200 } & \multicolumn{1}{|p{4.0cm}|}{\centering LLega una peticion con los datos del caso.}\\
+      \hline
+      \multicolumn{1}{|p{4.0cm}|}{\centering Datos obtenidos del caso}& \multicolumn{1}{|p{10.0cm}|}{\centering \textbf{Abstraído:}\\MercadoForex.Activo.EscenarioActivo.\\Resistencia.ultimoValor > (max(MercadoForex.Activo.EscenarioActivo.Resistencia.\\historicoDatos) y MercadoForex.Activo.\\EscenarioActivo.Resistencia.intentosRuptura > 3) entonces EscenarioActivo.Resistencia.valorAbstraido = Fuerte } & \multicolumn{1}{|p{4.0cm}|}{\centering Se abstrae la información acerca del tipo de resistencia a partir de los datos obtenidos}\\
+      \hline     
+      \multicolumn{1}{|p{4.0cm}|}{\centering se recibe la información de la resistencia y del valor del activo}& \multicolumn{1}{|p{10.0cm}|}{\centering \textbf{Cover:}\\Tenemos MercadoForex.Activo.valorActual > EscenarioActivo.Resistencia.ultimoValor y EscenarioActivo.Resistencia.valorAbstraido = Fuerte entonces Hypothesis = (CerrarOrden,NoHacerNada,AjustarRiesgo) } & \multicolumn{1}{|p{4.0cm}|}{\centering A partir de los datos de la resistencia superada se selecionan las hipotesis posibles}\\
+      \hline     
+    \end{tabular}
+  }
+	\caption{\label{tab:EjemploEscenario11}Desglose del funcionamiento del sistema para el escenario 1}
+\end{table}
+
+\begin{table}[H]
+  \centering
+  \resizebox{15,0cm}{!}{
+    \begin{tabular}{|c|c|c|}
+      \hline
+      \multicolumn{1}{|c}{\textbf{Dominio}} & \multicolumn{1}{|c|}{\textbf{Modelo}}& \multicolumn{1}{|c|}{\textbf{Explicación}}\\
+      \hline \hline      
+      \multicolumn{1}{|p{4.0cm}|}{\centering Se reciben las hipotesis posibles}& \multicolumn{1}{|p{10.0cm}|}{\centering \textbf{Select:}\\Se selecciona aleatoriamente AjustarRiesgo\\} & \multicolumn{1}{|p{4.0cm}|}{\centering De las hipotesis se selecciona una a evaluar de forma aleatoria}\\
+      \hline  
+      \multicolumn{1}{|p{4.0cm}|}{\centering Se recibe la hipotesis seleccionada}& \multicolumn{1}{|p{10.0cm}|}{\centering \textbf{Specify:}\\Se espera que la tendencia sea alcista \\} & \multicolumn{1}{|p{4.0cm}|}{\centering Se especifica el valor de una situacion, necesaria para que la hipotesis pueda llegar a ser valida}\\
+      \hline
+      \multicolumn{1}{|p{4.0cm}|}{\centering Se reciben los datos del escenario activo}& \multicolumn{1}{|p{10.0cm}|}{\centering \textbf{Obtain:}\\Tenemos: Mercado.Forex.Activo.EscenarioActivo.Tendencia = {Alcista}} & \multicolumn{1}{|p{4.0cm}|}{\centering Se obtiene el valor de la tendencia}\\
+      \hline
+      \multicolumn{1}{|p{4.0cm}|}{\centering Se reciben las hipotesis y la tendencia}& \multicolumn{1}{|p{10.0cm}|}{\centering \textbf{Verify:}\\Tenemos: Mercado.Forex.Activo.EscenarioActivo.Tendencia = {Alcista} y Hiphotesis=\{AjustarRiesgo,NoHacerNada,CerrarOrden\} entonces AjustarRiesgo.evidencia = True, NoHacerNada.evidencia = False, CerrarOrden.evidencia = False} & \multicolumn{1}{|p{4.0cm}|}{\centering Se contrastan las evidencias encontradas con todas las hipotesis}\\
+      \hline
+    \end{tabular}
+  }
+	\caption{\label{tab:EjemploEscenario12}Desglose del funcionamiento del sistema para el escenario 1}
+\end{table}
