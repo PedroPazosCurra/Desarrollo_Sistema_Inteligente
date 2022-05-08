@@ -84,11 +84,13 @@ La empresa actualmente cuenta con tres rutas, conocidas como \textbf{Ruta A, Rut
       \hline
       2 & \multicolumn{1}{|p{3.0cm}|}{\centering 200x100x40} & \multicolumn{1}{|p{3.0cm}|}{\centering 30} & \multicolumn{1}{|p{3.0cm}|}{\centering normal} \\
       \hline
-      3 & \multicolumn{1}{|p{3.0cm}|}{\centering 100x50x40} & \multicolumn{1}{|p{3.0cm}|}{\centering 15} & \multicolumn{1}{|p{3.0cm}|}{\centering frio} \\
+      \vdots & \multicolumn{1}{|p{3.0cm}|}{\centering \vdots} & \multicolumn{1}{|p{3.0cm}|}{\centering \vdots} & \multicolumn{1}{|p{3.0cm}|}{\centering \vdots} \\
+      \hline
+      50 & \multicolumn{1}{|p{3.0cm}|}{\centering 100x50x40} & \multicolumn{1}{|p{3.0cm}|}{\centering 15} & \multicolumn{1}{|p{3.0cm}|}{\centering frio} \\
       \hline
     \end{tabular}
   }
-	\caption{\label{tab:AsignarRecursoRutaA}Lista de paquetes asignados a la Ruta A}
+	\caption{\label{tab:AsignarRecursoRutaA}Lista de paquetes asignados a la Ruta A con peso total de 700kg}
 \end{table}
 
 \begin{table}[H]
@@ -105,14 +107,17 @@ La empresa actualmente cuenta con tres rutas, conocidas como \textbf{Ruta A, Rut
       1 & \multicolumn{1}{|p{3.0cm}|}{\centering 130x130x130} & \multicolumn{1}{|p{3.0cm}|}{\centering 10} & \multicolumn{1}{|p{3.0cm}|}{\centering normal} \\
       \hline
       
-      2 & \multicolumn{1}{|p{3.0cm}|}{\centering 200x200x200} & \multicolumn{1}{|p{3.0cm}|}{\centering 20} & \multicolumn{1}{|p{3.0cm}|}{\centering animal} \\
+      2 & \multicolumn{1}{|p{3.0cm}|}{\centering 200x200x200} & \multicolumn{1}{|p{3.0cm}|}{\centering 20} & \multicolumn{1}{|p{3.0cm}|}{\centering normal} \\
+      \hline
+
+      \vdots & \multicolumn{1}{|p{3.0cm}|}{\centering \vdots} & \multicolumn{1}{|p{3.0cm}|}{\centering \vdots} & \multicolumn{1}{|p{3.0cm}|}{\centering \vdots} \\
       \hline
       
-      3 & \multicolumn{1}{|p{3.0cm}|}{\centering 100x50x40} & \multicolumn{1}{|p{3.0cm}|}{\centering 15} & \multicolumn{1}{|p{3.0cm}|}{\centering frio} \\
+      40 & \multicolumn{1}{|p{3.0cm}|}{\centering 100x50x40} & \multicolumn{1}{|p{3.0cm}|}{\centering 15} & \multicolumn{1}{|p{3.0cm}|}{\centering normal} \\
       \hline
     \end{tabular}
   }
-	\caption{\label{tab:AsignarRecursoRutaB}Lista de paquetes asignados a la Ruta B}
+	\caption{\label{tab:AsignarRecursoRutaB}Lista de paquetes asignados a la Ruta B con peso total de 500kg}
 \end{table}
 
 \begin{table}[H]
@@ -373,7 +378,7 @@ Una vez definidos ya todos los elementos anteriores, procedemos a ver cómo se i
 
 \subsubsection{Escenario 1}
 
-La empresa actualmente cuenta con tres rutas, conocidas como \textbf{Ruta A, Ruta B} y \textbf{Ruta C}, que efectuan el reparto por zonas según el contrato con la central de MRW. Se presenta la siguiente situación, donde se tiene una lista de paquetes asignados a la Ruta B. En ese listado, aparecen dos tipos de paquetes, concretamente, paquetes normales y paquetes en fríos. El sistema tiene que asignar un vehículo apropiado para efectuar el reparto en cuestión. En la Tabla \ref{tab:EjemploEscenario11} se muestra el desglose:
+La empresa actualmente cuenta con tres rutas, conocidas como \textbf{Ruta A, Ruta B} y \textbf{Ruta C}, que efectuan el reparto por zonas según el contrato con la central de MRW. Se presenta la siguiente situación, donde se tiene una lista de paquetes asignados a la Ruta A. En ese listado, aparecen dos tipos de paquetes, concretamente, paquetes normales y paquetes en fríos. El sistema tiene que asignar un vehículo apropiado para efectuar el reparto en cuestión. En la Tabla \ref{tab:EjemploEscenario11} se muestra el desglose:
 
 \begin{table}[H]
   \centering
@@ -382,7 +387,7 @@ La empresa actualmente cuenta con tres rutas, conocidas como \textbf{Ruta A, Rut
       \hline
       \multicolumn{1}{|c}{\textbf{Dominio}} & \multicolumn{1}{|c|}{\textbf{Modelo}}& \multicolumn{1}{|c|}{\textbf{Explicación}}\\
       \hline \hline      
-      \multicolumn{1}{|p{5.0cm}|}{\centering Nuestro sistema recibe como requisitos una lista de paquetes asignada a la ruta B con su información correspondiente. }& \multicolumn{1}{|p{10.0cm}|}{\centering \textbf{REQUISITOS:} \\ Peso total = 700.0 \\ Volumen total = 10.5 \\ Requisito de peso = 80\% \\ Requisito de volumen = 70\% } & \multicolumn{1}{|p{4.0cm}|}{\centering Se reciben requisitos, el peso y el volumen de un conjunto de paquetes. Estos serán comparados con los requisitos para asegurar la correcta distribución de un reparto.}\\
+      \multicolumn{1}{|p{5.0cm}|}{\centering Nuestro sistema recibe como requisitos una lista de paquetes asignada a la ruta A con su información correspondiente. }& \multicolumn{1}{|p{10.0cm}|}{\centering \textbf{REQUISITOS:} \\ Peso total = 700.0 \\ Volumen total = 10.5 \\ Requisito de peso = 80\% \\ Requisito de volumen = 70\% } & \multicolumn{1}{|p{4.0cm}|}{\centering Se reciben requisitos, el peso y el volumen de un conjunto de paquetes. Estos serán comparados con los requisitos para asegurar la correcta distribución de un reparto.}\\
       \hline
       \multicolumn{1}{|p{5.0cm}|}{\centering Los requisitos son trasladados dividiéndolos entre obligatorios y preferibles. La carga máxima debe ser el 80\% del peso del vehículo y el volumen máximo debe ser el 70\%. \\ }& \multicolumn{1}{|p{10.0cm}|}{\centering \textbf{TRASLADAR:} \\ Peso total $\rightarrow$ Reparto.peso\_total \\ Volumen total → Reparto.volumen\_total \\ Req\_Ob\_Peso.peso\_value = 80 \\ Req\_Ob\_Volumen.volumen\_value = 70 \\} & \multicolumn{1}{|p{4.0cm}|}{\centering Los datos de entrada son trasladados al sistema y divididos entre requisitos obligatorios (req. peso, req. volumen) y preferibles (tipo).}\\
       \hline     
