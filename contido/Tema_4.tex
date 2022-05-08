@@ -1,0 +1,140 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Plantilla TFG/TFM
+% Universidad de A Coruña. Facultad de Informática
+% Realizado por: Welton Vieira dos Santos
+% Modificado: Welton Vieira dos Santos
+% Contacto: welton.dossantos@udc.es
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\chapter{Modelo de Comunicación}
+
+\section{Plan de comunicación}
+En este caso, la comunicación que se realiza es simplemente entre nuestro sistema y otros agentes para obtener dados referentes al mercado.
+
+\subsection{Diagrama de diálogo}
+
+  \begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.50]{imaxes/Comunicaciones.png}
+    \caption{\label{fig:Comunicaciones}Diagrama de dialogo}
+  \end{figure}
+  
+\subsection{informacion de control de las transacciones}
+
+  \begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.50]{imaxes/ControlTransacciones.png}
+    \caption{\label{fig:ControlTransacciones}Diagrama de estados del sistema base de transacciones}
+  \end{figure}
+  
+\subsection{Descripción de las transacciones}
+
+\begin{table}[H]
+  \scriptsize
+  \begin{tabularx}{\textwidth}{|l|X|} \hline
+    & \textbf{Formulario CM-1: Especificación de transacciones - TR1} \\
+    \hline\hline
+    {Nombre de la transacción} & Solicitar datos iniciales\\
+    \hline  
+    \textsc{Objecto de informacion} & \textsc{El SBC solicita información sobre la paquetería al sistema de gestión de MRW}\\ 
+    \hline
+    \textsc{Agentes involucrados} & \textsc{Emisor: SBC, Receptor: Sistema de gestión de MRW}\\ 
+    \hline
+    \textsc{Plan de comunicación} & \textsc{Especificado en las Figura \ref{fig:Comunicaciones} }\\ 
+    \hline
+    \textsc{Restricciones} & \textsc{El sistema de gestión debe estar en funcionamiento para realizar la solicitud}\\ 
+    \hline
+    \textsc{Especificación del intercambio} & \textsc{Tipo ASK}\\ 
+    \hline
+  \end{tabularx}
+  \caption{\label{tab:TR1}Formulario CM-1 para TR-1}
+\end{table}
+  
+
+\begin{table}[H]
+  \scriptsize
+  \begin{tabularx}{\textwidth}{|l|X|} \hline
+    & \textbf{Formulario CM-1: Especificación de transacciones - TR2} \\
+    \hline\hline
+    {Nombre de la transacción} & Recibir datos iniciales\\
+    \hline  
+    \textsc{Objecto de informacion} & \textsc{El sistema de gestión envía la información necesaria sobre paquetería al SBC}\\ 
+    \hline
+    \textsc{Agentes involucrados} & \textsc{Emisor: Sistema de gestión de MRW, Receptor: SBC}\\ 
+    \hline
+    \textsc{Plan de comunicación} & \textsc{Especificado en la Figura \ref{fig:Comunicaciones} }\\ 
+    \hline
+    \textsc{Restricciones} & \textsc{El SBC debe estar listo para su uso}\\ 
+    \hline
+    \textsc{Especificación del intercambio} & \textsc{Tipo REPLY}\\ 
+    \hline
+  \end{tabularx}
+  \caption{\label{tab:TR2}Formulario CM-1 para TR-2}
+\end{table}
+
+
+\begin{table}[H]
+  \scriptsize
+  \begin{tabularx}{\textwidth}{|l|X|} \hline
+    & \textbf{Formulario CM-1: Especificación de transacciones - TR3} \\
+    \hline\hline
+    {Nombre de la transacción} & Solicitud de la Revisión y Validación\\
+    \hline  
+    \textsc{Objecto de informacion} & \textsc{El SBC solicita la confirmación de la distribución por parte del equipo directivo}\\ 
+    \hline
+    \textsc{Agentes involucrados} & \textsc{Emisor: SBC, Receptor: Equipo Directivo.}\\ 
+    \hline
+    \textsc{Plan de comunicación} & \textsc{Especificado en la Figura \ref{fig:Comunicaciones} }\\ 
+    \hline
+    \textsc{Restricciones} & \textsc{El equipo directivo debe estar disponible para realizar la confirmación}\\ 
+    \hline
+    \textsc{Especificación del intercambio} & \textsc{Tipo ASK}\\ 
+    \hline
+  \end{tabularx}
+    \caption{\label{tab:TR3}Formulario CM-1 para TR-3}
+\end{table}
+
+\begin{table}[H]
+  \scriptsize
+  \begin{tabularx}{\textwidth}{|l|X|} \hline
+    & \textbf{Formulario CM-1: Especificación de transacciones - TR4} \\
+    \hline\hline
+    {Nombre de la transacción} & Recepción de la Revisión y Validación\\
+    \hline  
+    \textsc{Objecto de informacion} & \textsc{El equipo directivo envía la confirmación de vuelta al SBC}\\ 
+    \hline
+    \textsc{Agentes involucrados} & \textsc{Emisor: Equipo Directivo. Receptor: SBC}\\ 
+    \hline
+    \textsc{Plan de comunicación} & \textsc{Especificado en la Figura \ref{fig:Comunicaciones}}\\ 
+    \hline
+    \textsc{Restricciones} & \textsc{El equipo directivo debe estar disponible y el SBC debe estar listo para su uso}\\ 
+    \hline
+    \textsc{Especificación del intercambio} & \textsc{Tipo REPLY}\\ 
+    \hline
+  \end{tabularx}
+    \caption{\label{tab:TR4}Formulario CM-1 para TR-4}
+\end{table}
+
+\begin{table}[H]
+  \scriptsize
+  \begin{tabularx}{\textwidth}{|l|X|} \hline
+    & \textbf{Formulario CM-1: Especificación de transacciones - TR5} \\
+    \hline\hline
+    {Nombre de la transacción} & Reporte de resultados\\
+    \hline  
+    \textsc{Objecto de informacion} & \textsc{El SBC devuelve una ditribución de los paquetes para los distintos recursos}\\ 
+    \hline
+    \textsc{Agentes involucrados} & \textsc{Emisor: SBC, Receptor: Recursos (Repartidores)}\\ 
+    \hline
+    \textsc{Plan de comunicación} & \textsc{Especificado en la Figura \ref{fig:Comunicaciones}}\\ 
+    \hline
+    \textsc{Restricciones} & \textsc{-}\\ 
+    \hline
+    \textsc{Especificación del intercambio} & \textsc{Tipo REPORT}\\ 
+    \hline
+  \end{tabularx}
+    \caption{\label{tab:TR5}Fórmulario CM-1 para TR-5}
+\end{table}
+
+
