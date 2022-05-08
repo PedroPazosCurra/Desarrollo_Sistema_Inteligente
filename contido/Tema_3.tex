@@ -39,7 +39,7 @@ Las tareas elegidas para este modelo conceptual han sido las tareas 2, 3 y 4 del
 	\item \textbf{Remitente:} Persona o entidad que envía o remite a otra persona un paquete.
 	\item \textbf{Incidencia:} Circunstancia que impide una entrega.
 	\item \textbf{Plataforma:} Local de asignación de envíos.
-	\item \textbf{Envío:} Agrupación para uno o mas paquetes de un mismo destinatario.
+	\item \textbf{Envío:} Agrupación para uno o más paquetes de un mismo destinatario.
 	\item \textbf{Recogida:} Forma en la que el destinatario recoge el paquete de un remitente.
 \end{itemize}
 
@@ -139,10 +139,11 @@ La empresa actualmente cuenta con tres rutas, conocidas como \textbf{Ruta A, Rut
 	\caption{\label{tab:AsignarRecursoRutaC}Lista de paquetes asignados a la Ruta C}
 \end{table}
 
-Asignar recursos para las siguientes encenarios:
+Asignar recursos para los siguientes encenarios:
 \begin{enumerate}
 	\item  \textbf{Listado de carga para la Ruta A:} Asignar recursos para la entrega de la paquetería del listado de la Tabla \ref{tab:AsignarRecursoRutaA}.
 	\item  \textbf{Listado de carga para la Ruta B:} Asignar recursos para la entrega de la paquetería del listado de la Tabla \ref{tab:AsignarRecursoRutaB}.
+ \item \textbf{Listado de carga para la Ruta C:} Asignar recursos para la entrega de la paquetería del listado de la Tabla \ref{tab:AsignarRecursoRutaC}.
 \end{enumerate}
 
 \section{Fase de especificación}
@@ -157,7 +158,7 @@ Para este proyecto hemos decidido utilizar la metodología ``middle-out'' con la
 
 \subsection{Plantilla anotada}
 
-La plantilla que mas se adapta a nuestro problema es la de configuración, como se muestra en la Figura \ref{fig:PlantillaConfiguracionComentada}.
+La plantilla que más se adapta a nuestro problema es la de configuración, como se muestra en la Figura \ref{fig:PlantillaConfiguracionComentada}.
 
 \begin{figure}[H]
   \centering
@@ -189,7 +190,7 @@ La Figura \ref{fig:EstructuraInferencial} muestra la estructura inferencial de l
 
 \subsubsection{Mapeado}
 
-Relacción entre los roles de las inferencias de la plantilla con los conceptos de nuestro problema.
+Relación entre los roles de las inferencias de la plantilla con los conceptos de nuestro problema.
 
 La Figura \ref{fig:TrasladarPreferibles} muestra el mapeo de la inferencia \textbf{\textit{Trasladar}} a \textit{Requisitos preferibles}.
 
@@ -356,7 +357,7 @@ La Figura \ref{fig:DisenoModificarDiseno} muestra el mapeo de la inferencia \tex
 \newpage
 
 \subsection{Esquema completo del dominio}
-Ahora que ya tenemos avanzado en el desarrollo de nuestro sistema inteligente, podemos ver como ha ido aumentando el esquema del dominio, tanto en entidades como relaciones, que ahora contienen las relaciones lógicas con el conocimiento del dominio. En la Figura \ref{fig:DominioCompleto} muestra el esquema de dominio final.
+Dado el avance en el desarrollo de nuestro sistema inteligente, se puede ver cómo un claro aumento en el esquema del dominio, tanto en entidades como relaciones, que ahora contienen las relaciones lógicas con el conocimiento del dominio. En la Figura \ref{fig:DominioCompleto} muestra el esquema de dominio final.
 
 \begin{figure}[H]
   \centering
@@ -372,7 +373,7 @@ Una vez definidos ya todos los elementos anteriores, procedemos a ver cómo se i
 
 \subsubsection{Escenario 1}
 
-La empresa actualmente cuenta con tres rutas, conocidas como \textbf{Ruta A, Ruta B} y \textbf{Ruta C}, para efectuar el reparto en la zona según el contrato con la central de MRW, con la siguiente situación donde se tiene una lista de paquetes asignados a la Ruta B. En ese listado se encuentran paquetes de dos tipos, es decir, paquetes normales y paquetes en fríos. El sistema tiene que asignar un vehículo apropiado para efectuar el reparto en cuestión. En la Tabla \ref{tab:EjemploEscenario11} se muestra el desglose:
+La empresa actualmente cuenta con tres rutas, conocidas como \textbf{Ruta A, Ruta B} y \textbf{Ruta C}, que efectuan el reparto por zonas según el contrato con la central de MRW. Se presenta la siguiente situación, donde se tiene una lista de paquetes asignados a la Ruta B. En ese listado, aparecen dos tipos de paquetes, concretamente, paquetes normales y paquetes en fríos. El sistema tiene que asignar un vehículo apropiado para efectuar el reparto en cuestión. En la Tabla \ref{tab:EjemploEscenario11} se muestra el desglose:
 
 \begin{table}[H]
   \centering
@@ -381,11 +382,11 @@ La empresa actualmente cuenta con tres rutas, conocidas como \textbf{Ruta A, Rut
       \hline
       \multicolumn{1}{|c}{\textbf{Dominio}} & \multicolumn{1}{|c|}{\textbf{Modelo}}& \multicolumn{1}{|c|}{\textbf{Explicación}}\\
       \hline \hline      
-      \multicolumn{1}{|p{5.0cm}|}{\centering Nuestro sistema recibe como requisitos una lista de paquetes asignada a la ruta B con su información correspondiente. }& \multicolumn{1}{|p{10.0cm}|}{\centering \textbf{REQUISITOS:} \\ Peso total = 700.0 \\ Volumen total = 10.5 \\ Requisito de peso = 80\% \\ Requisito de volumen = 70\% } & \multicolumn{1}{|p{4.0cm}|}{\centering Se reciben requisitos y el peso y volumen de un conjunto de paquetes que serán comparados con los requisitos para asegurar la correcta distribución de un reparto.}\\
+      \multicolumn{1}{|p{5.0cm}|}{\centering Nuestro sistema recibe como requisitos una lista de paquetes asignada a la ruta B con su información correspondiente. }& \multicolumn{1}{|p{10.0cm}|}{\centering \textbf{REQUISITOS:} \\ Peso total = 700.0 \\ Volumen total = 10.5 \\ Requisito de peso = 80\% \\ Requisito de volumen = 70\% } & \multicolumn{1}{|p{4.0cm}|}{\centering Se reciben requisitos, el peso y el volumen de un conjunto de paquetes. Estos serán comparados con los requisitos para asegurar la correcta distribución de un reparto.}\\
       \hline
       \multicolumn{1}{|p{5.0cm}|}{\centering Los requisitos son trasladados dividiéndolos entre obligatorios y preferibles. La carga máxima debe ser el 80\% del peso del vehículo y el volumen máximo debe ser el 70\%. \\ }& \multicolumn{1}{|p{10.0cm}|}{\centering \textbf{TRASLADAR:} \\ Peso total $\rightarrow$ Reparto.peso\_total \\ Volumen total → Reparto.volumen\_total \\ Req\_Ob\_Peso.peso\_value = 80 \\ Req\_Ob\_Volumen.volumen\_value = 70 \\} & \multicolumn{1}{|p{4.0cm}|}{\centering Los datos de entrada son trasladados al sistema y divididos entre requisitos obligatorios (req. peso, req. volumen) y preferibles (tipo).}\\
       \hline     
-      \multicolumn{1}{|p{5.0cm}|}{\centering Se propone un reparto que cumple los requisitos con un peso total de 700 kg y un volumen total de 10.5 $m^3$}& \multicolumn{1}{|p{10.0cm}|}{\centering \textbf{PROPONER:} \\ Reparto.item\_seleccionado = SeleccionarPaquetes(Item\_paquetes) ;\\ Requisito\_preferible.Req\_pr\_tipo = Normal} & \multicolumn{1}{|p{4.0cm}|}{\centering Dados los datos, es propuesto un reparto. Se propone un paquete de forma aleatoria de la lista de reparto y un conjunto de tipos.}\\
+      \multicolumn{1}{|p{5.0cm}|}{\centering Se propone un reparto que cumple los requisitos con un peso total de 700 kg y un volumen total de 10.5 $m^3$}& \multicolumn{1}{|p{10.0cm}|}{\centering \textbf{PROPONER:} \\ Reparto.item\_seleccionado = SeleccionarPaquetes(Item\_paquetes) ;\\ Requisito\_preferible.Req\_pr\_tipo = Normal} & \multicolumn{1}{|p{4.0cm}|}{\centering Dados los datos, se propone un reparto. Se propone un paquete de forma aleatoria de la lista de reparto y un conjunto de tipos.}\\
       \hline
       \multicolumn{1}{|p{5.0cm}|}{\centering Se recibe un reparto para que se compruebe si cumple los requisitos obligatorios.}& \multicolumn{1}{|p{10.0cm}|}{\centering \textbf{VERIFICAR:} \\ Reparto.Peso\_total >= Vehiculo.Peso\_Max * Requisito.Req\_Ob\_Peso.Peso\_value/100 $\rightarrow$  Reparto.Parametro.Valor = false;\\ devuelve V\_Peso;} & \multicolumn{1}{|p{4.0cm}|}{\centering Con la información aportada, concluímos que este reparto propuesto da una violación por peso, pues 700 kg >= 80\% del peso máximo del vehículo. Denegamos este reparto y devuelve la violación por peso.}\\
       \hline  
@@ -402,7 +403,7 @@ La empresa actualmente cuenta con tres rutas, conocidas como \textbf{Ruta A, Rut
 
 \subsubsection{Escenario 2}
 
-La empresa actualmente cuenta con tres rutas, conocidas como \textbf{Ruta A, Ruta B} y \textbf{Ruta C}, para efectuar el reparto en la zona según el contrato con la central de MRW, con la siguiente situación donde se tiene una lista de paquetes asignados a la Ruta B. En ese listado se encuentran paquetes de solamente un tipo, es decir, paquetes normales. El sistema tiene que asignar un vehículo apropiado para efectuar el reparto en cuestión. En la Tabla \ref{tab:EjemploEscenario12} muestra un desglose:
+La empresa actualmente cuenta con tres rutas, conocidas como \textbf{Ruta A, Ruta B} y \textbf{Ruta C}, que efectuan el reparto por zonas según el contrato con la central de MRW. Se presenta la siguiente situación, donde se tiene una lista de paquetes asignados a la Ruta B. En ese listado, aparece un único tipos de paquetes, concretamente, paquetes normales. El sistema tiene que asignar un vehículo apropiado para efectuar el reparto en cuestión. En la Tabla \ref{tab:EjemploEscenario12} muestra un desglose:
 
 \begin{table}[H]
   \centering
