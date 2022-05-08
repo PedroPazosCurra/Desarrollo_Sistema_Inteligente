@@ -11,7 +11,7 @@
 \newpage
 \section{Fase de identificación}
 \subsection{Tareas del formulario OM-3}
-Las tareas elegidas para este modelo conceptual han sido las tareas 2, 3 y 4 del OM-3 (Tabla \ref{tab:IdentificacionOM3}), que corresponden con \textbf{Generar lista de entregas según ruta asignada}, \textbf{Determinar los recursos disponibles por la sucursal MRW para entregar según ruta} y \textbf{Revisión y validación de la distribución de la paquetería}.
+La tarea elegida para este modelo conceptual ha sido la tarea 3 del OM-3 (Tabla \ref{tab:IdentificacionOM3}), que se corresponde con \textbf{Determinar los recursos disponibles por la sucursal MRW para entregar según ruta}.
 
 \begin{table}[H]
   \centering
@@ -388,9 +388,9 @@ La empresa actualmente cuenta con tres rutas, conocidas como \textbf{Ruta A, Rut
       \hline     
       \multicolumn{1}{|p{5.0cm}|}{\centering Se propone un reparto que cumple los requisitos con un peso total de 700 kg y un volumen total de 10.5 $m^3$}& \multicolumn{1}{|p{10.0cm}|}{\centering \textbf{PROPONER:} \\ Reparto.item\_seleccionado = SeleccionarPaquetes(Item\_paquetes) ;\\ Requisito\_preferible.Req\_pr\_tipo = Normal} & \multicolumn{1}{|p{4.0cm}|}{\centering Dados los datos, se propone un reparto. Se propone un paquete de forma aleatoria de la lista de reparto y un conjunto de tipos.}\\
       \hline
-      \multicolumn{1}{|p{5.0cm}|}{\centering Se recibe un reparto para que se compruebe si cumple los requisitos obligatorios.}& \multicolumn{1}{|p{10.0cm}|}{\centering \textbf{VERIFICAR:} \\ Reparto.Peso\_total >= Vehiculo.Peso\_Max * Requisito.Req\_Ob\_Peso.Peso\_value/100 $\rightarrow$  Reparto.Parametro.Valor = false;\\ devuelve V\_Peso;} & \multicolumn{1}{|p{4.0cm}|}{\centering Con la información aportada, concluímos que este reparto propuesto da una violación por peso, pues 700 kg >= 80\% del peso máximo del vehículo. Denegamos este reparto y devuelve la violación por peso.}\\
+      \multicolumn{1}{|p{5.0cm}|}{\centering Se recibe un reparto para que se compruebe si cumple los requisitos obligatorios.}& \multicolumn{1}{|p{10.0cm}|}{\centering \textbf{VERIFICAR:} \\ Reparto.Peso\_total >= Vehiculo.Peso\_Max * Requisito.Req\_Ob\_Peso.Peso\_value/100 $\rightarrow$  Reparto.Parametro.Valor = false;\\ Vehiculo.violacion = V\_Peso;} & \multicolumn{1}{|p{4.0cm}|}{\centering Con la información aportada, concluímos que este reparto propuesto da una violación por peso, pues 700 kg >= 80\% del peso máximo del vehículo. Denegamos este reparto y devuelve la violación por peso.}\\
       \hline  
-      \multicolumn{1}{|p{5.0cm}|}{\centering El reparto anterior tuvo una violación de peso en la fase de verificación}& \multicolumn{1}{|p{10.0cm}|}{\centering \textbf{CRITICAR:} (Reparto.vehiculo.violacion = V\_Peso) $\rightarrow$ Lista\_acciones AÑADE Accion\_Borrar;} & \multicolumn{1}{|p{4.0cm}|}{\centering Debido al tipo de violación, se devuelve una lista de acciones posibles que cumplen preferentemente los requisitos preferibles y que permiten dejar de cometer la violación. En este caso, las acciones están enfocadas a eliminar elementos que disparan la violación.}\\
+      \multicolumn{1}{|p{5.0cm}|}{\centering El reparto anterior tuvo una violación de peso en la fase de verificación}& \multicolumn{1}{|p{10.0cm}|}{\centering \textbf{CRITICAR:} \\ Reparto.vehiculo.violacion = V\_Peso; \\ Reparto.Accion = Lista\_acciones;} & \multicolumn{1}{|p{4.0cm}|}{\centering Debido al tipo de violación, se devuelve una lista de acciones posibles que cumplen preferentemente los requisitos preferibles y que permiten dejar de cometer la violación. En este caso, las acciones están enfocadas a eliminar elementos que disparan la violación.}\\
       \hline  
       \multicolumn{1}{|p{5.0cm}|}{\centering Se selecciona de la lista de acciones una acción para ejecutar sobre el reparto.}& \multicolumn{1}{|p{10.0cm}|}{\centering \textbf{SELECCIONAR:} \\ Reparto.Acción = Acción\_Borrar; \\  } & \multicolumn{1}{|p{4.0cm}|}{\centering De la lista, se selecciona una acción de borrado.}\\
       \hline  
@@ -418,7 +418,7 @@ La empresa actualmente cuenta con tres rutas, conocidas como \textbf{Ruta A, Rut
       \hline     
       \multicolumn{1}{|p{5.0cm}|}{\centering Se propone un reparto que cumple los requisitos con un peso total de 500 kg y un volumen total de 7.5 $m^3$}& \multicolumn{1}{|p{10.0cm}|}{\centering \textbf{PROPONER:} \\ Reparto.item\_seleccionado = SeleccionarPaquetes(Item\_paquetes) ;\\ Requisito\_preferible.Req\_pr\_tipo = Normal} & \multicolumn{1}{|p{4.0cm}|}{\centering Dados los datos, es propuesto un reparto. Se propone un paquete de forma aleatoria de la lista de reparto y un conjunto de tipos.}\\
       \hline
-      \multicolumn{1}{|p{5.0cm}|}{\centering Se recibe un reparto para que se compruebe si cumple los requisitos obligatorios.}& \multicolumn{1}{|p{10.0cm}|}{\centering \textbf{VERIFICAR:} \\ Reparto.Peso\_total <= Vehiculo.Peso\_Max * Requisito.Req\_Ob\_Peso.Peso\_value/100 $\rightarrow$  Reparto.Parametro.Valor = true;\\ devuelve V\_Peso;} & \multicolumn{1}{|p{4.0cm}|}{\centering Con la información aportada, concluímos que este reparto propuesto es correcto. Aprobamos este reparto.}\\
+      \multicolumn{1}{|p{5.0cm}|}{\centering Se recibe un reparto para que se compruebe si cumple los requisitos obligatorios.}& \multicolumn{1}{|p{10.0cm}|}{\centering \textbf{VERIFICAR:} \\ Reparto.Peso\_total <= Vehiculo.Peso\_Max * Requisito.Req\_Ob\_Peso.Peso\_value/100 $\rightarrow$  Reparto.Parametro.Valor = true;} & \multicolumn{1}{|p{4.0cm}|}{\centering Con la información aportada, concluímos que este reparto propuesto es correcto. Aprobamos este reparto.}\\
       \hline  
     \end{tabular}
   }
@@ -446,10 +446,10 @@ La empresa actualmente cuenta con tres rutas, conocidas como \textbf{Ruta A, Rut
     /* manisfestacion_reglas */
       SI (Reparto.Peso_total >= Vehiculo.Peso_Max * Requisito.Req_Ob_Peso.Peso_value/100) TIENE-MANIFESTACION
         Reparto.Parametro.Valor = false;
-        devuelve V_Peso;
+        Vehiculo.Violacion = V_Peso;
       SI (Reparto.volumen_total >= Vehiculo.Volumen_Carga * Requisito.Req_Ob_Volumen.Volumen_value/100) TIENE-MANIFESTACION
           Reparto.Parametro.Valor = false;
-        devuelve V_Volumen;
+        Vehiculo.Violacion = V_Volumen;
       SI NO 
         Reparto.Parametro.Valor = true;
    
@@ -467,28 +467,30 @@ La empresa actualmente cuenta con tres rutas, conocidas como \textbf{Ruta A, Rut
 
     /* dependencia_estado */
     SI Reparto.vehiculo.violacion != null
-      Lista_acciones AÑADE Accion_Borrar;
-      devuelve Lista_acciones
+      Reparto.Accion = Accion_Borrar
 
-    SI Reparto.item.reparto.paquete.tipo != normal
-      Lista_acciones PROPONER_MOVER Reparto.item_reparto.paquete DONDE (paquete.tipo == vehiculo.tipo);
-      devuelve Lista_acciones
+    SI Reparto.item_seleccionado.tipo == normal
+      Reparto.Accion = Accion_Mover_Normal;
+      
+    SI Reparto.item_seleccionado.tipo == frio
+      Reparto.Accion = Accion_Mover_Frio;
+
+    SI Reparto.item_seleccionado.tipo == animal
+      Reparto.Accion = Accion_Mover_Animal;
 
     /* manisfestacion_reglas */
 
     SI Reparto.vehiculo.violacion != null TIENE-MANIFESTACION
-      Reparto.Lista_acciones AÑADE Reparto.Item_reparto.Accion_Borrar;
+      Reparto.Accion = Reparto.Item_reparto.Accion_Borrar;
 
-    SI Reparto.item.reparto.paquete.tipo == Frio TIENE-MANIFESTACION
-      Reparto.Lista_acciones PROPONE_VEHICULO (Reparto.Item_reparto.Accion_Añadir, frio)
+    SI Reparto.item_seleccionado.tipo == Frio TIENE-MANIFESTACION
+      Reparto.Accion = Accion_Mover_Frio;
 
-    SI Reparto.item.reparto.paquete.tipo == Animal TIENE-MANIFESTACION
-      Reparto.Lista_acciones PROPONE_VEHICULO (Reparto.Item_reparto.Accion_Añadir, animal)
+    SI Reparto.item_seleccionado.tipo == Animal TIENE-MANIFESTACION
+      Reparto.Accion = Accion_Mover_Animal;
 
-    SI Reparto.item.reparto.paquete.tipo == Normal TIENE-MANIFESTACION
-      Reparto.Lista_acciones PROPONE_VEHICULO (Reparto.Item_reparto.Accion_Añadir, normal)
-
-    devuelve Lista_acciones
+    SI Reparto.item_seleccionado.tipo == Normal TIENE-MANIFESTACION
+      Reparto.Accion = Accion_Mover_Normal;
       
   END KNOWLEDGE-BASE regla_de_critica;
 \end{lstlisting}
