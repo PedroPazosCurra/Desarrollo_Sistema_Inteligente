@@ -425,7 +425,6 @@ Ahora que ya tenemos avanzado en el desarrollo de nuestro sistema inteligente, p
 
 \begin{figure}[H]
   \centering
-  %\includegraphics[scale=0.25,angle=90]{imaxes/Diagrama_Dominio_Completo.png}
   \includegraphics[scale=0.20, angle=90]{imaxes/Diagrama_Dominio_Completo.png}
   \caption{\label{fig:DominioCompleto}Esquema completo del dominio}
 \end{figure}
@@ -436,7 +435,8 @@ Ahora que ya tenemos avanzado en el desarrollo de nuestro sistema inteligente, p
 Una vez definidos ya todos los elementos anteriores, procedemos a ver cómo se irían desarrollando los ejemplos expuestos anteriormente.
 
 \subsubsection{Escenario 1}
-La empresa actualmente cuenta con tres rutas, conocidas como \textbf{Ruta A, Ruta B} y \textbf{Ruta C}, para efectuar el reparto de la zona según contracto con la central de MRW. En las Tablas \ref{tab:EjemploEscenario11} y \ref{tab:EjemploEscenario12} muestra un desglose:
+
+La empresa actualmente cuenta con tres rutas, conocidas como \textbf{Ruta A, Ruta B} y \textbf{Ruta C}, para efectuar el reparto en la zona según el contrato con la central de MRW, con la siguiente situación donde se tiene una lista de paquetes asignados a la Ruta B. En ese listado se encuentran paquetes de dos tipos, es decir, paquetes normales y paquetes en fríos. El sistema tiene que asignar un vehículo apropiado para efectuar el reparto en cuestión. En la Tabla \ref{tab:EjemploEscenario11} se muestra el desglose:
 
 \begin{table}[H]
   \centering
@@ -445,25 +445,29 @@ La empresa actualmente cuenta con tres rutas, conocidas como \textbf{Ruta A, Rut
       \hline
       \multicolumn{1}{|c}{\textbf{Dominio}} & \multicolumn{1}{|c|}{\textbf{Modelo}}& \multicolumn{1}{|c|}{\textbf{Explicación}}\\
       \hline \hline      
-      \multicolumn{1}{|p{4.0cm}|}{\centering Nuestro sistema recibe como requisitos una lista de paquetes asignada a la ruta B con su información correspondiente. }& \multicolumn{1}{|p{10.0cm}|}{\centering REQUISITOS: Peso total = 700.0 \\ Volumen total = 10.5 \\ Requisito de peso = 80% \\ Requisito de volumen = 70% } & \multicolumn{1}{|p{4.0cm}|}{\centering Se reciben requisitos y el peso y volumen de un conjunto de paquetes que serán comparados con los requisitos para asegurar la correcta distribución de un reparto}\\
+      \multicolumn{1}{|p{5.0cm}|}{\centering Nuestro sistema recibe como requisitos una lista de paquetes asignada a la ruta B con su información correspondiente. }& \multicolumn{1}{|p{10.0cm}|}{\centering \textbf{REQUISITOS:} \\ Peso total = 700.0 \\ Volumen total = 10.5 \\ Requisito de peso = 80\% \\ Requisito de volumen = 70\% } & \multicolumn{1}{|p{4.0cm}|}{\centering Se reciben requisitos y el peso y volumen de un conjunto de paquetes que serán comparados con los requisitos para asegurar la correcta distribución de un reparto.}\\
       \hline
-      \multicolumn{1}{|p{4.0cm}|}{\centering Los requisitos son trasladados dividiéndolos entre obligatorios y preferibles. La carga máxima debe ser el 80% del peso del vehículo y el volumen máximo debe ser el 70%. \\ }& \multicolumn{1}{|p{10.0cm}|}{\centering TRASLADAR \\ Peso total → Reparto.peso_total \\ Volumen total → Reparto.volumen_total \\ Req_Ob_Peso.peso_value = 80 \\ Req_Ob_Volumen.volumen_value = 70 \\} & \multicolumn{1}{|p{4.0cm}|}{\centering Los datos de entrada son trasladados al sistema y divididos entre requisitos obligatorios (req. peso, req. volumen) y preferibles (tipo).}\\
+      \multicolumn{1}{|p{5.0cm}|}{\centering Los requisitos son trasladados dividiéndolos entre obligatorios y preferibles. La carga máxima debe ser el 80\% del peso del vehículo y el volumen máximo debe ser el 70\%. \\ }& \multicolumn{1}{|p{10.0cm}|}{\centering \textbf{TRASLADAR:} \\ Peso total $\rightarrow$ Reparto.peso\_total \\ Volumen total → Reparto.volumen\_total \\ Req\_Ob\_Peso.peso\_value = 80 \\ Req\_Ob\_Volumen.volumen\_value = 70 \\} & \multicolumn{1}{|p{4.0cm}|}{\centering Los datos de entrada son trasladados al sistema y divididos entre requisitos obligatorios (req. peso, req. volumen) y preferibles (tipo).}\\
       \hline     
-      \multicolumn{1}{|p{4.0cm}|}{\centering Se propone un reparto que cumple los requisitos con un peso total de 700 kg y un volumen total de 10.5 m3}& \multicolumn{1}{|p{10.0cm}|}{\centering PROPONER \\ Reparto.item_reparto.paquete ; \\ Tipo = set(Frio, Animal, Normal)} & \multicolumn{1}{|p{4.0cm}|}{\centering Dados los datos, es propuesto un reparto. Se propone un paquete de forma aleatoria de la lista de reparto y un conjunto de tipos.}\\
+      \multicolumn{1}{|p{5.0cm}|}{\centering Se propone un reparto que cumple los requisitos con un peso total de 700 kg y un volumen total de 10.5 m3}& \multicolumn{1}{|p{10.0cm}|}{\centering \textbf{PROPONER:} \\ Reparto.item\_reparto.paquete ; \\ Tipo = set(Frio, Animal, Normal)} & \multicolumn{1}{|p{4.0cm}|}{\centering Dados los datos, es propuesto un reparto. Se propone un paquete de forma aleatoria de la lista de reparto y un conjunto de tipos.}\\
       \hline
-      \multicolumn{1}{|p{4.0cm}|}{\centering Se recibe un reparto para que se compruebe si cumple los requisitos obligatorios.}& \multicolumn{1}{|p{10.0cm}|}{\centering VERIFICAR: Reparto.Peso_total >= Vehiculo.Peso_Max * Requisito.Req_Ob_Peso.Peso_value/100 →  Reparto.Parametro.Valor = false;\\ devuelve V_Peso;} & \multicolumn{1}{|p{4.0cm}|}{\centering Con la información aportada, concluímos que este reparto propuesto da una violación por peso, pues 700 kg >= 80% del peso máximo del vehículo. Denegamos este reparto y devuelve la violación por peso.}\\
+      \multicolumn{1}{|p{5.0cm}|}{\centering Se recibe un reparto para que se compruebe si cumple los requisitos obligatorios.}& \multicolumn{1}{|p{10.0cm}|}{\centering \textbf{VERIFICAR:} \\ Reparto.Peso\_total >= Vehiculo.Peso\_Max * Requisito.Req\_Ob\_Peso.Peso\_value/100 $\rightarrow$  Reparto.Parametro.Valor = false;\\ devuelve V\_Peso;} & \multicolumn{1}{|p{4.0cm}|}{\centering Con la información aportada, concluímos que este reparto propuesto da una violación por peso, pues 700 kg >= 80\% del peso máximo del vehículo. Denegamos este reparto y devuelve la violación por peso.}\\
       \hline  
-      \multicolumn{1}{|p{4.0cm}|}{\centering El reparto anterior tuvo una violación de peso en la fase de verificación}& \multicolumn{1}{|p{10.0cm}|}{\centering CRITICAR: (Reparto.vehiculo.violacion = V_Peso) → Lista_acciones AÑADE Accion_Borrar;} & \multicolumn{1}{|p{4.0cm}|}{\centering Debido al tipo de violación, se devuelve una lista de acciones posibles que cumplen preferentemente los requisitos preferibles y que permiten dejar de cometer la violación. En este caso, las acciones están enfocadas a eliminar elementos que disparan la violación.}\\
+      \multicolumn{1}{|p{5.0cm}|}{\centering El reparto anterior tuvo una violación de peso en la fase de verificación}& \multicolumn{1}{|p{10.0cm}|}{\centering \textbf{CRITICAR:} (Reparto.vehiculo.violacion = V\_Peso) $\rightarrow$ Lista\_acciones AÑADE Accion\_Borrar;} & \multicolumn{1}{|p{4.0cm}|}{\centering Debido al tipo de violación, se devuelve una lista de acciones posibles que cumplen preferentemente los requisitos preferibles y que permiten dejar de cometer la violación. En este caso, las acciones están enfocadas a eliminar elementos que disparan la violación.}\\
       \hline  
-      \multicolumn{1}{|p{4.0cm}|}{\centering Se selecciona de la lista de acciones una acción para ejecutar sobre el reparto.}& \multicolumn{1}{|p{10.0cm}|}{\centering SELECCIONAR: Lista_Acciones → Acción_Borrar;} & \multicolumn{1}{|p{4.0cm}|}{\centering De la lista, se selecciona una acción de borrado.}\\
+      \multicolumn{1}{|p{5.0cm}|}{\centering Se selecciona de la lista de acciones una acción para ejecutar sobre el reparto.}& \multicolumn{1}{|p{10.0cm}|}{\centering \textbf{SELECCIONAR:} \\ Lista\_Acciones $\rightarrow$ Acción\_Borrar;} & \multicolumn{1}{|p{4.0cm}|}{\centering De la lista, se selecciona una acción de borrado.}\\
       \hline  
-      \multicolumn{1}{|p{4.0cm}|}{\centering Seleccionada una acción, se aplica sobre el reparto.}& \multicolumn{1}{|p{10.0cm}|}{\centering MODIFICAR: Accion_Borrar → Reparto;} & \multicolumn{1}{|p{4.0cm}|}{\centering Se borra el elemento que ha violado los requisitos del reparto.}\\
+      \multicolumn{1}{|p{5.0cm}|}{\centering Seleccionada una acción, se aplica sobre el reparto.}& \multicolumn{1}{|p{10.0cm}|}{\centering \textbf{MODIFICAR:}: Accion\_Borrar $\rightarrow$ Reparto;} & \multicolumn{1}{|p{4.0cm}|}{\centering Se borra el elemento que ha violado los requisitos del reparto.}\\
       \hline  
     \end{tabular}
   }
 	\caption{\label{tab:EjemploEscenario11}Desglose del funcionamiento del sistema para el escenario 1}
 \end{table}
 
+\subsubsection{Escenario 2}
+
+La empresa actualmente cuenta con tres rutas, conocidas como \textbf{Ruta A, Ruta B} y \textbf{Ruta C}, para efectuar el reparto en la zona según el contrato con la central de MRW, con la siguiente situación donde se tiene una lista de paquetes asignados a la Ruta B. En ese listado se encuentran paquetes de solamente un tipo, es decir, paquetes normales. El sistema tiene que asignar un vehículo apropiado para efectuar el reparto en cuestión. En la Tabla \ref{tab:EjemploEscenario12} muestra un desglose:
+
 \begin{table}[H]
   \centering
   \resizebox{15,0cm}{!}{
@@ -471,16 +475,15 @@ La empresa actualmente cuenta con tres rutas, conocidas como \textbf{Ruta A, Rut
       \hline
       \multicolumn{1}{|c}{\textbf{Dominio}} & \multicolumn{1}{|c|}{\textbf{Modelo}}& \multicolumn{1}{|c|}{\textbf{Explicación}}\\
       \hline \hline      
-      \multicolumn{1}{|p{4.0cm}|}{\centering Nuestro sistema recibe como requisitos una lista de paquetes asignada a la ruta B con su información correspondiente. }& \multicolumn{1}{|p{10.0cm}|}{\centering REQUISITOS: Peso total = 500.0 \\ Volumen total = 7.5 \\ Requisito de peso = 80% \\ Requisito de volumen = 70% } & \multicolumn{1}{|p{4.0cm}|}{\centering Se reciben requisitos y el peso y volumen de un conjunto de paquetes que serán comparados con los requisitos para asegurar la correcta distribución de un reparto}\\
+      \multicolumn{1}{|p{5.0cm}|}{\centering Nuestro sistema recibe como requisitos una lista de paquetes asignada a la ruta B con su información correspondiente. }& \multicolumn{1}{|p{10.0cm}|}{\centering \textbf{REQUISITOS:} Peso total = 500.0 \\ Volumen total = 7.5 \\ Requisito de peso = 80\% \\ Requisito de volumen = 70\% } & \multicolumn{1}{|p{4.0cm}|}{\centering Se reciben requisitos y el peso y volumen de un conjunto de paquetes que serán comparados con los requisitos para asegurar la correcta distribución de un reparto}\\
       \hline
-      \multicolumn{1}{|p{4.0cm}|}{\centering Los requisitos son trasladados dividiéndolos entre obligatorios y preferibles. La carga máxima debe ser el 80% del peso del vehículo y el volumen máximo debe ser el 70%. \\ }& \multicolumn{1}{|p{10.0cm}|}{\centering TRASLADAR \\ Peso total → Reparto.peso_total \\ Volumen total → Reparto.volumen_total \\ Req_Ob_Peso.peso_value = 80 \\ Req_Ob_Volumen.volumen_value = 70 \\} & \multicolumn{1}{|p{4.0cm}|}{\centering Los datos de entrada son trasladados al sistema y divididos entre requisitos obligatorios (req. peso, req. volumen) y preferibles (tipo).}\\
+      \multicolumn{1}{|p{5.0cm}|}{\centering Los requisitos son trasladados dividiéndolos entre obligatorios y preferibles. La carga máxima debe ser el 80\% del peso del vehículo y el volumen máximo debe ser el 70\%. \\ }& \multicolumn{1}{|p{10.0cm}|}{\centering \textbf{TRASLADAR:} \\ Peso total $\rightarrow$ Reparto.peso\_total \\ Volumen total $\rightarrow$ Reparto.volumen\_total \\ Req\_Ob\_Peso.peso\_value = 80 \\ Req\_Ob\_Volumen.volumen\_value = 70 \\} & \multicolumn{1}{|p{4.0cm}|}{\centering Los datos de entrada son trasladados al sistema y divididos entre requisitos obligatorios (req. peso, req. volumen) y preferibles (tipo).}\\
       \hline     
-      \multicolumn{1}{|p{4.0cm}|}{\centering Se propone un reparto que cumple los requisitos con un peso total de 500 kg y un volumen total de 7.5 m3}& \multicolumn{1}{|p{10.0cm}|}{\centering PROPONER \\ Reparto.item_reparto.paquete ; \\ Tipo = set(Frio, Animal, Normal)} & \multicolumn{1}{|p{4.0cm}|}{\centering Dados los datos, es propuesto un reparto. Se propone un paquete de forma aleatoria de la lista de reparto y un conjunto de tipos.}\\
+      \multicolumn{1}{|p{5.0cm}|}{\centering Se propone un reparto que cumple los requisitos con un peso total de 500 kg y un volumen total de 7.5 m3}& \multicolumn{1}{|p{10.0cm}|}{\centering \textbf{PROPONER:} \\ Reparto.item\_reparto.paquete ; \\ Tipo = set(Frio, Animal, Normal)} & \multicolumn{1}{|p{4.0cm}|}{\centering Dados los datos, es propuesto un reparto. Se propone un paquete de forma aleatoria de la lista de reparto y un conjunto de tipos.}\\
       \hline
-      \multicolumn{1}{|p{4.0cm}|}{\centering Se recibe un reparto para que se compruebe si cumple los requisitos obligatorios.}& \multicolumn{1}{|p{10.0cm}|}{\centering VERIFICAR: Reparto.Peso_total <= Vehiculo.Peso_Max * Requisito.Req_Ob_Peso.Peso_value/100 →  Reparto.Parametro.Valor = true;\\ devuelve V_Peso;} & \multicolumn{1}{|p{4.0cm}|}{\centering Con la información aportada, concluímos que este reparto propuesto es correcto.
-Aprobamos este reparto.}\\
+      \multicolumn{1}{|p{5.0cm}|}{\centering Se recibe un reparto para que se compruebe si cumple los requisitos obligatorios.}& \multicolumn{1}{|p{10.0cm}|}{\centering \textbf{VERIFICAR:} \\ Reparto.Peso\_total <= Vehiculo.Peso\_Max * Requisito.Req\_Ob\_Peso.Peso\_value/100 $\rightarrow$  Reparto.Parametro.Valor = true;\\ devuelve V\_Peso;} & \multicolumn{1}{|p{4.0cm}|}{\centering Con la información aportada, concluímos que este reparto propuesto es correcto. Aprobamos este reparto.}\\
       \hline  
     \end{tabular}
   }
-	\caption{\label{tab:EjemploEscenario12}Desglose del funcionamiento del sistema para el escenario 1}
+	\caption{\label{tab:EjemploEscenario12}Desglose del funcionamiento del sistema para el escenario 2}
 \end{table}
