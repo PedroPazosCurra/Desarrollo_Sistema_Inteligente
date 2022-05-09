@@ -1,0 +1,489 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Plantilla TFG/TFM
+% Universidad de A Coruña. Facultad de Informática
+% Realizado por: Welton Vieira dos Santos
+% Modificado: Welton Vieira dos Santos
+% Contacto: welton.dossantos@udc.es
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\chapter{Modelo de conocimiento}
+\newpage
+\section{Fase de identificación}
+\subsection{Tareas del formulario OM-3}
+La tarea elegida para este modelo conceptual ha sido la tarea 3 del OM-3 (Tabla \ref{tab:IdentificacionOM3}), que se corresponde con \textbf{Determinar los recursos disponibles por la sucursal MRW para entregar según ruta}.
+
+\begin{table}[H]
+  \centering
+  \resizebox{15,0cm}{!}{
+    \begin{tabular}{|c|c|c|c|c|c|c|}
+      \hline
+      \multicolumn{3}{|c}{\textbf{Modelo de Organización}} & \multicolumn{4}{|c|}{\textbf{Formulario OM-3: Descomposición de los Procesos}}\\
+      \hline \hline
+      
+      \multicolumn{1}{|p{1.0cm}|}{\centering \textsc{N\textordmasculine}} &\multicolumn{1}{|p{3.0cm}|}{\centering \textsc{Tarea}} & \multicolumn{1}{|p{3.0cm}|}{\centering \textsc{Realiza\-da por}} & \multicolumn{1}{|p{3.0cm}|}{\centering \textsc{¿Dónde?}} & \multicolumn{1}{|p{3.0cm}|}{\centering \textsc{Recursos de Conocimiento}} & \multicolumn{1}{|p{3.0cm}|}{\centering \textsc {¿In\-ten\-si\-va en Conocimiento?}} & \multicolumn{1}{|p{3.0cm}|}{\centering \textsc{Im\-por\-tan\-cia}} \\
+      \hline
+
+      3 & \multicolumn{1}{|p{3.0cm}|}{\centering Determinar los recursos disponibles por la sucursal MRW para entregar según ruta} & \multicolumn{1}{|p{3.0cm}|}{\centering Equipo Directivo, Repartidor experimentado} & \multicolumn{1}{|p{3.0cm}|}{\centering En la nave de la sucursal de MRW} & \multicolumn{1}{|p{3.0cm}|}{\centering Experiencia en distribución de recursos. Utilizar teoria de programación dinámica} & Sí (elevado) & Máxima \\
+      \hline
+    \end{tabular}
+  }
+	\caption{\label{tab:IdentificacionOM3}Tarea elegida para el modelo de conocimiento}
+\end{table}
+
+\subsection{Glosario de términos}
+\begin{itemize}
+	\item \textbf{Paquete:} Envoltorio que contiene cualquier tipo de objeto. Se utiliza tambien para indicar los sobres.
+	\item \textbf{Ruta:} Camino conformado por un número determinado de nodos (paradas) con un principio y un final que se cubre con un vehículo de reparto.  
+	\item \textbf{Destinatario:} Persona o entidad que recibe un paquete.
+	\item \textbf{Remitente:} Persona o entidad que envía o remite a otra persona un paquete.
+	\item \textbf{Incidencia:} Circunstancia que impide una entrega.
+	\item \textbf{Plataforma:} Local de asignación de envíos.
+	\item \textbf{Envío:} Agrupación para uno o más paquetes de un mismo destinatario.
+	\item \textbf{Recogida:} Forma en la que el destinatario recoge el paquete de un remitente.
+\end{itemize}
+
+\subsection{Descripción de escenarios}
+La empresa actualmente cuenta con tres rutas, conocidas como \textbf{Ruta A, Ruta B} y \textbf{Ruta C}, para efectuar el reparto de la zona según contracto con la central de MRW. Para cubrir esas rutas la organización tiene como recursos de reparto:
+\begin{itemize}
+  \item 3 furgonetas como se muestra en la Figura \ref{fig:FurgonetaBase}.
+  \item 1 furgoneta como se muestra en la Figura \ref{fig:FurgonetaFrio}.
+  \item 1 furgoneta como se muestra en la Figura \ref{fig:FurgonetaAnimales}.
+\end{itemize}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.50]{imaxes/FurgonetaBase.png}
+  \caption{\label{fig:FurgonetaBase}Ejemplo de la furgoneta base}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.50]{imaxes/FurgonetaFrio.png}
+  \caption{\label{fig:FurgonetaFrio}Ejemplo de la furgoneta para cargas en frio}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.50]{imaxes/FurgonetaAnimales.png}
+  \caption{\label{fig:FurgonetaAnimales}Ejemplo de la furgoneta para transportar animales}
+\end{figure}
+
+\begin{table}[H]
+  \centering
+  \resizebox{15,0cm}{!}{
+    \begin{tabular}{|c|c|c|c|}
+      \hline
+      \multicolumn{4}{|c|}{\textbf{Lista de paquetes para asignar recursos para la Ruta A}} \\
+      \hline \hline
+      
+      \multicolumn{1}{|p{1.0cm}|}{\centering \textsc{N\textordmasculine}} &\multicolumn{1}{|p{3.0cm}|}{\centering \textsc{Dimensión (cm)}} & \multicolumn{1}{|p{3.0cm}|}{\centering \textsc{Peso (kg)}} & \multicolumn{1}{|p{3.0cm}|}{\centering \textsc{Tipo de paquete}} \\
+      \hline
+
+      1 & \multicolumn{1}{|p{3.0cm}|}{\centering 30x30x30} & \multicolumn{1}{|p{3.0cm}|}{\centering 10} & \multicolumn{1}{|p{3.0cm}|}{\centering normal} \\
+      \hline
+      2 & \multicolumn{1}{|p{3.0cm}|}{\centering 200x100x40} & \multicolumn{1}{|p{3.0cm}|}{\centering 30} & \multicolumn{1}{|p{3.0cm}|}{\centering normal} \\
+      \hline
+      \vdots & \multicolumn{1}{|p{3.0cm}|}{\centering \vdots} & \multicolumn{1}{|p{3.0cm}|}{\centering \vdots} & \multicolumn{1}{|p{3.0cm}|}{\centering \vdots} \\
+      \hline
+      50 & \multicolumn{1}{|p{3.0cm}|}{\centering 100x50x40} & \multicolumn{1}{|p{3.0cm}|}{\centering 15} & \multicolumn{1}{|p{3.0cm}|}{\centering frio} \\
+      \hline
+    \end{tabular}
+  }
+	\caption{\label{tab:AsignarRecursoRutaA}Lista de paquetes asignados a la Ruta A con peso total de 700kg}
+\end{table}
+
+\begin{table}[H]
+  \centering
+  \resizebox{15,0cm}{!}{
+    \begin{tabular}{|c|c|c|c|}
+      \hline
+      \multicolumn{4}{|c|}{\textbf{Lista de paquetes para asignar recursos para la Ruta B}} \\
+      \hline \hline
+      
+      \multicolumn{1}{|p{1.0cm}|}{\centering \textsc{N\textordmasculine}} &\multicolumn{1}{|p{3.0cm}|}{\centering \textsc{Dimensión (cm)}} & \multicolumn{1}{|p{3.0cm}|}{\centering \textsc{Peso (kg)}} & \multicolumn{1}{|p{3.0cm}|}{\centering \textsc{Tipo de paquete}} \\
+      \hline
+
+      1 & \multicolumn{1}{|p{3.0cm}|}{\centering 130x130x130} & \multicolumn{1}{|p{3.0cm}|}{\centering 10} & \multicolumn{1}{|p{3.0cm}|}{\centering normal} \\
+      \hline
+      
+      2 & \multicolumn{1}{|p{3.0cm}|}{\centering 200x200x200} & \multicolumn{1}{|p{3.0cm}|}{\centering 20} & \multicolumn{1}{|p{3.0cm}|}{\centering normal} \\
+      \hline
+
+      \vdots & \multicolumn{1}{|p{3.0cm}|}{\centering \vdots} & \multicolumn{1}{|p{3.0cm}|}{\centering \vdots} & \multicolumn{1}{|p{3.0cm}|}{\centering \vdots} \\
+      \hline
+      
+      40 & \multicolumn{1}{|p{3.0cm}|}{\centering 100x50x40} & \multicolumn{1}{|p{3.0cm}|}{\centering 15} & \multicolumn{1}{|p{3.0cm}|}{\centering normal} \\
+      \hline
+    \end{tabular}
+  }
+	\caption{\label{tab:AsignarRecursoRutaB}Lista de paquetes asignados a la Ruta B con peso total de 500kg}
+\end{table}
+
+\begin{table}[H]
+  \centering
+  \resizebox{15,0cm}{!}{
+    \begin{tabular}{|c|c|c|c|}
+      \hline
+      \multicolumn{4}{|c|}{\textbf{Lista de paquetes para asignar recursos para la Ruta C}} \\
+      \hline \hline
+      
+      \multicolumn{1}{|p{1.0cm}|}{\centering \textsc{N\textordmasculine}} &\multicolumn{1}{|p{3.0cm}|}{\centering \textsc{Dimensión (cm)}} & \multicolumn{1}{|p{3.0cm}|}{\centering \textsc{Peso (kg)}} & \multicolumn{1}{|p{3.0cm}|}{\centering \textsc{Tipo de paquete}} \\
+      \hline
+
+      1 & \multicolumn{1}{|p{3.0cm}|}{\centering 130x130x130} & \multicolumn{1}{|p{3.0cm}|}{\centering 10} & \multicolumn{1}{|p{3.0cm}|}{\centering normal} \\
+      \hline
+      
+      2 & \multicolumn{1}{|p{3.0cm}|}{\centering 200x200x200} & \multicolumn{1}{|p{3.0cm}|}{\centering 20} & \multicolumn{1}{|p{3.0cm}|}{\centering animal} \\
+      \hline
+      
+      3 & \multicolumn{1}{|p{3.0cm}|}{\centering 100x50x40} & \multicolumn{1}{|p{3.0cm}|}{\centering 15} & \multicolumn{1}{|p{3.0cm}|}{\centering frio} \\
+      \hline
+    \end{tabular}
+  }
+	\caption{\label{tab:AsignarRecursoRutaC}Lista de paquetes asignados a la Ruta C}
+\end{table}
+
+Asignar recursos para los siguientes encenarios:
+\begin{enumerate}
+	\item  \textbf{Listado de carga para la Ruta A:} Asignar recursos para la entrega de la paquetería del listado de la Tabla \ref{tab:AsignarRecursoRutaA}.
+	\item  \textbf{Listado de carga para la Ruta B:} Asignar recursos para la entrega de la paquetería del listado de la Tabla \ref{tab:AsignarRecursoRutaB}.
+ \item \textbf{Listado de carga para la Ruta C:} Asignar recursos para la entrega de la paquetería del listado de la Tabla \ref{tab:AsignarRecursoRutaC}.
+\end{enumerate}
+
+\section{Fase de especificación}
+\subsection{Justificación de la selección de la metodología}
+Para este proyecto hemos decidido utilizar la metodología ``middle-out'' con la selección de la plantilla de configuración como se muestra en la Figura \ref{fig:PlantillaConfiguracion}, ya que esa plantilla nos permite buscar una mejor distribución de la carga dentro del vehículo asignado a la ruta. 
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.30]{imaxes/PlantillaConfiguracion.png}
+  \caption{\label{fig:PlantillaConfiguracion}Ejemplo de la plantilla elegida}
+\end{figure}
+
+\subsection{Plantilla anotada}
+
+La plantilla que más se adapta a nuestro problema es la de configuración, como se muestra en la Figura \ref{fig:PlantillaConfiguracionComentada}.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.25]{imaxes/PlantillaConfiguracionComentada.png}
+  \caption{\label{fig:PlantillaConfiguracionComentada}Ejemplo de la plantilla elegida con las anotaciones pertinentes}
+\end{figure}
+
+\newpage
+
+\subsection{Esquema inicial del dominio}
+
+\subsubsection{Plantilla}
+La Figura \ref{fig:DiagramaInicialDominio} muestra el diagrama inicial del dominio.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.50]{imaxes/DiagramaInicialDominio.png}
+  \caption{\label{fig:DiagramaInicialDominio}Diagrama inicial del dominio}
+\end{figure}
+
+\subsection{Estructura inferencial y Mapeo}
+
+La Figura \ref{fig:EstructuraInferencial} muestra la estructura inferencial de la plantilla elegida.
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.30]{imaxes/PlantillaInferencial.png}
+  \caption{\label{fig:EstructuraInferencial}Estructura inferencial de la plantilla elegida}
+\end{figure}
+
+\subsubsection{Mapeado}
+
+Relación entre los roles de las inferencias de la plantilla con los conceptos de nuestro problema.
+
+La Figura \ref{fig:TrasladarPreferibles} muestra el mapeo de la inferencia \textbf{\textit{Trasladar}} a \textit{Requisitos preferibles}.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.35]{imaxes/TrasladarPreferibles.png}
+  \caption{\label{fig:TrasladarPreferibles}Mapeado de \textit{Trasladar} a \textit{Requisitos preferibles}.}
+\end{figure}
+
+La Figura \ref{fig:TrasladarObligatorios} muestra el mapeo de la inferencia \textbf{\textit{Trasladar}} a \textit{Requisitos obligatorios}.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.35]{imaxes/TrasladarObligatorios.png}
+  \caption{\label{fig:TrasladarObligatorios}Mapeado de \textit{Trasladar} a \textit{Requisitos obligatorios}.}
+\end{figure}
+
+La Figura \ref{fig:PreferiblesProponerExtension} muestra el mapeo de la inferencia \textbf{Proponer} elementos preferibles.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.35]{imaxes/PreferiblesProponerExtension.png}
+  \caption{\label{fig:PreferiblesProponerExtension}Mapeado de \textit{proponer} elementos preferibles.}
+\end{figure}
+
+La Figura \ref{fig:DisenoProponerExtension} muestra el mapeo de la inferencia \textbf{Proponer} diseño actual o modificado.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.35]{imaxes/DisenoProponerExtension.png}
+  \caption{\label{fig:DisenoProponerExtension}Mapeado de \textit{Proponer} diseño actual o modificado.}
+\end{figure}
+
+La Figura \ref{fig:DisenoVerificarValor} muestra el mapeo de la inferencia \textbf{Verificar} diseño actual o modificado.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.35]{imaxes/DisenoVerificarValor.png}
+  \caption{\label{fig:DisenoVerificarValor}Mapeado de \textit{Verificar} diseño actual o modificado.}
+\end{figure}
+
+La Figura \ref{fig:RequisitosObligatoriosVerificarValor} muestra el mapeo de la inferencia \textbf{Verificar} requisitos obligatorios de diseño.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.35]{imaxes/RequisitosObligatoriosVerificarValor.png}
+  \caption{\label{fig:RequisitosObligatoriosVerificarValor}Mapeado de \textit{Verificar} diseño elemental.}
+\end{figure}
+
+La Figura \ref{fig:DisenoVerificarViolacion} muestra el mapeo de la inferencia \textbf{Verificar} la violación de un elemento de diseño.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.35]{imaxes/DisenoVerificarViolacion.png}
+  \caption{\label{fig:DisenoVerificarViolacion}Mapeado de \textit{Verificar} la violación de un elemento de diseño.}
+\end{figure}
+
+La Figura \ref{fig:ExtensionVerificarViolacion} muestra el mapeo de la inferencia \textbf{Verificar} la violación de un nuevo elemento de diseño.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.35]{imaxes/ExtensionVerificarViolacion.png}
+  \caption{\label{fig:ExtensionVerificarViolacion}Mapeado de \textit{Verificar} la violación de un nuevo elemento de diseño.}
+\end{figure}
+
+La Figura \ref{fig:RequisitosObligatoriosVerificarViolacion} muestra el mapeo de la inferencia \textbf{Verificar} la violación de requisitos obligatorios.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.35]{imaxes/RequisitosObligatoriosVerificarViolacion.png}
+  \caption{\label{fig:RequisitosObligatoriosVerificarViolacion}Mapeado de \textit{Verificar} la violación de requisitos obligatorios.}
+\end{figure}
+
+La Figura \ref{fig:DisenoCriticarListaAciones} muestra el mapeo de la inferencia \textbf{Criticar} el diseño.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.35]{imaxes/DisenoCriticarListaAciones.png}
+  \caption{\label{fig:DisenoCriticarListaAciones}Mapeado de \textit{Criticar} el diseño.}
+\end{figure}
+
+La Figura \ref{fig:ViolacionCriticarListaAciones} muestra el mapeo de la inferencia \textbf{Criticar} la violación del diseño.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.35]{imaxes/ViolacionCriticarListaAciones.png}
+  \caption{\label{fig:ViolacionCriticarListaAciones}Mapeado de \textit{Criticar} la violación del diseño.}
+\end{figure}
+
+La Figura \ref{fig:ListaAccionesSeleccionarAccion} muestra el mapeo de la inferencia \textbf{Seleccionar} acción de la lista de acciones.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.35]{imaxes/ListaAccionesSeleccionarAccion.png}
+  \caption{\label{fig:ListaAccionesSeleccionarAccion}Mapeado de \textit{Seleccionar} accion de la lista de acciones.}
+\end{figure}
+
+La Figura \ref{fig:AccionModificaDiseno} muestra el mapeo de la inferencia \textbf{Modificar} diseño.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.35]{imaxes/AccionModificaDiseno.png}
+  \caption{\label{fig:AccionModificaDiseno}Mapeado de \textit{Modificar} diseño.}
+\end{figure}
+
+La Figura \ref{fig:DisenoModificarDiseno} muestra el mapeo de la inferencia \textbf{Modificar} diseño desde diseño.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.35]{imaxes/DisenoModificarDiseno.png}
+  \caption{\label{fig:DisenoModificarDiseno}Mapeado de \textit{Modificar} diseño desde diseño.}
+\end{figure}
+
+
+\section{Especificación y método de la tarea}
+
+\subsection{Especificación}
+
+\begin{lstlisting}[language=C,caption=\textbf{Especificación}]
+  TASK configuracion-diseño;
+    ROLES:
+      INPUT: Requisitos: "requisitos para el diseño";
+      OUTPUT: Diseño: "el diseño resultante";
+  END TASK configuracion-diseño;
+\end{lstlisting}
+
+\newpage
+\subsection{Método de la Tarea}
+
+\begin{lstlisting}[language=C,caption=\textbf{Método de la tarea}]
+  TASK-METHOD proponer-y-revisar;
+    REALIZES: configuracion-diseño;
+    DECOMPOSITION:
+      INFERENCES: Trasladar, Proponer, Verificar, Criticar, Seleccionar, Modificar;
+    ROLES:
+      INTERMEDIATE:
+        Requisitos-preferibles: "requisitos que se utilizarán como preferencias (suaves)";
+        Requisitos-obligatorios: "requisitos que son restricciones obligatorias (estrictas)";
+        Extensión: "un único valor nuevo para un elemento de diseño";
+        Violación: "restricción violada por el diseño actual";
+        Valor: "booleano que indica el resultado de la verificación";
+        Lista-de-acciones: "lista ordenada de posibles acciones de reparación (fijación)";
+        Acción: "una sola acción de reparación";
+    CONTROL-STRUCTURE:
+      operacionalizar(Requisitos -> Requisitos-preferibles + Requisitos-obligatorios);
+      WHILE NEW-SOLUTION proponer(Diseño + Requisitos-preferibles -> Extensión) DO
+        Diseño := Extensión ADD Diseño;
+        verificar(Diseño + Requisitos-obligatorios -> Valor + Violación);
+        IF Valor == false
+        THEN
+          criticar(Violación + Diseño -> Lista-de-acciones);
+          REPEAT
+            seleccionar(Lista-de-acciones -> Acción);
+            modificar(Diseño + Acción -> Diseño);
+            verificar(Diseño + Requisitos-obligatorios -> Valor + Violación);
+          UNTIL Valor == true;
+          END REPEAT
+        END IF
+      END WHILE
+  END TASK-METHOD proponer-y-revisar;
+\end{lstlisting}
+
+      
+\newpage
+
+\subsection{Esquema completo del dominio}
+Dado el avance en el desarrollo de nuestro sistema inteligente, se puede ver cómo un claro aumento en el esquema del dominio, tanto en entidades como relaciones, que ahora contienen las relaciones lógicas con el conocimiento del dominio. En la Figura \ref{fig:DominioCompleto} muestra el esquema de dominio final.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.20, angle=90]{imaxes/Diagrama_Dominio_Completo.png}
+  \caption{\label{fig:DominioCompleto}Esquema completo del dominio}
+\end{figure}
+
+\section{Fase de Refinamiento}
+
+\subsection{Validación de modelo}
+
+Una vez definidos ya todos los elementos anteriores, procedemos a ver cómo se irían desarrollando los ejemplos expuestos anteriormente.
+
+\subsubsection{Escenario 1}
+
+La empresa actualmente cuenta con tres rutas, conocidas como \textbf{Ruta A, Ruta B} y \textbf{Ruta C}, que efectuan el reparto por zonas según el contrato con la central de MRW. Se presenta la siguiente situación, donde se tiene una lista de paquetes asignados a la Ruta A. En ese listado, aparecen dos tipos de paquetes, concretamente, paquetes normales y paquetes en fríos. El sistema tiene que asignar un vehículo apropiado para efectuar el reparto en cuestión. En la Tabla \ref{tab:EjemploEscenario11} se muestra el desglose:
+
+\begin{table}[H]
+  \centering
+  \resizebox{15,0cm}{!}{
+    \begin{tabular}{|c|c|c|}
+      \hline
+      \multicolumn{1}{|c}{\textbf{Dominio}} & \multicolumn{1}{|c|}{\textbf{Modelo}}& \multicolumn{1}{|c|}{\textbf{Explicación}}\\
+      \hline \hline      
+      \multicolumn{1}{|p{5.0cm}|}{\centering Nuestro sistema recibe como requisitos una lista de paquetes asignada a la ruta A con su información correspondiente. }& \multicolumn{1}{|p{10.0cm}|}{\centering \textbf{REQUISITOS:} \\ Peso total = 700.0 \\ Volumen total = 10.5 \\ Requisito de peso = 80\% \\ Requisito de volumen = 70\% } & \multicolumn{1}{|p{4.0cm}|}{\centering Se reciben requisitos, el peso y el volumen de un conjunto de paquetes. Estos serán comparados con los requisitos para asegurar la correcta distribución de un reparto.}\\
+      \hline
+      \multicolumn{1}{|p{5.0cm}|}{\centering Los requisitos son trasladados dividiéndolos entre obligatorios y preferibles. La carga máxima debe ser el 80\% del peso del vehículo y el volumen máximo debe ser el 70\%. \\ }& \multicolumn{1}{|p{10.0cm}|}{\centering \textbf{TRASLADAR:} \\ Peso total $\rightarrow$ Reparto.peso\_total \\ Volumen total → Reparto.volumen\_total \\ Req\_Ob\_Peso.peso\_value = 80 \\ Req\_Ob\_Volumen.volumen\_value = 70 \\} & \multicolumn{1}{|p{4.0cm}|}{\centering Los datos de entrada son trasladados al sistema y divididos entre requisitos obligatorios (req. peso, req. volumen) y preferibles (tipo).}\\
+      \hline     
+      \multicolumn{1}{|p{5.0cm}|}{\centering Se propone un reparto que cumple los requisitos con un peso total de 700 kg y un volumen total de 10.5 $m^3$}& \multicolumn{1}{|p{10.0cm}|}{\centering \textbf{PROPONER:} \\ Reparto.item\_seleccionado = SeleccionarPaquetes(Req\_pr\_tipo.Normal) ;} & \multicolumn{1}{|p{4.0cm}|}{\centering Dados los datos, se propone un reparto. Se propone un paquete de forma aleatoria de la lista de reparto y un conjunto de tipos.}\\
+      \hline
+      \multicolumn{1}{|p{5.0cm}|}{\centering Se recibe un reparto para que se compruebe si cumple los requisitos obligatorios.}& \multicolumn{1}{|p{10.0cm}|}{\centering \textbf{VERIFICAR:} \\ Reparto.Peso\_total >= Vehiculo.Peso\_Max * Requisito.Req\_Ob\_Peso.Peso\_value/100 $\rightarrow$  Reparto.Parametro.Valor = false;\\ Vehiculo.violacion = V\_Peso;} & \multicolumn{1}{|p{4.0cm}|}{\centering Con la información aportada, concluímos que este reparto propuesto da una violación por peso, pues 700 kg >= 80\% del peso máximo del vehículo. Denegamos este reparto y devuelve la violación por peso.}\\
+      \hline  
+      \multicolumn{1}{|p{5.0cm}|}{\centering El reparto anterior tuvo una violación de peso en la fase de verificación}& \multicolumn{1}{|p{10.0cm}|}{\centering \textbf{CRITICAR:} \\ Reparto.vehiculo.violacion == V\_Peso; \\ disponibilidad\_vehiculos == true $\rightarrow$ \\  new(Accion\_Mover) ;} & \multicolumn{1}{|p{4.0cm}|}{\centering Debido al tipo de violación, se devuelve una lista de acciones posibles que cumplen preferentemente los requisitos preferibles y que permiten dejar de cometer la violación.}\\
+      \hline  
+      \multicolumn{1}{|p{5.0cm}|}{\centering Se selecciona de la lista de acciones una acción para ejecutar sobre el reparto.}& \multicolumn{1}{|p{10.0cm}|}{\centering \textbf{SELECCIONAR:} \\ Reparto.Accion = Accion\_Mover; \\  } & \multicolumn{1}{|p{4.0cm}|}{\centering De la lista, se selecciona una acción de mover.}\\
+      \hline  
+      \multicolumn{1}{|p{5.0cm}|}{\centering Seleccionada una acción, se aplica sobre el reparto.}& \multicolumn{1}{|p{10.0cm}|}{\centering \textbf{MODIFICAR:}: Reparto.Accion.aplicar(Reparto.item\_seleccionado.tipo) ;} & \multicolumn{1}{|p{4.0cm}|}{\centering Se mueve el elemento que ha violado los requisitos del reparto a un vehículo de su tipo.}\\
+      \hline  
+    \end{tabular}
+  }
+	\caption{\label{tab:EjemploEscenario11}Desglose del funcionamiento del sistema para el escenario 1}
+\end{table}
+
+\subsubsection{Escenario 2}
+
+La empresa actualmente cuenta con tres rutas, conocidas como \textbf{Ruta A, Ruta B} y \textbf{Ruta C}, que efectuan el reparto por zonas según el contrato con la central de MRW. Se presenta la siguiente situación, donde se tiene una lista de paquetes asignados a la Ruta B. En ese listado, aparece un único tipos de paquetes, concretamente, paquetes normales. El sistema tiene que asignar un vehículo apropiado para efectuar el reparto en cuestión. En la Tabla \ref{tab:EjemploEscenario12} muestra un desglose:
+
+\begin{table}[H]
+  \centering
+  \resizebox{15,0cm}{!}{
+    \begin{tabular}{|c|c|c|}
+      \hline
+      \multicolumn{1}{|c}{\textbf{Dominio}} & \multicolumn{1}{|c|}{\textbf{Modelo}}& \multicolumn{1}{|c|}{\textbf{Explicación}}\\
+      \hline \hline      
+      \multicolumn{1}{|p{5.0cm}|}{\centering Nuestro sistema recibe como requisitos una lista de paquetes asignada a la ruta B con su información correspondiente. }& \multicolumn{1}{|p{10.0cm}|}{\centering \textbf{REQUISITOS:} Peso total = 500.0 \\ Volumen total = 7.5 \\ Requisito de peso = 80\% \\ Requisito de volumen = 70\% } & \multicolumn{1}{|p{4.0cm}|}{\centering Se reciben requisitos y el peso y volumen de un conjunto de paquetes que serán comparados con los requisitos para asegurar la correcta distribución de un reparto}\\
+      \hline
+      \multicolumn{1}{|p{5.0cm}|}{\centering Los requisitos son trasladados dividiéndolos entre obligatorios y preferibles. La carga máxima debe ser el 80\% del peso del vehículo y el volumen máximo debe ser el 70\%. \\ }& \multicolumn{1}{|p{10.0cm}|}{\centering \textbf{TRASLADAR:} \\ Peso total $\rightarrow$ Reparto.peso\_total \\ Volumen total $\rightarrow$ Reparto.volumen\_total \\ Req\_Ob\_Peso.peso\_value = 80 \\ Req\_Ob\_Volumen.volumen\_value = 70 \\} & \multicolumn{1}{|p{4.0cm}|}{\centering Los datos de entrada son trasladados al sistema y divididos entre requisitos obligatorios (req. peso, req. volumen) y preferibles (tipo).}\\
+      \hline     
+      \multicolumn{1}{|p{5.0cm}|}{\centering Se propone un reparto que cumple los requisitos con un peso total de 500 kg y un volumen total de 7.5 $m^3$}& \multicolumn{1}{|p{10.0cm}|}{\centering \textbf{PROPONER:} \\ Reparto.item\_seleccionado = SeleccionarPaquetes(Req\_pr\_tipo.Frio) ;} & \multicolumn{1}{|p{4.0cm}|}{\centering Dados los datos, es propuesto un reparto. Se propone un paquete de forma aleatoria de la lista de reparto y un conjunto de tipos.}\\
+      \hline
+      \multicolumn{1}{|p{5.0cm}|}{\centering Se recibe un reparto para que se compruebe si cumple los requisitos obligatorios.}& \multicolumn{1}{|p{10.0cm}|}{\centering \textbf{VERIFICAR:} \\ Reparto.Peso\_total <= Vehiculo.Peso\_Max * Requisito.Req\_Ob\_Peso.Peso\_value/100 $\rightarrow$  Reparto.Parametro.Valor = true;} & \multicolumn{1}{|p{4.0cm}|}{\centering Con la información aportada, concluímos que este reparto propuesto es correcto. Aprobamos este reparto.}\\
+      \hline  
+    \end{tabular}
+  }
+	\caption{\label{tab:EjemploEscenario12}Desglose del funcionamiento del sistema para el escenario 2}
+\end{table}
+
+\newpage
+
+\subsection{Base de conocimiento}
+
+
+\begin{lstlisting}[language=C,caption=\textbf{Regla\_de\_verificación}]
+
+  KNOWLEDGE-BASE Regla_de_Verificación;
+  USES:
+    dependencia_estado FROM esquema_dominio_completo; 
+    manisfestacion_reglas FROM esquema_dominio_completo;
+  EXPRESSIONS:
+    /* dependencia_estado */
+      SI (Reparto.Peso_total >= Vehiculo.Peso_Max * Requisito.Req_Ob_Peso.Peso_value/100) 
+      O (Reparto.volumen_total >= Vehiculo.Volumen_Carga * Requisito.Req_Ob_Volumen.Volumen_value/100) CAUSA 
+        Reparto_invalido;
+        devuelve violacion;
+    
+    /* manisfestacion_reglas */
+      SI (Reparto.Peso_total >= Vehiculo.Peso_Max * Requisito.Req_Ob_Peso.Peso_value/100) TIENE-MANIFESTACION
+        Reparto.Parametro.Valor = false;
+        Vehiculo.Violacion = V_Peso;
+      SI (Reparto.volumen_total >= Vehiculo.Volumen_Carga * Requisito.Req_Ob_Volumen.Volumen_value/100) TIENE-MANIFESTACION
+          Reparto.Parametro.Valor = false;
+        Vehiculo.Violacion = V_Volumen;
+      SI NO 
+        Reparto.Parametro.Valor = true;
+   
+  END KNOWLEDGE-BASE Regla_de_Verificación;
+\end{lstlisting}
+
+\newpage    
+
+\begin{lstlisting}[language=C,caption=\textbf{Regla\_de\_critica}]
+  KNOWLEDGE-BASE regla_de_critica;
+  USES:
+    dependencia_estado FROM esquema_dominio_completo; 
+    manisfestacion_reglas FROM esquema_dominio_completo;
+  EXPRESSIONS:
+
+    /* dependencia_estado */
+    SI Reparto.vehiculo.violacion != null
+      SI disponibilidad_vehiculos(Reparto.paquete_seleccionado.tipo)
+        Reparto.Accion = Accion_Mover
+      SI NO 
+        Reparto.Accion = Accion_Borrar
+
+    /* manisfestacion_reglas */
+    SI Reparto.vehiculo.violacion != null TIENE-MANIFESTACION
+
+      SI disponibilidad_vehiculos(Reparto.paquete_seleccionado.tipo)
+        Reparto.Accion = Accion_Mover;
+      SI NO 
+        Reparto.Accion = Accion_Borrar;
+      
+  END KNOWLEDGE-BASE regla_de_critica;
+\end{lstlisting}

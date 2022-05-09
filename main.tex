@@ -1,0 +1,114 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Preámbulo                                                                    %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[11pt,a4paper,titlepage,twoside,openright,openbib]{report}
+
+%%% RELACIÓN DE VARIABLES A PERSONALIZAR %%%
+%\def\lingua{gal}
+\def\lingua{esp} % descomenta esta liña se redactarás a memoria en español
+%\def\lingua{eng} % descomenta esta liña se redactarás a memoria en inglés
+\def\nome{Welton Vieira dos Santos - welton.dossantos@udc.es}                             % substitúe aquí o teu nome
+\def\nomeB{Pedro Pazos Curra - pedro.pazos@udc.es}                             % substitúe aquí o teu nome
+\def\nomeC{Sergio Marcos Vázquez - sergio.marcosv@udc.es}                             % substitúe aquí o teu nome
+\def\nomeD{Gabriel Alejandro Fernandéz Fernandéz - gabriel.fernandez1@udc.es}                             % substitúe aquí o teu nome
+\def\nomedirectorA{Berta María Guijarro Berdiñas - berta.guijarro@udc.es}             % substitúe aquí o nome de quen dirixe
+\def\titulo{Sistema inteligente de gestión logística de paquetería} % substitúe aquí o título do teu TFG
+%\def\mencion{NOME DA MENCIÓN}                        % descomenta a mención correspondente
+\def\mencion{COMPUTACIÓN}
+%\def\mencion{ENXEÑARÍA DO SOFTWARE}
+%\def\mencion{ENXEÑARÍA DE COMPUTADORES}
+%\def\mencion{SISTEMAS DE INFORMACIÓN}
+%\def\mencion{TECNOLOXÍAS DA INFORMACIÓN}
+
+\def\renomearcadros{si} % descomenta esta liña se redactas a memoria en español e prefires que
+                         % os "cuadros" e o "índice de cuadros" se renomeen
+                         % a "tablas" e "índice de tablas" respectivamente
+
+\usepackage{estilo_tfg}
+
+% Lista de paquetes potencialmente interesantes (uso baixo demanda)
+
+ \usepackage{alltt}       % proporciona o entorno alltt, semellante a verbatim pero que respecta comandos
+ \usepackage{enumitem}    % permite personalizar os entornos de lista
+ %\usepackage{eurofont}    % proporciona o comando \euro
+ \usepackage{eurosym}    % proporciona o comando \euro
+ \usepackage{float}       % permite máis opcións para controlar obxectos flotantes (táboas, figuras)
+ \usepackage{hhline}      % permie personalizar as liñas horizontais en arrays e táboas
+ \usepackage{longtable}   % permite construir táboas que ocupan máis dunha páxina
+ \usepackage{lscape}      % permite colocar partes do documento en orientación apaisada
+ \usepackage{moreverb}    % permite personalizar o entorno verbatim
+ \usepackage{multirow}    % permite crear celdas que ocupan varias filas da mesma táboa
+ \usepackage{pdfpages}    % permite insertar ficheiros en PDF no documento
+ \usepackage{rotating}    % permite diferentes tipos de rotacións para figuras e táboas
+ \usepackage{subcaption}  % permite a inclusión de varias subfiguras nunha figura
+ \usepackage{tabu}        % permite táboas flexibles
+ \usepackage{tabularx}    % permite táboas con columnas de anchura determinada
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Corpo                                                                        %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ % Preliminares do documento            %
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+ \include{portada/portada}
+ \paxinaenbranco
+ %\dedicatoria{Dedicatoria} % escribe neste comando o teu texto de dedicatoria
+ %\paxinaenbranco
+ %\paxinaenbranco
+ %\begin{agradecementos}
+ %\blindtext                % substitúe este comando polo teu texto de agradecementos
+ %\end{agradecementos}
+ %\paxinaenbranco
+ %\include{portada/resumo}
+ %\paxinaenbranco
+
+ \pagenumbering{roman}
+ \setcounter{page}{1}
+ \bstctlcite{IEEEexample:BSTcontrol}
+
+ \tableofcontents
+ \listoffigures
+ \listoftables
+ \lstlistoflistings 	    % Índice de códigos
+ \cleardoublepage
+ 
+ \pagenumbering{arabic}
+ \setcounter{page}{1}
+
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ % Capítulos                            %
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \include{contido/introducion}
+% \include{contido/demo}
+%\include{contido/...}
+% \include{contido/conclusions}
+\include{contido/Tema_1.tex}
+\include{contido/Tema_2.tex}
+\include{contido/Tema_3.tex}
+\include{contido/Tema_4.tex}
+
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ % Apéndices, glosarios e bibliografía  %
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \appendix
+%\appendixpage
+%\include{anexos/adicional}
+%\include{anexos/...}
+
+ \printglossary[type=\acronymtype,title=\nomeglosarioacronimos]
+ \printglossary[title=\nomeglosariotermos]
+
+ \bibliographystyle{IEEEtranN}
+ \bibliography{\bibconfig,bibliografia/bibliografia}
+ \cleardoublepage
+ 
+\end{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
